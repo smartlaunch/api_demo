@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Demo", "Demo\Demo.vbproj", "{65D0A471-5FBB-4FD7-A3C8-982B0E621A6A}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TCPInterface", "TCPInterface\TCPInterface.vbproj", "{9299246C-CEFB-4F16-9BF5-F66D7073EE76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65D0A471-5FBB-4FD7-A3C8-982B0E621A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D0A471-5FBB-4FD7-A3C8-982B0E621A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D0A471-5FBB-4FD7-A3C8-982B0E621A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D0A471-5FBB-4FD7-A3C8-982B0E621A6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9299246C-CEFB-4F16-9BF5-F66D7073EE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9299246C-CEFB-4F16-9BF5-F66D7073EE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9299246C-CEFB-4F16-9BF5-F66D7073EE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9299246C-CEFB-4F16-9BF5-F66D7073EE76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
