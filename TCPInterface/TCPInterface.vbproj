@@ -115,6 +115,7 @@
     <Compile Include="Functions\Events.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Functions\General.vb" />
     <Compile Include="Functions\Main.vb">
       <SubType>Code</SubType>
     </Compile>

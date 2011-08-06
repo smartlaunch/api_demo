@@ -1,3 +1,4 @@
+Imports System.Xml
 Imports Smartlaunch.TCPInterface.Classes.Definitions
 
 Namespace Users
@@ -30,6 +31,7 @@ Namespace Users
             xmlCmd.AppendParameterSection()
             xmlCmd.AppendParameter("Username", Username)
             xmlCmd.AppendParameter("Password", Password)
+            xmlCmd.AppendParameter("PasswordHash", Password)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -366,6 +368,254 @@ Namespace Users
 
             Dim ret As String = Classes.Communication.SendAndWait(res.InnerXML).GetElementsByTagName("Response")(0).Attributes("Response").Value
             Return CType(ret, UserSaveResponse)
+
+        End Function
+
+        Public Function SetAskPasswordAtNextLogin() As Boolean
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserAskForPasswordAtNextLogin")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                Return True
+            Else
+                Return False
+            End If
+
+
+        End Function
+
+        Public Function SetAskAccountDeatilAtNextLogin() As Boolean
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserAskForAccountDetailsAtNextLogin")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                Return True
+            Else
+                Return False
+            End If
+
+        End Function
+
+        Public Function UpdateUserInfo(ByVal email As String) As Boolean
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserSave")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("Email", email)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                Return True
+            Else
+                Return False
+            End If
+
+        End Function
+
+        Public Function UserSetNewPassword(ByVal newPass As String) As Boolean
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserSetPassword")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("Password", newPass)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                Return True
+            Else
+                Return False
+            End If
+
+        End Function
+
+        Public Function LostPasswdEmail() As Boolean
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("LostPwSendMail")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("Email", Email)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                Return True
+            Else
+                Return False
+            End If
+        End Function
+
+        Public Function LogoutUser() As Boolean
+            Dim xmlCmd As New Classes.XMLCommand
+            xmlCmd.AppendCommand("UserLogout")
+            xmlCmd.AppendParameterSection()
+            xmlCmd.AppendParameter("Username", UserName)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                Return True
+            Else
+                Return False
+            End If
+
+        End Function
+
+
+        Public Sub UserAddOffer(ByVal OfferID As Integer, ByVal Price As Double, ByVal PaymentType As String, ByVal FixedStart As Boolean, ByVal theDate As Date, ByVal TaxPayable As Boolean)
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserAddOffer")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("OfferID", OfferID)
+            Command.AppendParameter("Price", Price)
+            Command.AppendParameter("PaymentType", PaymentType)
+            Command.AppendParameter("FixedStart", FixedStart)
+            Command.AppendParameter("Date", theDate)
+            Command.AppendParameter("TaxPayable", TaxPayable)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+
+        End Sub
+
+        Public Sub UserAddProduct(ByVal ProductID As Integer, ByVal Quantity As Integer, ByVal TotalPrice As Double, ByVal PaymentType As String, ByVal TaxPayable As Boolean, ByVal Note As String)
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserAddOffer")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("ProductID", ProductID)
+            Command.AppendParameter("Quantity", Quantity)
+            Command.AppendParameter("TotalPrice", TotalPrice)
+            Command.AppendParameter("PaymentType", PaymentType)
+            Command.AppendParameter("TaxPayable", TaxPayable)
+            Command.AppendParameter("Note", Note)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+
+        End Sub
+
+        Public Sub UserRemoveOffer(ByVal OfferStatID As Integer)
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserRemoveOffer")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("OfferStatID", OfferStatID)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+
+        End Sub
+
+        Public Sub UserLogHistory(ByVal theDate As Date)
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserLogHistory")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("Date", theDate)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+
+        End Sub
+
+        Public Sub GetEmployeeByType(ByVal empType As String)
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("EmployeesGetAll")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("EmployeeType", empType)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+
+        End Sub
+
+        Public Function UserGroupGetAll() As XmlDocument
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserGroupGetAll")
+
+            Command.AppendParameterSection()
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+
+        End Function
+
+        Public Function UserGroupGet(ByVal UsergroupID As Integer) As XmlDocument
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserGroupGet")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("UsergroupID", UsergroupID)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
 
         End Function
 

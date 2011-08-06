@@ -231,7 +231,6 @@ Namespace Events
 
         End Function
 
-
         Private Sub Load(ByVal eventID As Integer)
 
             Dim xmlCmd As New Classes.XMLCommand
@@ -279,7 +278,6 @@ Namespace Events
             End With
         End Sub
 
-
         Public Function Save() As EventSaveResponse
 
             Dim cmd As String = "EventSave="
@@ -312,7 +310,6 @@ Namespace Events
             Return DirectCast(Convert.ToInt32(Classes.Communication.SendAndWait(cmd)), EventSaveResponse)
 
         End Function
-
 
 
     End Class

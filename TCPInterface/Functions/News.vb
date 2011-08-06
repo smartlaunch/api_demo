@@ -47,8 +47,6 @@ Namespace News
 
         End Function
 
-
-
         Friend Shared Function GetAll() As NewsCollection
 
             Dim newsCol As New NewsCollection

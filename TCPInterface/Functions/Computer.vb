@@ -5,6 +5,7 @@ Namespace Computers
     Public Module General
         Private _ComputerLastUpdate As DateTime
         Private _ComputerCollection As Computers.ComputerCollection
+        Private _Computer As Computer
 
         Public ReadOnly Property Items() As Computers.ComputerCollection
             Get
@@ -15,6 +16,18 @@ Namespace Computers
                 End If
 
                 Return _ComputerCollection
+            End Get
+        End Property
+
+        Public ReadOnly Property Item() As Computers.Computer
+            Get
+                ' Update news. Put all news from data source into _newsCollection
+                If _ComputerLastUpdate = Nothing OrElse _ComputerLastUpdate.AddSeconds(Classes.Settings.UpdateIntervalNews) < DateTime.Now Then
+                    _Computer = New Computer
+                    _ComputerLastUpdate = DateTime.Now
+                End If
+
+                Return _Computer
             End Get
         End Property
 
@@ -68,6 +81,8 @@ Namespace Computers
 
             Return Computers
         End Function
+
+      
 
 
         Public Shared Function LoadComputerItemFromXml(ByVal xmlDoc As Xml.XmlDocument, ByVal index As Integer) As Computer
@@ -203,6 +218,8 @@ Namespace Computers
         End Sub
 
         Private Sub Load(ByVal computerID As Integer)
+
+
             Dim xmlDoc As Xml.XmlDocument = Classes.Communication.SendAndWait("ComputerGet=" & computerID)
 
             _GroupID = Convert.ToInt32(Str(0))
@@ -230,8 +247,6 @@ Namespace Computers
             Return DirectCast(Convert.ToInt32(Classes.Communication.SendAndWait(cmd)), ComputerSaveResponse)
 
         End Function
-
-
 
     End Class
 
