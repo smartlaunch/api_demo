@@ -682,10 +682,10 @@ Namespace Forms
 
         Private Sub btnAsk_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAsk.Click
 
-            Dim username As String = InputBox("Please enter username", "Username", "test2")
-            Dim passwd As String = InputBox("Please enter password", "Password", "test")
+            'Dim username As String = InputBox("Please enter username", "Username", "test2")
+            'Dim passwd As String = InputBox("Please enter password", "Password", "test")
 
-            ActiveUser = Smartlaunch.TCPInterface.Users.Login(username, passwd)
+            'ActiveUser = Smartlaunch.TCPInterface.Users.Login(username, passwd)
 
             If ActiveUser.SetAskPasswordAtNextLogin() Then
                 txtOutput.Text &= NewLine & NewLine & "Ask password at next login." & NewLine
@@ -774,7 +774,7 @@ Namespace Forms
 
         Private Sub btnSetPasswd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSetPasswd.Click
 
-            Dim passwd As String = InputBox("Please enter passwd.", "Password", "test")
+            Dim passwd As String = InputBox("Please enter new passwd.", "Password", "test")
 
             If ActiveUser.UserSetNewPassword(passwd) Then
                 txtOutput.Text &= NewLine & NewLine & "New password set successfully." & NewLine
@@ -944,6 +944,10 @@ Namespace Forms
             xmlDoc = objGen.ApplicationGetMostPopular(catName, WithinDays)
 
             txtOutput.Text = xmlDoc.InnerXml
+
+        End Sub
+
+        Private Sub Main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         End Sub
     End Class
