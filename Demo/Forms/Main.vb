@@ -75,6 +75,7 @@ Namespace Forms
         Friend WithEvents btnCafeStatusGet As System.Windows.Forms.Button
         Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
         Friend WithEvents btnApplicationGetMostPopular As System.Windows.Forms.Button
+        Friend WithEvents Button4 As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.btnGetNews = New System.Windows.Forms.Button()
@@ -115,6 +116,7 @@ Namespace Forms
             Me.btnEventGet = New System.Windows.Forms.Button()
             Me.GroupBox6 = New System.Windows.Forms.GroupBox()
             Me.btnApplicationGetMostPopular = New System.Windows.Forms.Button()
+            Me.Button4 = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -446,6 +448,7 @@ Namespace Forms
             '
             'GroupBox4
             '
+            Me.GroupBox4.Controls.Add(Me.Button4)
             Me.GroupBox4.Controls.Add(Me.btnEmployeesGetAll)
             Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox4.Location = New System.Drawing.Point(471, 16)
@@ -513,6 +516,15 @@ Namespace Forms
             Me.btnApplicationGetMostPopular.Size = New System.Drawing.Size(104, 55)
             Me.btnApplicationGetMostPopular.TabIndex = 10
             Me.btnApplicationGetMostPopular.Text = "ApplicationGetMostPopular"
+            '
+            'Button4
+            '
+            Me.Button4.Location = New System.Drawing.Point(24, 46)
+            Me.Button4.Name = "Button4"
+            Me.Button4.Size = New System.Drawing.Size(75, 23)
+            Me.Button4.TabIndex = 11
+            Me.Button4.Text = "New"
+            Me.Button4.UseVisualStyleBackColor = True
             '
             'Main
             '
@@ -948,6 +960,19 @@ Namespace Forms
         End Sub
 
         Private Sub Main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        End Sub
+
+        Private Sub Button4_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+            Dim xmlDoc As New XmlDocument
+
+            'GetUserLogHistory
+            'xmlDoc = ActiveUser.GetUserLogHistory()
+
+            '"UserGetBill"
+            xmlDoc = ActiveUser.UserGetBill()
+
+            txtOutput.Text = xmlDoc.InnerXml
 
         End Sub
     End Class

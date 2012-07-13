@@ -619,6 +619,21 @@ Namespace Users
 
         End Function
 
+        Public Function UserGetBill() As XmlDocument
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserGetBill")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", _UserName)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+
+        End Function
+
     End Class
 
 End Namespace
