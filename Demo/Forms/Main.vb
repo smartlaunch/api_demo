@@ -110,13 +110,13 @@ Namespace Forms
             Me.Button1 = New System.Windows.Forms.Button()
             Me.Button2 = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+            Me.Button4 = New System.Windows.Forms.Button()
             Me.btnEmployeesGetAll = New System.Windows.Forms.Button()
             Me.GroupBox5 = New System.Windows.Forms.GroupBox()
             Me.Button3 = New System.Windows.Forms.Button()
             Me.btnEventGet = New System.Windows.Forms.Button()
             Me.GroupBox6 = New System.Windows.Forms.GroupBox()
             Me.btnApplicationGetMostPopular = New System.Windows.Forms.Button()
-            Me.Button4 = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -144,8 +144,8 @@ Namespace Forms
             'txtOutput
             '
             Me.txtOutput.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                        Or System.Windows.Forms.AnchorStyles.Left) _
-                        Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                Or System.Windows.Forms.AnchorStyles.Left) _
+                Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtOutput.Location = New System.Drawing.Point(8, 358)
             Me.txtOutput.Multiline = True
             Me.txtOutput.Name = "txtOutput"
@@ -458,6 +458,15 @@ Namespace Forms
             Me.GroupBox4.TabStop = False
             Me.GroupBox4.Text = "Employees commands"
             '
+            'Button4
+            '
+            Me.Button4.Location = New System.Drawing.Point(24, 46)
+            Me.Button4.Name = "Button4"
+            Me.Button4.Size = New System.Drawing.Size(104, 23)
+            Me.Button4.TabIndex = 11
+            Me.Button4.Text = "Get User Bill"
+            Me.Button4.UseVisualStyleBackColor = True
+            '
             'btnEmployeesGetAll
             '
             Me.btnEmployeesGetAll.FlatStyle = System.Windows.Forms.FlatStyle.System
@@ -516,15 +525,6 @@ Namespace Forms
             Me.btnApplicationGetMostPopular.Size = New System.Drawing.Size(104, 55)
             Me.btnApplicationGetMostPopular.TabIndex = 10
             Me.btnApplicationGetMostPopular.Text = "ApplicationGetMostPopular"
-            '
-            'Button4
-            '
-            Me.Button4.Location = New System.Drawing.Point(24, 46)
-            Me.Button4.Name = "Button4"
-            Me.Button4.Size = New System.Drawing.Size(75, 23)
-            Me.Button4.TabIndex = 11
-            Me.Button4.Text = "New"
-            Me.Button4.UseVisualStyleBackColor = True
             '
             'Main
             '
