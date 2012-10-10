@@ -1,4 +1,9 @@
-*.ReSharper.user
-_ReSharper.*
-bin
-obj
+
+*.suo
+/bin
+*/bin
+/obj
+*/obj
+*.user
+Thumbs.db
+*.resharper
