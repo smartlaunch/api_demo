@@ -1,3 +1,4 @@
+Imports System.Xml
 Imports Smartlaunch.TCPInterface.Classes.Definitions
 
 Namespace Computers
@@ -247,6 +248,26 @@ Namespace Computers
             Return DirectCast(Convert.ToInt32(Classes.Communication.SendAndWait(cmd)), ComputerSaveResponse)
 
         End Function
+
+        Public Sub ClientTurnOff(ByVal ComputerID As String)
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("ComputerTurnOff")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("ClientID", ComputerID)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+        End Sub
+
+        Public Sub ClientTurnOn(ByVal ComputerID As String)
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("ComputerTurnOn")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("ClientID", ComputerID)
+
+            Classes.Communication.SendAndWait(Command.InnerXML)
+        End Sub
 
     End Class
 

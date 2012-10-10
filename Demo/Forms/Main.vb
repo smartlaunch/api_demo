@@ -76,6 +76,8 @@ Namespace Forms
         Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
         Friend WithEvents btnApplicationGetMostPopular As System.Windows.Forms.Button
         Friend WithEvents Button4 As System.Windows.Forms.Button
+        Friend WithEvents btnTurnOff As System.Windows.Forms.Button
+        Friend WithEvents btnTurnOn As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.btnGetNews = New System.Windows.Forms.Button()
@@ -107,6 +109,7 @@ Namespace Forms
             Me.btnTestConnection = New System.Windows.Forms.Button()
             Me.btnClear = New System.Windows.Forms.Button()
             Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+            Me.btnTurnOff = New System.Windows.Forms.Button()
             Me.Button1 = New System.Windows.Forms.Button()
             Me.Button2 = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -117,6 +120,7 @@ Namespace Forms
             Me.btnEventGet = New System.Windows.Forms.Button()
             Me.GroupBox6 = New System.Windows.Forms.GroupBox()
             Me.btnApplicationGetMostPopular = New System.Windows.Forms.Button()
+            Me.btnTurnOn = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -138,19 +142,19 @@ Namespace Forms
             '
             Me.StatusBar.Location = New System.Drawing.Point(0, 541)
             Me.StatusBar.Name = "StatusBar"
-            Me.StatusBar.Size = New System.Drawing.Size(612, 22)
+            Me.StatusBar.Size = New System.Drawing.Size(783, 22)
             Me.StatusBar.TabIndex = 7
             '
             'txtOutput
             '
             Me.txtOutput.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                Or System.Windows.Forms.AnchorStyles.Left) _
-                Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                        Or System.Windows.Forms.AnchorStyles.Left) _
+                        Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtOutput.Location = New System.Drawing.Point(8, 358)
             Me.txtOutput.Multiline = True
             Me.txtOutput.Name = "txtOutput"
             Me.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-            Me.txtOutput.Size = New System.Drawing.Size(596, 175)
+            Me.txtOutput.Size = New System.Drawing.Size(767, 175)
             Me.txtOutput.TabIndex = 8
             '
             'Label1
@@ -410,7 +414,7 @@ Namespace Forms
             '
             Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnClear.Location = New System.Drawing.Point(556, 328)
+            Me.btnClear.Location = New System.Drawing.Point(727, 328)
             Me.btnClear.Name = "btnClear"
             Me.btnClear.Size = New System.Drawing.Size(48, 24)
             Me.btnClear.TabIndex = 19
@@ -418,15 +422,26 @@ Namespace Forms
             '
             'GroupBox3
             '
+            Me.GroupBox3.Controls.Add(Me.btnTurnOn)
+            Me.GroupBox3.Controls.Add(Me.btnTurnOff)
             Me.GroupBox3.Controls.Add(Me.Button1)
             Me.GroupBox3.Controls.Add(Me.Button2)
             Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox3.Location = New System.Drawing.Point(8, 222)
+            Me.GroupBox3.Location = New System.Drawing.Point(611, 16)
             Me.GroupBox3.Name = "GroupBox3"
-            Me.GroupBox3.Size = New System.Drawing.Size(134, 103)
+            Me.GroupBox3.Size = New System.Drawing.Size(134, 306)
             Me.GroupBox3.TabIndex = 20
             Me.GroupBox3.TabStop = False
             Me.GroupBox3.Text = "Computer commands"
+            '
+            'btnTurnOff
+            '
+            Me.btnTurnOff.Location = New System.Drawing.Point(23, 84)
+            Me.btnTurnOff.Name = "btnTurnOff"
+            Me.btnTurnOff.Size = New System.Drawing.Size(91, 23)
+            Me.btnTurnOff.TabIndex = 24
+            Me.btnTurnOff.Text = "Turn Off Client"
+            Me.btnTurnOff.UseVisualStyleBackColor = True
             '
             'Button1
             '
@@ -520,16 +535,25 @@ Namespace Forms
             'btnApplicationGetMostPopular
             '
             Me.btnApplicationGetMostPopular.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnApplicationGetMostPopular.Location = New System.Drawing.Point(24, 18)
+            Me.btnApplicationGetMostPopular.Location = New System.Drawing.Point(24, 15)
             Me.btnApplicationGetMostPopular.Name = "btnApplicationGetMostPopular"
             Me.btnApplicationGetMostPopular.Size = New System.Drawing.Size(104, 55)
             Me.btnApplicationGetMostPopular.TabIndex = 10
             Me.btnApplicationGetMostPopular.Text = "ApplicationGetMostPopular"
             '
+            'btnTurnOn
+            '
+            Me.btnTurnOn.Location = New System.Drawing.Point(23, 113)
+            Me.btnTurnOn.Name = "btnTurnOn"
+            Me.btnTurnOn.Size = New System.Drawing.Size(91, 23)
+            Me.btnTurnOn.TabIndex = 25
+            Me.btnTurnOn.Text = "Turn On Client"
+            Me.btnTurnOn.UseVisualStyleBackColor = True
+            '
             'Main
             '
             Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-            Me.ClientSize = New System.Drawing.Size(612, 563)
+            Me.ClientSize = New System.Drawing.Size(783, 563)
             Me.Controls.Add(Me.GroupBox6)
             Me.Controls.Add(Me.GroupBox5)
             Me.Controls.Add(Me.GroupBox4)
@@ -559,6 +583,7 @@ Namespace Forms
 #End Region
 
         Private ActiveUser As Smartlaunch.TCPInterface.Users.User
+        Private ActiveComputer As Smartlaunch.TCPInterface.Computers.Computer = New Smartlaunch.TCPInterface.Computers.Computer
 
         Private Sub btnGetNews_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetNews.Click
 
@@ -974,6 +999,23 @@ Namespace Forms
 
             txtOutput.Text = xmlDoc.InnerXml
 
+        End Sub
+
+        Private Sub btnTurnOff_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTurnOff.Click
+            Dim ClientID As String = InputBox("Please enter Client ID", "Client ID", 1)
+
+            ActiveComputer.ClientTurnOff(ClientID)
+
+            txtOutput.Text &= NewLine & NewLine & "Client ID : """ & ClientID & " (Turn Off)." & NewLine
+
+        End Sub
+
+        Private Sub btnTurnOn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTurnOn.Click
+            Dim ClientID As String = InputBox("Please enter Client ID", "Client ID", 1)
+
+            ActiveComputer.ClientTurnOff(ClientID)
+
+            txtOutput.Text &= NewLine & NewLine & "Client ID : """ & ClientID & " (Turn On)." & NewLine
         End Sub
     End Class
 
