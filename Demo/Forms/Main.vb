@@ -864,18 +864,38 @@ Namespace Forms
         End Sub
 
         Private Sub btnUpdateUserInfo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdateUserInfo.Click
+            Dim username As String = InputBox("Please enter username", "Username", "test2")
 
-            Dim fName As String = InputBox("Please enter first name", "First Name", "My first name")
-            Dim lName As String = InputBox("Please enter last name", "Last  Name", "My last name")
-            Dim address As String = InputBox("Please enter address name", "address", "My address")
-            Dim city As String = InputBox("Please enter city", "city", "My city")
-            Dim country As String = InputBox("Please enter country", "country", "My country")
-            Dim email As String = InputBox("Please enter email address", "Email", "aaa@yahoo.com")
+            ActiveUser = New Smartlaunch.TCPInterface.Users.User(username)
 
-            If ActiveUser.UpdateUserInfo(email) Then
-                txtOutput.Text &= NewLine & NewLine & "User Info updated successfully." & NewLine
+            If ActiveUser Is Nothing Then
+                txtOutput.Text &= NewLine & NewLine & "Username did not exist." & NewLine
             Else
-                txtOutput.Text &= NewLine & NewLine & "Failed to update User Info." & NewLine
+                With ActiveUser
+
+                    Dim FName As String = InputBox("Please enter first name", "First Name", .FirstName)
+                    Dim LName As String = InputBox("Please enter last name", "Last  Name", .LastName)
+                    Dim BirthDate As Integer = CInt(DateValue(InputBox("Please enter birth date", "Birth Date", .BirthDate) & " 20:00:00").ToOADate)
+                    Dim Address As String = InputBox("Please enter address", "Address", .Address)
+                    Dim City As String = InputBox("Please enter city", "City", .City)
+                    Dim Zip As String = InputBox("Please enter zip", "Zip", .Zip)
+                    Dim State As String = InputBox("Please enter State", "State", .State)
+                    Dim Country As String = InputBox("Please enter email country", "Country", .Country)
+                    Dim email As String = InputBox("Please enter email address", "Email Address", .Email)
+                    Dim Phone As String = InputBox("Please enter phone", "Phone", .Phone)
+                    Dim PhoneMobile As String = InputBox("Please enter mobile phone", "Mobile Phone", .PhoneMobile)
+                    Dim Sex As String = InputBox("Please enter email sex", "Sex", .Sex)
+                    Dim SocialNum As String = InputBox("Please enter personal number", "Personal Number", .SocialNum)
+
+
+                    If ActiveUser.UpdateUserInfo(FName, LName, BirthDate, Address, City, Zip, State, Country, email, _
+                                                 Phone, PhoneMobile, SocialNum, Sex) Then
+                        txtOutput.Text &= NewLine & NewLine & "User Info updated successfully." & NewLine
+                    Else
+                        txtOutput.Text &= NewLine & NewLine & "Failed to update User Info." & NewLine
+                    End If
+                End With
+
             End If
 
         End Sub
@@ -1109,7 +1129,6 @@ Namespace Forms
         End Sub
 
         Private Sub btnDeleteBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteBooking.Click
-            Dim CustomerName As String = InputBox("Please enter Customer Name", "Customer Name", "name")
             Dim BookingID As Integer = CInt(InputBox("Please enter Booking ID", "Booking ID", "12345"))
             Dim xmlDoc As New XmlDocument
             xmlDoc = ActiveUser.DeleteBooking(BookingID)

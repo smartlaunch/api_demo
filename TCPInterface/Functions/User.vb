@@ -335,7 +335,10 @@ Namespace Users
                 _LastName = Convert.ToString(.Attributes("Lastname").Value)
 
                 Try
-                    _BirthDate = Convert.ToDateTime(.Attributes("Birthday").Value)
+                    '_BirthDate = Convert.ToDateTime(.Attributes("Birthday").Value)
+                    'Dim BirthDate As Date
+                    _BirthDate = Date.FromOADate(CDbl(.Attributes("Birthday").Value))
+                    _Age = CInt(DateDiff(DateInterval.Year, _BirthDate, Now))
                 Catch ex As Exception
                     _BirthDate = New DateTime
                 End Try
@@ -453,13 +456,30 @@ Namespace Users
 
         End Function
 
-        Public Function UpdateUserInfo(ByVal email As String) As Boolean
+        
+        Public Function UpdateUserInfo(ByVal FirstName As String, ByVal LastName As String, ByVal BirthDate As Integer, ByVal Address As String, _
+                                       ByVal City As String, ByVal Zip As String, ByVal State As String, ByVal Country As String, _
+                                       ByVal Email As String, ByVal Phone As String, ByVal PhoneMobile As String, ByVal PersonalNumber As String, _
+                                       ByVal Sex As String) As Boolean
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserSave")
 
             Command.AppendParameterSection()
             Command.AppendParameter("Username", _UserName)
-            Command.AppendParameter("Email", email)
+            Command.AppendParameter("Firstname", FirstName)
+            Command.AppendParameter("Lastname", LastName)
+            Command.AppendParameter("Birthday", BirthDate)
+            Command.AppendParameter("Address", Address)
+            Command.AppendParameter("City", City)
+            Command.AppendParameter("Zip", Zip)
+            Command.AppendParameter("Email", Email)
+            Command.AppendParameter("State", State)
+            Command.AppendParameter("Country", Country)
+            Command.AppendParameter("Telephone", Phone)
+            Command.AppendParameter("Sex", Sex)
+            Command.AppendParameter("Mobilephone", PhoneMobile)
+            Command.AppendParameter("Personalnumber", SocialNum)
+
 
             Classes.Communication.SendAndWait(Command.InnerXML)
 
