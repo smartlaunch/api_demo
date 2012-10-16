@@ -68,6 +68,10 @@ Namespace Users
         Private _SocialNum As String
         Private _TimeStatus As Integer
         Private _Balance As Double
+        Private _StartDate As Date
+        Private _EndDate As Date
+        Private _Description As String
+        Private _ComputerCount As Integer
 
 
 #Region "Properties"
@@ -241,6 +245,43 @@ Namespace Users
                 _Balance = Value
             End Set
         End Property
+
+        Public Property StartDate() As Date
+            Get
+                Return _StartDate
+            End Get
+            Set(ByVal value As Date)
+                _StartDate = value
+            End Set
+        End Property
+
+        Public Property EndDate() As Date
+            Get
+                Return _EndDate
+            End Get
+            Set(ByVal value As Date)
+                _EndDate = value
+            End Set
+        End Property
+
+        Public Property Description() As String
+            Get
+                Return _Description
+            End Get
+            Set(ByVal value As String)
+                _Description = value
+            End Set
+        End Property
+
+        Public Property ComputerCount() As Integer
+            Get
+                Return _ComputerCount
+            End Get
+            Set(ByVal value As Integer)
+                _ComputerCount = value
+            End Set
+        End Property
+
 #End Region
 
 #Region "Enums"
@@ -632,6 +673,73 @@ Namespace Users
 
             Return xmlRes
 
+        End Function
+
+        Public Function AddBooking(ByVal BookingID As String, ByVal CustomerName As String, ByVal CustomerPhone As String, ByVal Description As String, ByVal StartDate As String, _
+                                   ByVal EndDate As String, ByVal ComputerCount As Integer, ByVal SmokingArea As Integer) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("AddBooking")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("BookingID", BookingID)
+            Command.AppendParameter("CustomerName", CustomerName)
+            Command.AppendParameter("CustomerPhone", CustomerPhone)
+            Command.AppendParameter("Description", Description)
+            Command.AppendParameter("StartDate", StartDate)
+            Command.AppendParameter("EndDate", EndDate)
+            Command.AppendParameter("ComputerCount", ComputerCount)
+            Command.AppendParameter("SmokingArea", SmokingArea)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
+
+        Public Function AddBooking(ByVal CustomerName As String, ByVal CustomerPhone As String, ByVal Description As String, ByVal StartDate As String, _
+                                   ByVal EndDate As String, ByVal ComputerCount As Integer, ByVal SmokingArea As Integer) As XmlDocument
+            
+            Dim xmlRes As Xml.XmlDocument
+            xmlRes = AddBooking("", CustomerName, CustomerPhone, Description, StartDate, EndDate, ComputerCount, SmokingArea)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
+
+        Public Function DeleteBooking(ByVal BookingID As Integer) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("DeleteBooking")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("BookingID", BookingID)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
+
+        Public Function GetAllBooking() As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllBooking")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
+
+        Public Function GetBookingByBookingID(ByVal BookingID As String) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetBookingByBookingID")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("BookingID", BookingID)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
         End Function
 
     End Class

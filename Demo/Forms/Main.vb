@@ -78,8 +78,16 @@ Namespace Forms
         Friend WithEvents Button4 As System.Windows.Forms.Button
         Friend WithEvents btnTurnOff As System.Windows.Forms.Button
         Friend WithEvents btnTurnOn As System.Windows.Forms.Button
+        Friend WithEvents btnDeleteBooking As System.Windows.Forms.Button
+        Friend WithEvents btnAddBooking As System.Windows.Forms.Button
+        Friend WithEvents btnEditBooking As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllBooking As System.Windows.Forms.Button
+        Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+        Friend WithEvents mnAll As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents mnBookingID As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+            Me.components = New System.ComponentModel.Container()
             Me.btnGetNews = New System.Windows.Forms.Button()
             Me.StatusBar = New System.Windows.Forms.StatusBar()
             Me.txtOutput = New System.Windows.Forms.TextBox()
@@ -109,10 +117,13 @@ Namespace Forms
             Me.btnTestConnection = New System.Windows.Forms.Button()
             Me.btnClear = New System.Windows.Forms.Button()
             Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+            Me.btnTurnOn = New System.Windows.Forms.Button()
             Me.btnTurnOff = New System.Windows.Forms.Button()
             Me.Button1 = New System.Windows.Forms.Button()
             Me.Button2 = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+            Me.btnDeleteBooking = New System.Windows.Forms.Button()
+            Me.btnAddBooking = New System.Windows.Forms.Button()
             Me.Button4 = New System.Windows.Forms.Button()
             Me.btnEmployeesGetAll = New System.Windows.Forms.Button()
             Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -120,13 +131,18 @@ Namespace Forms
             Me.btnEventGet = New System.Windows.Forms.Button()
             Me.GroupBox6 = New System.Windows.Forms.GroupBox()
             Me.btnApplicationGetMostPopular = New System.Windows.Forms.Button()
-            Me.btnTurnOn = New System.Windows.Forms.Button()
+            Me.btnEditBooking = New System.Windows.Forms.Button()
+            Me.btnGetAllBooking = New System.Windows.Forms.Button()
+            Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+            Me.mnAll = New System.Windows.Forms.ToolStripMenuItem()
+            Me.mnBookingID = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
             Me.GroupBox4.SuspendLayout()
             Me.GroupBox5.SuspendLayout()
             Me.GroupBox6.SuspendLayout()
+            Me.ContextMenuStrip1.SuspendLayout()
             Me.SuspendLayout()
             '
             'btnGetNews
@@ -429,10 +445,19 @@ Namespace Forms
             Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox3.Location = New System.Drawing.Point(611, 16)
             Me.GroupBox3.Name = "GroupBox3"
-            Me.GroupBox3.Size = New System.Drawing.Size(134, 306)
+            Me.GroupBox3.Size = New System.Drawing.Size(134, 309)
             Me.GroupBox3.TabIndex = 20
             Me.GroupBox3.TabStop = False
             Me.GroupBox3.Text = "Computer commands"
+            '
+            'btnTurnOn
+            '
+            Me.btnTurnOn.Location = New System.Drawing.Point(23, 113)
+            Me.btnTurnOn.Name = "btnTurnOn"
+            Me.btnTurnOn.Size = New System.Drawing.Size(91, 23)
+            Me.btnTurnOn.TabIndex = 25
+            Me.btnTurnOn.Text = "Turn On Client"
+            Me.btnTurnOn.UseVisualStyleBackColor = True
             '
             'btnTurnOff
             '
@@ -463,19 +488,41 @@ Namespace Forms
             '
             'GroupBox4
             '
+            Me.GroupBox4.Controls.Add(Me.btnGetAllBooking)
+            Me.GroupBox4.Controls.Add(Me.btnEditBooking)
+            Me.GroupBox4.Controls.Add(Me.btnDeleteBooking)
+            Me.GroupBox4.Controls.Add(Me.btnAddBooking)
             Me.GroupBox4.Controls.Add(Me.Button4)
             Me.GroupBox4.Controls.Add(Me.btnEmployeesGetAll)
             Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox4.Location = New System.Drawing.Point(471, 16)
             Me.GroupBox4.Name = "GroupBox4"
-            Me.GroupBox4.Size = New System.Drawing.Size(134, 75)
+            Me.GroupBox4.Size = New System.Drawing.Size(134, 206)
             Me.GroupBox4.TabIndex = 21
             Me.GroupBox4.TabStop = False
             Me.GroupBox4.Text = "Employees commands"
             '
+            'btnDeleteBooking
+            '
+            Me.btnDeleteBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnDeleteBooking.Location = New System.Drawing.Point(15, 137)
+            Me.btnDeleteBooking.Name = "btnDeleteBooking"
+            Me.btnDeleteBooking.Size = New System.Drawing.Size(104, 24)
+            Me.btnDeleteBooking.TabIndex = 13
+            Me.btnDeleteBooking.Text = "Delete Booking"
+            '
+            'btnAddBooking
+            '
+            Me.btnAddBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnAddBooking.Location = New System.Drawing.Point(15, 77)
+            Me.btnAddBooking.Name = "btnAddBooking"
+            Me.btnAddBooking.Size = New System.Drawing.Size(104, 24)
+            Me.btnAddBooking.TabIndex = 12
+            Me.btnAddBooking.Text = "Add Booking"
+            '
             'Button4
             '
-            Me.Button4.Location = New System.Drawing.Point(24, 46)
+            Me.Button4.Location = New System.Drawing.Point(15, 48)
             Me.Button4.Name = "Button4"
             Me.Button4.Size = New System.Drawing.Size(104, 23)
             Me.Button4.TabIndex = 11
@@ -485,7 +532,7 @@ Namespace Forms
             'btnEmployeesGetAll
             '
             Me.btnEmployeesGetAll.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnEmployeesGetAll.Location = New System.Drawing.Point(24, 18)
+            Me.btnEmployeesGetAll.Location = New System.Drawing.Point(15, 18)
             Me.btnEmployeesGetAll.Name = "btnEmployeesGetAll"
             Me.btnEmployeesGetAll.Size = New System.Drawing.Size(104, 24)
             Me.btnEmployeesGetAll.TabIndex = 10
@@ -496,9 +543,9 @@ Namespace Forms
             Me.GroupBox5.Controls.Add(Me.Button3)
             Me.GroupBox5.Controls.Add(Me.btnEventGet)
             Me.GroupBox5.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox5.Location = New System.Drawing.Point(471, 97)
+            Me.GroupBox5.Location = New System.Drawing.Point(471, 228)
             Me.GroupBox5.Name = "GroupBox5"
-            Me.GroupBox5.Size = New System.Drawing.Size(134, 114)
+            Me.GroupBox5.Size = New System.Drawing.Size(134, 97)
             Me.GroupBox5.TabIndex = 22
             Me.GroupBox5.TabStop = False
             Me.GroupBox5.Text = "Event Commands"
@@ -506,7 +553,7 @@ Namespace Forms
             'Button3
             '
             Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.Button3.Location = New System.Drawing.Point(24, 49)
+            Me.Button3.Location = New System.Drawing.Point(15, 49)
             Me.Button3.Name = "Button3"
             Me.Button3.Size = New System.Drawing.Size(104, 40)
             Me.Button3.TabIndex = 11
@@ -515,7 +562,7 @@ Namespace Forms
             'btnEventGet
             '
             Me.btnEventGet.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnEventGet.Location = New System.Drawing.Point(24, 18)
+            Me.btnEventGet.Location = New System.Drawing.Point(15, 19)
             Me.btnEventGet.Name = "btnEventGet"
             Me.btnEventGet.Size = New System.Drawing.Size(104, 24)
             Me.btnEventGet.TabIndex = 10
@@ -525,9 +572,9 @@ Namespace Forms
             '
             Me.GroupBox6.Controls.Add(Me.btnApplicationGetMostPopular)
             Me.GroupBox6.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox6.Location = New System.Drawing.Point(471, 211)
+            Me.GroupBox6.Location = New System.Drawing.Point(8, 217)
             Me.GroupBox6.Name = "GroupBox6"
-            Me.GroupBox6.Size = New System.Drawing.Size(134, 114)
+            Me.GroupBox6.Size = New System.Drawing.Size(134, 108)
             Me.GroupBox6.TabIndex = 23
             Me.GroupBox6.TabStop = False
             Me.GroupBox6.Text = "Application Commands"
@@ -541,14 +588,41 @@ Namespace Forms
             Me.btnApplicationGetMostPopular.TabIndex = 10
             Me.btnApplicationGetMostPopular.Text = "ApplicationGetMostPopular"
             '
-            'btnTurnOn
+            'btnEditBooking
             '
-            Me.btnTurnOn.Location = New System.Drawing.Point(23, 113)
-            Me.btnTurnOn.Name = "btnTurnOn"
-            Me.btnTurnOn.Size = New System.Drawing.Size(91, 23)
-            Me.btnTurnOn.TabIndex = 25
-            Me.btnTurnOn.Text = "Turn On Client"
-            Me.btnTurnOn.UseVisualStyleBackColor = True
+            Me.btnEditBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnEditBooking.Location = New System.Drawing.Point(15, 107)
+            Me.btnEditBooking.Name = "btnEditBooking"
+            Me.btnEditBooking.Size = New System.Drawing.Size(104, 24)
+            Me.btnEditBooking.TabIndex = 14
+            Me.btnEditBooking.Text = "Edit Booking"
+            '
+            'btnGetAllBooking
+            '
+            Me.btnGetAllBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllBooking.Location = New System.Drawing.Point(15, 167)
+            Me.btnGetAllBooking.Name = "btnGetAllBooking"
+            Me.btnGetAllBooking.Size = New System.Drawing.Size(104, 24)
+            Me.btnGetAllBooking.TabIndex = 15
+            Me.btnGetAllBooking.Text = "Get Booking"
+            '
+            'ContextMenuStrip1
+            '
+            Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnAll, Me.mnBookingID})
+            Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+            Me.ContextMenuStrip1.Size = New System.Drawing.Size(178, 48)
+            '
+            'mnAll
+            '
+            Me.mnAll.Name = "mnAll"
+            Me.mnAll.Size = New System.Drawing.Size(177, 22)
+            Me.mnAll.Text = "All"
+            '
+            'mnBookingID
+            '
+            Me.mnBookingID.Name = "mnBookingID"
+            Me.mnBookingID.Size = New System.Drawing.Size(177, 22)
+            Me.mnBookingID.Text = "Filter by Booking ID"
             '
             'Main
             '
@@ -575,6 +649,7 @@ Namespace Forms
             Me.GroupBox4.ResumeLayout(False)
             Me.GroupBox5.ResumeLayout(False)
             Me.GroupBox6.ResumeLayout(False)
+            Me.ContextMenuStrip1.ResumeLayout(False)
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -582,7 +657,7 @@ Namespace Forms
 
 #End Region
 
-        Private ActiveUser As Smartlaunch.TCPInterface.Users.User
+        Private ActiveUser As Smartlaunch.TCPInterface.Users.User = New Smartlaunch.TCPInterface.Users.User
         Private ActiveComputer As Smartlaunch.TCPInterface.Computers.Computer = New Smartlaunch.TCPInterface.Computers.Computer
 
         Private Sub btnGetNews_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetNews.Click
@@ -608,7 +683,6 @@ Namespace Forms
         Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClear.Click
             txtOutput.Text = ""
         End Sub
-
 
         Private Sub btnGetComputers_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
             txtOutput.Text &= NewLine & NewLine & "Computers: " & NewLine
@@ -679,7 +753,6 @@ Namespace Forms
             btnUserGroupGet.Enabled = Enabled
         End Sub
 
-
         Private Sub btnDepositMoney_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDepositMoney.Click
 
             Dim amount As Double = InputBox("Please enter Amount (use 5 if you uncertain)", "Amount", 5)
@@ -696,7 +769,6 @@ Namespace Forms
 
             txtOutput.Text &= NewLine & NewLine & "Money withdrawed." & NewLine
         End Sub
-
 
         Private Sub btnGetPrice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetPrice.Click
             Dim minutes As Integer = InputBox("Please enter minutes (use 60 if you uncertain)", "Minutes", 60)
@@ -715,7 +787,6 @@ Namespace Forms
                 txtOutput.Text &= NewLine & NewLine & "Could not connect. An error was returned:  " & ex.Message & NewLine
             End Try
         End Sub
-
 
         Private Sub btnAsk_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAsk.Click
 
@@ -1016,6 +1087,72 @@ Namespace Forms
             ActiveComputer.ClientTurnOff(ClientID)
 
             txtOutput.Text &= NewLine & NewLine & "Client ID : """ & ClientID & " (Turn On)." & NewLine
+        End Sub
+
+        Private Sub btnAddBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddBooking.Click
+            Dim CustomerName As String = InputBox("Please enter Customer Name", "Customer Name", "name")
+            Dim CustomerPhone As String = InputBox("Please enter Customer Phone", "Customer Phone", "09763654")
+            Dim Description As String = InputBox("Please enter Description", "Description", "description")
+            Dim StartDate As String = InputBox("Please enter Start Date (MM/DD/YYYY hh:mm)", "Start Date", "MM/DD/YYYY hh:mm").Replace(" ", "/").Replace(":", "/")
+            Dim EndDate As String = InputBox("Please enter End Date (MM/DD/YYYY hh:mm)", "End Date", "MM/DD/YYYY hh:mm").Replace(" ", "/").Replace(":", "/")
+            Dim ComputerCount As String = InputBox("Please enter Count", "Count", 1)
+            Dim SmokingArea As String = IIf(MsgBox("Are you want in Smoking Area?", vbYesNo, "Client ID") = vbYes, "1", "0")
+            'Dim StartDate As Date = DateValue(_StartDate).Date.AddHours(_StartDate.Substring(11, 2)).AddMinutes(_StartDate.Substring(14, 2))
+            'Dim StartDate As Date = DateValue(_StartDate).Date.AddHours(_StartDate.Substring(11, 2)).AddMinutes(_StartDate.Substring(14, 2))
+            'Dim EndDate As Date = DateValue(_EndDate).Date.AddHours(_EndDate.Substring(11, 2)).AddMinutes(_EndDate.Substring(14, 2))
+            Dim XmlDoc As New XmlDocument
+            'Dim x As Date = DateForma
+            'StartDate.GetHashCode()
+            'MsgBox(StartDate)
+            XmlDoc = ActiveUser.AddBooking(CustomerName, CustomerPhone, Description, StartDate, EndDate, ComputerCount, SmokingArea)
+            txtOutput.Text &= NewLine & NewLine & XmlDoc.InnerXml
+        End Sub
+
+        Private Sub btnDeleteBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteBooking.Click
+            Dim CustomerName As String = InputBox("Please enter Customer Name", "Customer Name", "name")
+            Dim BookingID As Integer = CInt(InputBox("Please enter Booking ID", "Booking ID", "12345"))
+            Dim xmlDoc As New XmlDocument
+            xmlDoc = ActiveUser.DeleteBooking(BookingID)
+            txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+        End Sub
+
+        Private Sub btnEditBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEditBooking.Click
+            Dim BookingID As Integer = CInt(InputBox("Please enter Booking ID", "Booking ID", "12345"))
+
+            Dim xmlDoc As New XmlDocument
+            xmlDoc = ActiveUser.GetBookingByBookingID(BookingID)
+            If xmlDoc.InnerXml.IndexOf("Response=""1""") > 0 Then
+                ActiveUser.DeleteBooking(BookingID)
+                Dim CustomerName As String = InputBox("Please enter Customer Name", "Customer Name", "name")
+                Dim CustomerPhone As String = InputBox("Please enter Customer Phone", "Customer Phone", "09763654")
+                Dim Description As String = InputBox("Please enter Description", "Description", "description")
+                Dim StartDate As String = InputBox("Please enter Start Date (MM/DD/YYYY hh:mm)", "Start Date", "MM/DD/YYYY hh:mm").Replace(" ", "/").Replace(":", "/")
+                Dim EndDate As String = InputBox("Please enter End Date (MM/DD/YYYY hh:mm)", "End Date", "MM/DD/YYYY hh:mm").Replace(" ", "/").Replace(":", "/")
+                Dim ComputerCount As String = "1"
+                Dim SmokingArea As String = IIf(MsgBox("Are you want in Smoking Area?", vbYesNo, "Client ID") = vbYes, "1", "0")
+                xmlDoc = ActiveUser.AddBooking(BookingID, CustomerName, CustomerPhone, Description, StartDate, EndDate, ComputerCount, SmokingArea)
+                txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+            Else
+                txtOutput.Text &= NewLine & NewLine & "Booking ID : " & BookingID & " (Doesn't exsist)"
+            End If
+
+        End Sub
+
+        Private Sub btnGetAllBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllBooking.Click
+            ContextMenuStrip1.Show(MousePosition)
+        End Sub
+
+        Private Sub mnAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnAll.Click
+            Dim xmlDoc As New XmlDocument
+            xmlDoc = ActiveUser.GetAllBooking()
+            txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+        End Sub
+
+        Private Sub mnBookingID_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnBookingID.Click
+            Dim BookingID As Integer = CInt(InputBox("Please enter Booking ID", "Booking ID", "12345"))
+            Dim xmlDoc As New XmlDocument
+            xmlDoc = ActiveUser.GetBookingByBookingID(BookingID)
+            txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
         End Sub
     End Class
 
