@@ -72,6 +72,9 @@ Namespace Users
         Private _EndDate As Date
         Private _Description As String
         Private _ComputerCount As Integer
+        Private _DepositAmount As Integer
+        Private _DepositDate As System.DateTime
+        Private _UserGroupName As String
 
 
 #Region "Properties"
@@ -92,6 +95,16 @@ Namespace Users
                 _UserGroupID = Value
             End Set
         End Property
+
+        Public Property UserGroupName() As String
+            Get
+                Return _UserGroupName
+            End Get
+            Set(ByVal value As String)
+                _UserGroupName = value
+            End Set
+        End Property
+
 
         Public Property PasswordHash() As String
             Get
@@ -282,6 +295,24 @@ Namespace Users
             End Set
         End Property
 
+        Public Property DepositAmount() As Integer
+            Get
+                Return _DepositAmount
+            End Get
+            Set(ByVal value As Integer)
+                _DepositAmount = value
+            End Set
+        End Property
+
+        Public Property DepositDate() As System.DateTime
+            Get
+                Return _DepositDate
+            End Get
+            Set(ByVal value As System.DateTime)
+                _DepositDate = value
+            End Set
+        End Property
+
 #End Region
 
 #Region "Enums"
@@ -355,7 +386,8 @@ Namespace Users
                 _SocialNum = Convert.ToString(.Attributes("Personalnumber").Value)
                 _TimeStatus = Convert.ToInt32(.Attributes("Time").Value)
                 _Balance = Convert.ToDouble(.Attributes("Balance").Value)
-
+                _DepositAmount = CInt(.Attributes("DepositAmount").Value)
+                _DepositDate = Date.FromOADate(CDbl(.Attributes("DepositDate").Value))
             End With
 
         End Sub
@@ -368,7 +400,7 @@ Namespace Users
             Command.AppendParameter("Username", _UserName)
             Command.AppendParameter("Amount", Amount)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
         End Sub
 
         Public Sub WithdrawMoney(ByVal Amount As Double)
@@ -422,7 +454,7 @@ Namespace Users
             Command.AppendParameterSection()
             Command.AppendParameter("Username", _UserName)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            'Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -443,7 +475,7 @@ Namespace Users
             Command.AppendParameterSection()
             Command.AppendParameter("Username", _UserName)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            'Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -456,7 +488,7 @@ Namespace Users
 
         End Function
 
-        
+
         Public Function UpdateUserInfo(ByVal FirstName As String, ByVal LastName As String, ByVal BirthDate As Integer, ByVal Address As String, _
                                        ByVal City As String, ByVal Zip As String, ByVal State As String, ByVal Country As String, _
                                        ByVal Email As String, ByVal Phone As String, ByVal PhoneMobile As String, ByVal PersonalNumber As String, _
@@ -481,7 +513,7 @@ Namespace Users
             Command.AppendParameter("Personalnumber", SocialNum)
 
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            'Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -502,7 +534,7 @@ Namespace Users
             Command.AppendParameter("Username", _UserName)
             Command.AppendParameter("Password", newPass)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            'Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -523,7 +555,7 @@ Namespace Users
             Command.AppendParameter("Username", _UserName)
             Command.AppendParameter("Email", Email)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            'Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -552,6 +584,23 @@ Namespace Users
 
         End Function
 
+        Public Function UserAddSpecialTime(ByVal Username As String, ByVal Minutes As Integer, ByVal TotalPrice As Double, _
+                                           ByVal TaxIncluded As Boolean, ByVal AdministratorID As Integer) As Xml.XmlDocument
+            Dim xmlCmd As New Classes.XMLCommand
+            xmlCmd.AppendCommand("UserAddSpecialTime")
+            xmlCmd.AppendParameterSection()
+            xmlCmd.AppendParameter("Username", Username)
+            xmlCmd.AppendParameter("Minutes", Minutes)
+            xmlCmd.AppendParameter("TotalPrice", TotalPrice)
+            xmlCmd.AppendParameter("TaxIncluded", TaxIncluded)
+            xmlCmd.AppendParameter("AdministratorID", AdministratorID)
+
+            'Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+            Return xmlRes
+        End Function
 
         Public Sub UserAddOffer(ByVal OfferID As Integer, ByVal Price As Double, ByVal PaymentType As String, ByVal FixedStart As Boolean, ByVal theDate As Date, ByVal TaxPayable As Boolean)
 
@@ -567,7 +616,7 @@ Namespace Users
             Command.AppendParameter("Date", theDate)
             Command.AppendParameter("TaxPayable", TaxPayable)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -589,7 +638,7 @@ Namespace Users
             Command.AppendParameter("TaxPayable", TaxPayable)
             Command.AppendParameter("Note", Note)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -606,7 +655,7 @@ Namespace Users
             Command.AppendParameter("Username", _UserName)
             Command.AppendParameter("OfferStatID", OfferStatID)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -623,7 +672,7 @@ Namespace Users
             Command.AppendParameter("Username", _UserName)
             Command.AppendParameter("Date", theDate)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -639,7 +688,7 @@ Namespace Users
             Command.AppendParameterSection()
             Command.AppendParameter("EmployeeType", empType)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -654,7 +703,7 @@ Namespace Users
 
             Command.AppendParameterSection()
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -671,7 +720,7 @@ Namespace Users
             Command.AppendParameterSection()
             Command.AppendParameter("UsergroupID", UsergroupID)
 
-            Classes.Communication.SendAndWait(Command.InnerXML)
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)

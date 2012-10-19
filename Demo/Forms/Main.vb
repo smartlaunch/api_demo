@@ -85,6 +85,9 @@ Namespace Forms
         Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
         Friend WithEvents mnAll As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents mnBookingID As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents btnUserAddSpecialTime As System.Windows.Forms.Button
+        Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
+        Friend WithEvents btnGetFinancialData As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -95,6 +98,7 @@ Namespace Forms
             Me.btnGetUserInfo = New System.Windows.Forms.Button()
             Me.btnLoginUser = New System.Windows.Forms.Button()
             Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+            Me.btnUserAddSpecialTime = New System.Windows.Forms.Button()
             Me.btnUserGroupGet = New System.Windows.Forms.Button()
             Me.btnUserGroupGetAll = New System.Windows.Forms.Button()
             Me.btnUserLogHistory = New System.Windows.Forms.Button()
@@ -122,6 +126,8 @@ Namespace Forms
             Me.Button1 = New System.Windows.Forms.Button()
             Me.Button2 = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+            Me.btnGetAllBooking = New System.Windows.Forms.Button()
+            Me.btnEditBooking = New System.Windows.Forms.Button()
             Me.btnDeleteBooking = New System.Windows.Forms.Button()
             Me.btnAddBooking = New System.Windows.Forms.Button()
             Me.Button4 = New System.Windows.Forms.Button()
@@ -131,11 +137,11 @@ Namespace Forms
             Me.btnEventGet = New System.Windows.Forms.Button()
             Me.GroupBox6 = New System.Windows.Forms.GroupBox()
             Me.btnApplicationGetMostPopular = New System.Windows.Forms.Button()
-            Me.btnEditBooking = New System.Windows.Forms.Button()
-            Me.btnGetAllBooking = New System.Windows.Forms.Button()
             Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
             Me.mnAll = New System.Windows.Forms.ToolStripMenuItem()
             Me.mnBookingID = New System.Windows.Forms.ToolStripMenuItem()
+            Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+            Me.btnGetFinancialData = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -143,6 +149,7 @@ Namespace Forms
             Me.GroupBox5.SuspendLayout()
             Me.GroupBox6.SuspendLayout()
             Me.ContextMenuStrip1.SuspendLayout()
+            Me.GroupBox7.SuspendLayout()
             Me.SuspendLayout()
             '
             'btnGetNews
@@ -156,9 +163,9 @@ Namespace Forms
             '
             'StatusBar
             '
-            Me.StatusBar.Location = New System.Drawing.Point(0, 541)
+            Me.StatusBar.Location = New System.Drawing.Point(0, 686)
             Me.StatusBar.Name = "StatusBar"
-            Me.StatusBar.Size = New System.Drawing.Size(783, 22)
+            Me.StatusBar.Size = New System.Drawing.Size(856, 22)
             Me.StatusBar.TabIndex = 7
             '
             'txtOutput
@@ -166,16 +173,16 @@ Namespace Forms
             Me.txtOutput.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                         Or System.Windows.Forms.AnchorStyles.Left) _
                         Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.txtOutput.Location = New System.Drawing.Point(8, 358)
+            Me.txtOutput.Location = New System.Drawing.Point(8, 453)
             Me.txtOutput.Multiline = True
             Me.txtOutput.Name = "txtOutput"
             Me.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-            Me.txtOutput.Size = New System.Drawing.Size(767, 175)
+            Me.txtOutput.Size = New System.Drawing.Size(840, 225)
             Me.txtOutput.TabIndex = 8
             '
             'Label1
             '
-            Me.Label1.Location = New System.Drawing.Point(5, 328)
+            Me.Label1.Location = New System.Drawing.Point(5, 434)
             Me.Label1.Name = "Label1"
             Me.Label1.Size = New System.Drawing.Size(144, 16)
             Me.Label1.TabIndex = 9
@@ -184,7 +191,7 @@ Namespace Forms
             'btnGetUserInfo
             '
             Me.btnGetUserInfo.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetUserInfo.Location = New System.Drawing.Point(17, 50)
+            Me.btnGetUserInfo.Location = New System.Drawing.Point(17, 82)
             Me.btnGetUserInfo.Name = "btnGetUserInfo"
             Me.btnGetUserInfo.Size = New System.Drawing.Size(104, 24)
             Me.btnGetUserInfo.TabIndex = 11
@@ -193,14 +200,15 @@ Namespace Forms
             'btnLoginUser
             '
             Me.btnLoginUser.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnLoginUser.Location = New System.Drawing.Point(17, 24)
+            Me.btnLoginUser.Location = New System.Drawing.Point(17, 19)
             Me.btnLoginUser.Name = "btnLoginUser"
-            Me.btnLoginUser.Size = New System.Drawing.Size(104, 24)
+            Me.btnLoginUser.Size = New System.Drawing.Size(104, 26)
             Me.btnLoginUser.TabIndex = 12
             Me.btnLoginUser.Text = "Login User"
             '
             'GroupBox1
             '
+            Me.GroupBox1.Controls.Add(Me.btnUserAddSpecialTime)
             Me.GroupBox1.Controls.Add(Me.btnUserGroupGet)
             Me.GroupBox1.Controls.Add(Me.btnUserGroupGetAll)
             Me.GroupBox1.Controls.Add(Me.btnUserLogHistory)
@@ -222,17 +230,26 @@ Namespace Forms
             Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox1.Location = New System.Drawing.Point(148, 16)
             Me.GroupBox1.Name = "GroupBox1"
-            Me.GroupBox1.Size = New System.Drawing.Size(317, 309)
+            Me.GroupBox1.Size = New System.Drawing.Size(696, 187)
             Me.GroupBox1.TabIndex = 17
             Me.GroupBox1.TabStop = False
             Me.GroupBox1.Text = "User handling"
             '
+            'btnUserAddSpecialTime
+            '
+            Me.btnUserAddSpecialTime.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnUserAddSpecialTime.Location = New System.Drawing.Point(237, 83)
+            Me.btnUserAddSpecialTime.Name = "btnUserAddSpecialTime"
+            Me.btnUserAddSpecialTime.Size = New System.Drawing.Size(178, 26)
+            Me.btnUserAddSpecialTime.TabIndex = 42
+            Me.btnUserAddSpecialTime.Text = "User Add Special Time"
+            '
             'btnUserGroupGet
             '
             Me.btnUserGroupGet.Enabled = False
-            Me.btnUserGroupGet.Location = New System.Drawing.Point(127, 274)
+            Me.btnUserGroupGet.Location = New System.Drawing.Point(421, 115)
             Me.btnUserGroupGet.Name = "btnUserGroupGet"
-            Me.btnUserGroupGet.Size = New System.Drawing.Size(142, 26)
+            Me.btnUserGroupGet.Size = New System.Drawing.Size(99, 26)
             Me.btnUserGroupGet.TabIndex = 41
             Me.btnUserGroupGet.Text = "UserGroupGet"
             Me.btnUserGroupGet.UseVisualStyleBackColor = True
@@ -240,9 +257,9 @@ Namespace Forms
             'btnUserGroupGetAll
             '
             Me.btnUserGroupGetAll.Enabled = False
-            Me.btnUserGroupGetAll.Location = New System.Drawing.Point(127, 242)
+            Me.btnUserGroupGetAll.Location = New System.Drawing.Point(421, 83)
             Me.btnUserGroupGetAll.Name = "btnUserGroupGetAll"
-            Me.btnUserGroupGetAll.Size = New System.Drawing.Size(142, 26)
+            Me.btnUserGroupGetAll.Size = New System.Drawing.Size(99, 26)
             Me.btnUserGroupGetAll.TabIndex = 40
             Me.btnUserGroupGetAll.Text = "UserGroupGetAll"
             Me.btnUserGroupGetAll.UseVisualStyleBackColor = True
@@ -250,9 +267,9 @@ Namespace Forms
             'btnUserLogHistory
             '
             Me.btnUserLogHistory.Enabled = False
-            Me.btnUserLogHistory.Location = New System.Drawing.Point(127, 210)
+            Me.btnUserLogHistory.Location = New System.Drawing.Point(421, 51)
             Me.btnUserLogHistory.Name = "btnUserLogHistory"
-            Me.btnUserLogHistory.Size = New System.Drawing.Size(142, 26)
+            Me.btnUserLogHistory.Size = New System.Drawing.Size(99, 26)
             Me.btnUserLogHistory.TabIndex = 39
             Me.btnUserLogHistory.Text = "UserLogHistory"
             Me.btnUserLogHistory.UseVisualStyleBackColor = True
@@ -260,9 +277,9 @@ Namespace Forms
             'btnUserRemoveOffer
             '
             Me.btnUserRemoveOffer.Enabled = False
-            Me.btnUserRemoveOffer.Location = New System.Drawing.Point(127, 178)
+            Me.btnUserRemoveOffer.Location = New System.Drawing.Point(421, 19)
             Me.btnUserRemoveOffer.Name = "btnUserRemoveOffer"
-            Me.btnUserRemoveOffer.Size = New System.Drawing.Size(142, 26)
+            Me.btnUserRemoveOffer.Size = New System.Drawing.Size(99, 26)
             Me.btnUserRemoveOffer.TabIndex = 38
             Me.btnUserRemoveOffer.Text = "UserRemoveOffer"
             Me.btnUserRemoveOffer.UseVisualStyleBackColor = True
@@ -270,9 +287,9 @@ Namespace Forms
             'btnAddProduct
             '
             Me.btnAddProduct.Enabled = False
-            Me.btnAddProduct.Location = New System.Drawing.Point(127, 146)
+            Me.btnAddProduct.Location = New System.Drawing.Point(237, 144)
             Me.btnAddProduct.Name = "btnAddProduct"
-            Me.btnAddProduct.Size = New System.Drawing.Size(142, 26)
+            Me.btnAddProduct.Size = New System.Drawing.Size(178, 26)
             Me.btnAddProduct.TabIndex = 37
             Me.btnAddProduct.Text = "User Add Product"
             Me.btnAddProduct.UseVisualStyleBackColor = True
@@ -280,9 +297,9 @@ Namespace Forms
             'btnAddOffer
             '
             Me.btnAddOffer.Enabled = False
-            Me.btnAddOffer.Location = New System.Drawing.Point(127, 114)
+            Me.btnAddOffer.Location = New System.Drawing.Point(237, 112)
             Me.btnAddOffer.Name = "btnAddOffer"
-            Me.btnAddOffer.Size = New System.Drawing.Size(142, 26)
+            Me.btnAddOffer.Size = New System.Drawing.Size(178, 26)
             Me.btnAddOffer.TabIndex = 36
             Me.btnAddOffer.Text = "User Add Offer"
             Me.btnAddOffer.UseVisualStyleBackColor = True
@@ -290,7 +307,7 @@ Namespace Forms
             'btnAskAccDetails
             '
             Me.btnAskAccDetails.Enabled = False
-            Me.btnAskAccDetails.Location = New System.Drawing.Point(127, 22)
+            Me.btnAskAccDetails.Location = New System.Drawing.Point(237, 19)
             Me.btnAskAccDetails.Name = "btnAskAccDetails"
             Me.btnAskAccDetails.Size = New System.Drawing.Size(178, 26)
             Me.btnAskAccDetails.TabIndex = 35
@@ -300,9 +317,9 @@ Namespace Forms
             'btnLostPwSendMail
             '
             Me.btnLostPwSendMail.Enabled = False
-            Me.btnLostPwSendMail.Location = New System.Drawing.Point(127, 82)
+            Me.btnLostPwSendMail.Location = New System.Drawing.Point(127, 112)
             Me.btnLostPwSendMail.Name = "btnLostPwSendMail"
-            Me.btnLostPwSendMail.Size = New System.Drawing.Size(142, 26)
+            Me.btnLostPwSendMail.Size = New System.Drawing.Size(104, 26)
             Me.btnLostPwSendMail.TabIndex = 34
             Me.btnLostPwSendMail.Text = "LostPwSendMail"
             Me.btnLostPwSendMail.UseVisualStyleBackColor = True
@@ -311,9 +328,9 @@ Namespace Forms
             '
             Me.btnSetPasswd.Enabled = False
             Me.btnSetPasswd.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnSetPasswd.Location = New System.Drawing.Point(17, 246)
+            Me.btnSetPasswd.Location = New System.Drawing.Point(127, 83)
             Me.btnSetPasswd.Name = "btnSetPasswd"
-            Me.btnSetPasswd.Size = New System.Drawing.Size(104, 24)
+            Me.btnSetPasswd.Size = New System.Drawing.Size(104, 26)
             Me.btnSetPasswd.TabIndex = 31
             Me.btnSetPasswd.Text = "Set Password"
             '
@@ -321,16 +338,16 @@ Namespace Forms
             '
             Me.btnUpdateUserInfo.Enabled = False
             Me.btnUpdateUserInfo.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnUpdateUserInfo.Location = New System.Drawing.Point(17, 216)
+            Me.btnUpdateUserInfo.Location = New System.Drawing.Point(127, 51)
             Me.btnUpdateUserInfo.Name = "btnUpdateUserInfo"
-            Me.btnUpdateUserInfo.Size = New System.Drawing.Size(104, 24)
+            Me.btnUpdateUserInfo.Size = New System.Drawing.Size(104, 26)
             Me.btnUpdateUserInfo.TabIndex = 30
             Me.btnUpdateUserInfo.Text = "Update User Info"
             '
             'btnUserLogout
             '
             Me.btnUserLogout.Enabled = False
-            Me.btnUserLogout.Location = New System.Drawing.Point(17, 277)
+            Me.btnUserLogout.Location = New System.Drawing.Point(127, 144)
             Me.btnUserLogout.Name = "btnUserLogout"
             Me.btnUserLogout.Size = New System.Drawing.Size(104, 26)
             Me.btnUserLogout.TabIndex = 27
@@ -340,16 +357,16 @@ Namespace Forms
             'btnCreateUser
             '
             Me.btnCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnCreateUser.Location = New System.Drawing.Point(17, 74)
+            Me.btnCreateUser.Location = New System.Drawing.Point(17, 50)
             Me.btnCreateUser.Name = "btnCreateUser"
-            Me.btnCreateUser.Size = New System.Drawing.Size(104, 24)
+            Me.btnCreateUser.Size = New System.Drawing.Size(104, 26)
             Me.btnCreateUser.TabIndex = 24
             Me.btnCreateUser.Text = "Create user"
             '
             'btnAsk
             '
             Me.btnAsk.Enabled = False
-            Me.btnAsk.Location = New System.Drawing.Point(127, 49)
+            Me.btnAsk.Location = New System.Drawing.Point(237, 50)
             Me.btnAsk.Name = "btnAsk"
             Me.btnAsk.Size = New System.Drawing.Size(178, 26)
             Me.btnAsk.TabIndex = 20
@@ -360,9 +377,9 @@ Namespace Forms
             '
             Me.btnGetPrice.Enabled = False
             Me.btnGetPrice.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetPrice.Location = New System.Drawing.Point(17, 186)
+            Me.btnGetPrice.Location = New System.Drawing.Point(127, 19)
             Me.btnGetPrice.Name = "btnGetPrice"
-            Me.btnGetPrice.Size = New System.Drawing.Size(104, 24)
+            Me.btnGetPrice.Size = New System.Drawing.Size(104, 26)
             Me.btnGetPrice.TabIndex = 23
             Me.btnGetPrice.Text = "Get Price"
             '
@@ -370,9 +387,9 @@ Namespace Forms
             '
             Me.btnWithdrawMoney.Enabled = False
             Me.btnWithdrawMoney.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnWithdrawMoney.Location = New System.Drawing.Point(17, 146)
+            Me.btnWithdrawMoney.Location = New System.Drawing.Point(17, 144)
             Me.btnWithdrawMoney.Name = "btnWithdrawMoney"
-            Me.btnWithdrawMoney.Size = New System.Drawing.Size(104, 24)
+            Me.btnWithdrawMoney.Size = New System.Drawing.Size(104, 26)
             Me.btnWithdrawMoney.TabIndex = 20
             Me.btnWithdrawMoney.Text = "Withdraw money"
             '
@@ -380,9 +397,9 @@ Namespace Forms
             '
             Me.btnDepositMoney.Enabled = False
             Me.btnDepositMoney.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnDepositMoney.Location = New System.Drawing.Point(17, 114)
+            Me.btnDepositMoney.Location = New System.Drawing.Point(17, 112)
             Me.btnDepositMoney.Name = "btnDepositMoney"
-            Me.btnDepositMoney.Size = New System.Drawing.Size(104, 24)
+            Me.btnDepositMoney.Size = New System.Drawing.Size(104, 26)
             Me.btnDepositMoney.TabIndex = 17
             Me.btnDepositMoney.Text = "Deposit money"
             '
@@ -395,7 +412,7 @@ Namespace Forms
             Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox2.Location = New System.Drawing.Point(8, 16)
             Me.GroupBox2.Name = "GroupBox2"
-            Me.GroupBox2.Size = New System.Drawing.Size(136, 195)
+            Me.GroupBox2.Size = New System.Drawing.Size(136, 187)
             Me.GroupBox2.TabIndex = 18
             Me.GroupBox2.TabStop = False
             Me.GroupBox2.Text = "General commands"
@@ -430,7 +447,7 @@ Namespace Forms
             '
             Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnClear.Location = New System.Drawing.Point(727, 328)
+            Me.btnClear.Location = New System.Drawing.Point(800, 423)
             Me.btnClear.Name = "btnClear"
             Me.btnClear.Size = New System.Drawing.Size(48, 24)
             Me.btnClear.TabIndex = 19
@@ -443,9 +460,9 @@ Namespace Forms
             Me.GroupBox3.Controls.Add(Me.Button1)
             Me.GroupBox3.Controls.Add(Me.Button2)
             Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox3.Location = New System.Drawing.Point(611, 16)
+            Me.GroupBox3.Location = New System.Drawing.Point(148, 211)
             Me.GroupBox3.Name = "GroupBox3"
-            Me.GroupBox3.Size = New System.Drawing.Size(134, 309)
+            Me.GroupBox3.Size = New System.Drawing.Size(134, 202)
             Me.GroupBox3.TabIndex = 20
             Me.GroupBox3.TabStop = False
             Me.GroupBox3.Text = "Computer commands"
@@ -495,12 +512,30 @@ Namespace Forms
             Me.GroupBox4.Controls.Add(Me.Button4)
             Me.GroupBox4.Controls.Add(Me.btnEmployeesGetAll)
             Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox4.Location = New System.Drawing.Point(471, 16)
+            Me.GroupBox4.Location = New System.Drawing.Point(288, 211)
             Me.GroupBox4.Name = "GroupBox4"
-            Me.GroupBox4.Size = New System.Drawing.Size(134, 206)
+            Me.GroupBox4.Size = New System.Drawing.Size(275, 202)
             Me.GroupBox4.TabIndex = 21
             Me.GroupBox4.TabStop = False
             Me.GroupBox4.Text = "Employees commands"
+            '
+            'btnGetAllBooking
+            '
+            Me.btnGetAllBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllBooking.Location = New System.Drawing.Point(15, 167)
+            Me.btnGetAllBooking.Name = "btnGetAllBooking"
+            Me.btnGetAllBooking.Size = New System.Drawing.Size(104, 24)
+            Me.btnGetAllBooking.TabIndex = 15
+            Me.btnGetAllBooking.Text = "Get Booking"
+            '
+            'btnEditBooking
+            '
+            Me.btnEditBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnEditBooking.Location = New System.Drawing.Point(15, 107)
+            Me.btnEditBooking.Name = "btnEditBooking"
+            Me.btnEditBooking.Size = New System.Drawing.Size(104, 24)
+            Me.btnEditBooking.TabIndex = 14
+            Me.btnEditBooking.Text = "Edit Booking"
             '
             'btnDeleteBooking
             '
@@ -543,7 +578,7 @@ Namespace Forms
             Me.GroupBox5.Controls.Add(Me.Button3)
             Me.GroupBox5.Controls.Add(Me.btnEventGet)
             Me.GroupBox5.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox5.Location = New System.Drawing.Point(471, 228)
+            Me.GroupBox5.Location = New System.Drawing.Point(8, 211)
             Me.GroupBox5.Name = "GroupBox5"
             Me.GroupBox5.Size = New System.Drawing.Size(134, 97)
             Me.GroupBox5.TabIndex = 22
@@ -572,9 +607,9 @@ Namespace Forms
             '
             Me.GroupBox6.Controls.Add(Me.btnApplicationGetMostPopular)
             Me.GroupBox6.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox6.Location = New System.Drawing.Point(8, 217)
+            Me.GroupBox6.Location = New System.Drawing.Point(8, 314)
             Me.GroupBox6.Name = "GroupBox6"
-            Me.GroupBox6.Size = New System.Drawing.Size(134, 108)
+            Me.GroupBox6.Size = New System.Drawing.Size(134, 99)
             Me.GroupBox6.TabIndex = 23
             Me.GroupBox6.TabStop = False
             Me.GroupBox6.Text = "Application Commands"
@@ -582,29 +617,11 @@ Namespace Forms
             'btnApplicationGetMostPopular
             '
             Me.btnApplicationGetMostPopular.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnApplicationGetMostPopular.Location = New System.Drawing.Point(24, 15)
+            Me.btnApplicationGetMostPopular.Location = New System.Drawing.Point(15, 19)
             Me.btnApplicationGetMostPopular.Name = "btnApplicationGetMostPopular"
             Me.btnApplicationGetMostPopular.Size = New System.Drawing.Size(104, 55)
             Me.btnApplicationGetMostPopular.TabIndex = 10
             Me.btnApplicationGetMostPopular.Text = "ApplicationGetMostPopular"
-            '
-            'btnEditBooking
-            '
-            Me.btnEditBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnEditBooking.Location = New System.Drawing.Point(15, 107)
-            Me.btnEditBooking.Name = "btnEditBooking"
-            Me.btnEditBooking.Size = New System.Drawing.Size(104, 24)
-            Me.btnEditBooking.TabIndex = 14
-            Me.btnEditBooking.Text = "Edit Booking"
-            '
-            'btnGetAllBooking
-            '
-            Me.btnGetAllBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetAllBooking.Location = New System.Drawing.Point(15, 167)
-            Me.btnGetAllBooking.Name = "btnGetAllBooking"
-            Me.btnGetAllBooking.Size = New System.Drawing.Size(104, 24)
-            Me.btnGetAllBooking.TabIndex = 15
-            Me.btnGetAllBooking.Text = "Get Booking"
             '
             'ContextMenuStrip1
             '
@@ -624,20 +641,41 @@ Namespace Forms
             Me.mnBookingID.Size = New System.Drawing.Size(177, 22)
             Me.mnBookingID.Text = "Filter by Booking ID"
             '
+            'GroupBox7
+            '
+            Me.GroupBox7.Controls.Add(Me.btnGetFinancialData)
+            Me.GroupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.GroupBox7.Location = New System.Drawing.Point(569, 211)
+            Me.GroupBox7.Name = "GroupBox7"
+            Me.GroupBox7.Size = New System.Drawing.Size(275, 202)
+            Me.GroupBox7.TabIndex = 24
+            Me.GroupBox7.TabStop = False
+            Me.GroupBox7.Text = "Administrator command"
+            '
+            'btnGetFinancialData
+            '
+            Me.btnGetFinancialData.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetFinancialData.Location = New System.Drawing.Point(15, 18)
+            Me.btnGetFinancialData.Name = "btnGetFinancialData"
+            Me.btnGetFinancialData.Size = New System.Drawing.Size(104, 24)
+            Me.btnGetFinancialData.TabIndex = 10
+            Me.btnGetFinancialData.Text = "Get Financial Data"
+            '
             'Main
             '
             Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-            Me.ClientSize = New System.Drawing.Size(783, 563)
-            Me.Controls.Add(Me.GroupBox6)
-            Me.Controls.Add(Me.GroupBox5)
-            Me.Controls.Add(Me.GroupBox4)
+            Me.ClientSize = New System.Drawing.Size(856, 708)
+            Me.Controls.Add(Me.GroupBox7)
             Me.Controls.Add(Me.GroupBox3)
-            Me.Controls.Add(Me.btnClear)
+            Me.Controls.Add(Me.GroupBox6)
             Me.Controls.Add(Me.GroupBox2)
+            Me.Controls.Add(Me.GroupBox5)
+            Me.Controls.Add(Me.btnClear)
+            Me.Controls.Add(Me.GroupBox4)
             Me.Controls.Add(Me.GroupBox1)
-            Me.Controls.Add(Me.Label1)
             Me.Controls.Add(Me.txtOutput)
             Me.Controls.Add(Me.StatusBar)
+            Me.Controls.Add(Me.Label1)
             Me.MaximizeBox = False
             Me.MinimizeBox = False
             Me.Name = "Main"
@@ -650,12 +688,32 @@ Namespace Forms
             Me.GroupBox5.ResumeLayout(False)
             Me.GroupBox6.ResumeLayout(False)
             Me.ContextMenuStrip1.ResumeLayout(False)
+            Me.GroupBox7.ResumeLayout(False)
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
         End Sub
 
 #End Region
+
+        Private Sub CleanMenu(Optional ByVal StrVisibleTrue As String = "")
+            With ContextMenuStrip1.Items
+                For j As Integer = 0 To .Count - 1
+                    .Item(j).Visible = False
+                    If StrVisibleTrue <> "" Then
+                        Dim StrArray() As String = Split(StrVisibleTrue, ";")
+                        For i As Integer = 0 To StrArray.Length - 1
+                            If .Item(j).Text = StrArray(i) Then
+                                .Item(i).Visible = True
+                            End If
+
+                        Next
+                    End If
+                Next
+                
+            End With
+
+        End Sub
 
         Private ActiveUser As Smartlaunch.TCPInterface.Users.User = New Smartlaunch.TCPInterface.Users.User
         Private ActiveComputer As Smartlaunch.TCPInterface.Computers.Computer = New Smartlaunch.TCPInterface.Computers.Computer
@@ -707,10 +765,13 @@ Namespace Forms
                     txtOutput.Text &= "Username: " & .UserName & NewLine
                     txtOutput.Text &= "Firstname: " & .FirstName & NewLine
                     txtOutput.Text &= "Lastname: " & .LastName & NewLine
+                    txtOutput.Text &= "Group ID: " & .UserGroupID & NewLine
                     txtOutput.Text &= "Email: " & .Email & NewLine
                     txtOutput.Text &= "Age: " & .Age & NewLine
                     txtOutput.Text &= "Time Status: " & .TimeStatus & NewLine
                     txtOutput.Text &= "Balance: " & .Balance & NewLine
+                    txtOutput.Text &= "Deposit Amount: " & .DepositAmount & NewLine
+                    txtOutput.Text &= "Deposit Date: " & .DepositDate & NewLine
                 End With
             End If
 
@@ -1171,6 +1232,18 @@ Namespace Forms
             Dim BookingID As Integer = CInt(InputBox("Please enter Booking ID", "Booking ID", "12345"))
             Dim xmlDoc As New XmlDocument
             xmlDoc = ActiveUser.GetBookingByBookingID(BookingID)
+            txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+        End Sub
+
+        Private Sub btnUserAddSpecialTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUserAddSpecialTime.Click
+            Dim Username As String = InputBox("Please enter Username (User)", "Username (User)", "user")
+            Dim Minutes As Integer = InputBox("Please enter Minutes", "Minutes", "60")
+            Dim TotalPrice As String = InputBox("Please enter Total Price", "Total Price", "123")
+            Dim TaxIncluded As Boolean = IIf(MsgBox("Tax Included?", vbYesNo, "Username (User)") = vbYes, True, False)
+            Dim AdministratorID As Integer = InputBox("Please enter Administrator ID", "Administrator ID", "12345")
+
+            Dim xmlDoc As New XmlDocument
+            xmlDoc = ActiveUser.UserAddSpecialTime(Username, Minutes, TotalPrice, TaxIncluded, AdministratorID)
             txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
         End Sub
     End Class
