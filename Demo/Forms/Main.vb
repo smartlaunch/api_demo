@@ -88,6 +88,9 @@ Namespace Forms
         Friend WithEvents btnUserAddSpecialTime As System.Windows.Forms.Button
         Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
         Friend WithEvents btnGetFinancialData As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllOffers As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllUserGroup As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllUsers As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -142,6 +145,9 @@ Namespace Forms
             Me.mnBookingID = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox7 = New System.Windows.Forms.GroupBox()
             Me.btnGetFinancialData = New System.Windows.Forms.Button()
+            Me.btnGetAllOffers = New System.Windows.Forms.Button()
+            Me.btnGetAllUserGroup = New System.Windows.Forms.Button()
+            Me.btnGetAllUsers = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -208,6 +214,9 @@ Namespace Forms
             '
             'GroupBox1
             '
+            Me.GroupBox1.Controls.Add(Me.btnGetAllUsers)
+            Me.GroupBox1.Controls.Add(Me.btnGetAllUserGroup)
+            Me.GroupBox1.Controls.Add(Me.btnGetAllOffers)
             Me.GroupBox1.Controls.Add(Me.btnUserAddSpecialTime)
             Me.GroupBox1.Controls.Add(Me.btnUserGroupGet)
             Me.GroupBox1.Controls.Add(Me.btnUserGroupGetAll)
@@ -238,7 +247,7 @@ Namespace Forms
             'btnUserAddSpecialTime
             '
             Me.btnUserAddSpecialTime.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnUserAddSpecialTime.Location = New System.Drawing.Point(237, 83)
+            Me.btnUserAddSpecialTime.Location = New System.Drawing.Point(237, 81)
             Me.btnUserAddSpecialTime.Name = "btnUserAddSpecialTime"
             Me.btnUserAddSpecialTime.Size = New System.Drawing.Size(178, 26)
             Me.btnUserAddSpecialTime.TabIndex = 42
@@ -247,9 +256,9 @@ Namespace Forms
             'btnUserGroupGet
             '
             Me.btnUserGroupGet.Enabled = False
-            Me.btnUserGroupGet.Location = New System.Drawing.Point(421, 115)
+            Me.btnUserGroupGet.Location = New System.Drawing.Point(421, 112)
             Me.btnUserGroupGet.Name = "btnUserGroupGet"
-            Me.btnUserGroupGet.Size = New System.Drawing.Size(99, 26)
+            Me.btnUserGroupGet.Size = New System.Drawing.Size(109, 26)
             Me.btnUserGroupGet.TabIndex = 41
             Me.btnUserGroupGet.Text = "UserGroupGet"
             Me.btnUserGroupGet.UseVisualStyleBackColor = True
@@ -257,9 +266,9 @@ Namespace Forms
             'btnUserGroupGetAll
             '
             Me.btnUserGroupGetAll.Enabled = False
-            Me.btnUserGroupGetAll.Location = New System.Drawing.Point(421, 83)
+            Me.btnUserGroupGetAll.Location = New System.Drawing.Point(421, 81)
             Me.btnUserGroupGetAll.Name = "btnUserGroupGetAll"
-            Me.btnUserGroupGetAll.Size = New System.Drawing.Size(99, 26)
+            Me.btnUserGroupGetAll.Size = New System.Drawing.Size(109, 26)
             Me.btnUserGroupGetAll.TabIndex = 40
             Me.btnUserGroupGetAll.Text = "UserGroupGetAll"
             Me.btnUserGroupGetAll.UseVisualStyleBackColor = True
@@ -267,9 +276,9 @@ Namespace Forms
             'btnUserLogHistory
             '
             Me.btnUserLogHistory.Enabled = False
-            Me.btnUserLogHistory.Location = New System.Drawing.Point(421, 51)
+            Me.btnUserLogHistory.Location = New System.Drawing.Point(421, 50)
             Me.btnUserLogHistory.Name = "btnUserLogHistory"
-            Me.btnUserLogHistory.Size = New System.Drawing.Size(99, 26)
+            Me.btnUserLogHistory.Size = New System.Drawing.Size(109, 26)
             Me.btnUserLogHistory.TabIndex = 39
             Me.btnUserLogHistory.Text = "UserLogHistory"
             Me.btnUserLogHistory.UseVisualStyleBackColor = True
@@ -279,7 +288,7 @@ Namespace Forms
             Me.btnUserRemoveOffer.Enabled = False
             Me.btnUserRemoveOffer.Location = New System.Drawing.Point(421, 19)
             Me.btnUserRemoveOffer.Name = "btnUserRemoveOffer"
-            Me.btnUserRemoveOffer.Size = New System.Drawing.Size(99, 26)
+            Me.btnUserRemoveOffer.Size = New System.Drawing.Size(109, 26)
             Me.btnUserRemoveOffer.TabIndex = 38
             Me.btnUserRemoveOffer.Text = "UserRemoveOffer"
             Me.btnUserRemoveOffer.UseVisualStyleBackColor = True
@@ -328,7 +337,7 @@ Namespace Forms
             '
             Me.btnSetPasswd.Enabled = False
             Me.btnSetPasswd.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnSetPasswd.Location = New System.Drawing.Point(127, 83)
+            Me.btnSetPasswd.Location = New System.Drawing.Point(127, 81)
             Me.btnSetPasswd.Name = "btnSetPasswd"
             Me.btnSetPasswd.Size = New System.Drawing.Size(104, 26)
             Me.btnSetPasswd.TabIndex = 31
@@ -338,7 +347,7 @@ Namespace Forms
             '
             Me.btnUpdateUserInfo.Enabled = False
             Me.btnUpdateUserInfo.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnUpdateUserInfo.Location = New System.Drawing.Point(127, 51)
+            Me.btnUpdateUserInfo.Location = New System.Drawing.Point(127, 50)
             Me.btnUpdateUserInfo.Name = "btnUpdateUserInfo"
             Me.btnUpdateUserInfo.Size = New System.Drawing.Size(104, 26)
             Me.btnUpdateUserInfo.TabIndex = 30
@@ -661,6 +670,36 @@ Namespace Forms
             Me.btnGetFinancialData.TabIndex = 10
             Me.btnGetFinancialData.Text = "Get Financial Data"
             '
+            'btnGetAllOffers
+            '
+            Me.btnGetAllOffers.Enabled = False
+            Me.btnGetAllOffers.Location = New System.Drawing.Point(421, 144)
+            Me.btnGetAllOffers.Name = "btnGetAllOffers"
+            Me.btnGetAllOffers.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllOffers.TabIndex = 43
+            Me.btnGetAllOffers.Text = "GetAllOffers"
+            Me.btnGetAllOffers.UseVisualStyleBackColor = True
+            '
+            'btnGetAllUserGroup
+            '
+            Me.btnGetAllUserGroup.Enabled = False
+            Me.btnGetAllUserGroup.Location = New System.Drawing.Point(536, 19)
+            Me.btnGetAllUserGroup.Name = "btnGetAllUserGroup"
+            Me.btnGetAllUserGroup.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllUserGroup.TabIndex = 44
+            Me.btnGetAllUserGroup.Text = "GetAllUserGroup"
+            Me.btnGetAllUserGroup.UseVisualStyleBackColor = True
+            '
+            'btnGetAllUsers
+            '
+            Me.btnGetAllUsers.Enabled = False
+            Me.btnGetAllUsers.Location = New System.Drawing.Point(536, 50)
+            Me.btnGetAllUsers.Name = "btnGetAllUsers"
+            Me.btnGetAllUsers.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllUsers.TabIndex = 45
+            Me.btnGetAllUsers.Text = "GetAllUsers"
+            Me.btnGetAllUsers.UseVisualStyleBackColor = True
+            '
             'Main
             '
             Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -710,12 +749,12 @@ Namespace Forms
                         Next
                     End If
                 Next
-                
+
             End With
 
         End Sub
 
-        Private ActiveUser As Smartlaunch.TCPInterface.Users.User = New Smartlaunch.TCPInterface.Users.User
+        Private ActiveUser As Smartlaunch.TCPInterface.Users.User
         Private ActiveComputer As Smartlaunch.TCPInterface.Computers.Computer = New Smartlaunch.TCPInterface.Computers.Computer
 
         Private Sub btnGetNews_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetNews.Click
@@ -784,13 +823,18 @@ Namespace Forms
             Dim username As String = InputBox("Please enter username", "Username", "test2")
             Dim passwd As String = InputBox("Please enter password", "Password", "test")
 
-            ActiveUser = Smartlaunch.TCPInterface.Users.Login(username, passwd)
+            Dim Response As Int32 = Smartlaunch.TCPInterface.Users.Login(username, passwd)
 
-            If ActiveUser Is Nothing Then
-                txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
-            Else
-                txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
-            End If
+            Select Case Response
+                Case 1
+                    ActiveUser = New Smartlaunch.TCPInterface.Users.User
+                    ActiveUser = Smartlaunch.TCPInterface.Users.GetUserLogin(username, passwd)
+                    txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
+                Case 0
+                    txtOutput.Text &= NewLine & NewLine & "Password was incorrect." & NewLine
+                Case Else
+                    txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
+            End Select
 
             SetEnabledState()
         End Sub
@@ -812,6 +856,10 @@ Namespace Forms
             btnAskAccDetails.Enabled = Enabled
             btnUserGroupGetAll.Enabled = Enabled
             btnUserGroupGet.Enabled = Enabled
+            btnUserAddSpecialTime.Enabled = Enabled
+            btnGetAllOffers.Enabled = Enabled
+            btnGetAllUserGroup.Enabled = Enabled
+            btnGetAllUsers.Enabled = Enabled
         End Sub
 
         Private Sub btnDepositMoney_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDepositMoney.Click
@@ -1137,7 +1185,7 @@ Namespace Forms
         End Sub
 
         Private Sub Main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+            SetEnabledState()
         End Sub
 
         Private Sub Button4_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
@@ -1245,6 +1293,20 @@ Namespace Forms
             Dim xmlDoc As New XmlDocument
             xmlDoc = ActiveUser.UserAddSpecialTime(Username, Minutes, TotalPrice, TaxIncluded, AdministratorID)
             txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+        End Sub
+
+        Private Sub btnGetAllOffers_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllOffers.Click
+            txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllOffers.InnerXml & NewLine
+        End Sub
+
+        Private Sub btnGetAllUserGroup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllUserGroup.Click
+            txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsergroup.InnerXml & NewLine
+        End Sub
+
+        Private Sub btnGetAllUsers_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllUsers.Click
+            Dim StartID As String = InputBox("Please enter Start ID", "Start ID", "1")
+            Dim EndID As String = InputBox("Please enter Count", "Count", "10")
+            txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(StartID, EndID).InnerXml & NewLine
         End Sub
     End Class
 

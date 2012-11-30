@@ -24,7 +24,23 @@ Namespace Users
 
         End Function
 
-        Public Function Login(ByVal Username As String, ByVal Password As String) As User
+        Public Function Login(ByVal Username As String, ByVal Password As String) As Int32
+
+            Dim xmlCmd As New Classes.XMLCommand
+            xmlCmd.AppendCommand("UserLogin")
+            xmlCmd.AppendParameterSection()
+            xmlCmd.AppendParameter("Username", Username)
+            xmlCmd.AppendParameter("Password", Password)
+            xmlCmd.AppendParameter("PasswordHash", Password)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return CInt(xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value)
+
+        End Function
+
+        Public Function GetUserLogin(ByVal Username As String, ByVal Password As String) As User
 
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("UserLogin")
@@ -547,6 +563,22 @@ Namespace Users
 
         End Function
 
+        Public Function GetAllUsers(ByVal IDStart As String, ByVal TopCount As String) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllUsers")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("IDStart", IDStart)
+            Command.AppendParameter("TopCount", TopCount)
+
+            'Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
+
         Public Function LostPasswdEmail() As Boolean
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("LostPwSendMail")
@@ -663,6 +695,16 @@ Namespace Users
 
         End Sub
 
+        Public Function GetAllOffers() As XmlDocument
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllOffers")
+            ' Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Return xmlRes
+        End Function
+
         Public Sub UserLogHistory(ByVal theDate As Date)
 
             Dim Command As New Classes.XMLCommand
@@ -710,6 +752,17 @@ Namespace Users
 
             Return xmlRes
 
+        End Function
+
+        Public Function GetAllUsergroup() As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllUsergroup")
+            Command.AppendParameterSection()
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
         End Function
 
         Public Function UserGroupGet(ByVal UsergroupID As Integer) As XmlDocument
