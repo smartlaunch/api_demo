@@ -40,6 +40,21 @@ Namespace Users
 
         End Function
 
+        Public Function EmployeeLogin(ByVal Username As String, ByVal Password As String) As XmlDocument
+
+            Dim xmlCmd As New Classes.XMLCommand
+            xmlCmd.AppendCommand("EmployeeLogin")
+            xmlCmd.AppendParameterSection()
+            xmlCmd.AppendParameter("Username", Username)
+            xmlCmd.AppendParameter("Password", Password)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+
+        End Function
+
         Public Function GetUserLogin(ByVal Username As String, ByVal Password As String) As User
 
             Dim xmlCmd As New Classes.XMLCommand
@@ -508,7 +523,7 @@ Namespace Users
         Public Function UpdateUserInfo(ByVal FirstName As String, ByVal LastName As String, ByVal BirthDate As Integer, ByVal Address As String, _
                                        ByVal City As String, ByVal Zip As String, ByVal State As String, ByVal Country As String, _
                                        ByVal Email As String, ByVal Phone As String, ByVal PhoneMobile As String, ByVal PersonalNumber As String, _
-                                       ByVal Sex As String) As Boolean
+                                       ByVal Sex As String) As XmlDocument
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserSave")
 
@@ -534,15 +549,16 @@ Namespace Users
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                Return True
-            Else
-                Return False
-            End If
+            Return xmlRes
+            'If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+            '    Return True
+            'Else
+            '    Return False
+            'End If
 
         End Function
 
-        Public Function UserSetNewPassword(ByVal newPass As String) As Boolean
+        Public Function UserSetNewPassword(ByVal newPass As String) As XmlDocument ' Boolean
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserSetPassword")
 
@@ -555,11 +571,12 @@ Namespace Users
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                Return True
-            Else
-                Return False
-            End If
+            Return xmlRes
+            'If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+            '    Return True
+            'Else
+            '    Return False
+            'End If
 
         End Function
 
@@ -579,7 +596,7 @@ Namespace Users
             Return xmlRes
         End Function
 
-        Public Function LostPasswdEmail() As Boolean
+        Public Function LostPasswdEmail() As XmlDocument ' Boolean
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("LostPwSendMail")
 
@@ -588,18 +605,20 @@ Namespace Users
             Command.AppendParameter("Email", Email)
 
             'Classes.Communication.SendAndWait(Command.InnerXML)
+            Console.WriteLine(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                Return True
-            Else
-                Return False
-            End If
+            Return xmlRes
+            'If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+            '    Return True
+            'Else
+            '    Return False
+            'End If
         End Function
 
-        Public Function LogoutUser() As Boolean
+        Public Function LogoutUser() As XmlDocument ' Boolean
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("UserLogout")
             xmlCmd.AppendParameterSection()
@@ -608,11 +627,12 @@ Namespace Users
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                Return True
-            Else
-                Return False
-            End If
+            Return xmlRes
+            'If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+            '    Return True
+            'Else
+            '    Return False
+            'End If
 
         End Function
 
@@ -634,7 +654,8 @@ Namespace Users
             Return xmlRes
         End Function
 
-        Public Sub UserAddOffer(ByVal OfferID As Integer, ByVal Price As Double, ByVal PaymentType As String, ByVal FixedStart As Boolean, ByVal theDate As Date, ByVal TaxPayable As Boolean)
+        Public Sub UserAddOffer(ByVal OfferID As Integer, ByVal Price As Double, ByVal PaymentType As String, ByVal FixedStart As Boolean, _
+                                ByVal theDate As Date, ByVal TaxPayable As Boolean)
 
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserAddOffer")
@@ -648,12 +669,13 @@ Namespace Users
             Command.AppendParameter("Date", theDate)
             Command.AppendParameter("TaxPayable", TaxPayable)
 
-            ' Classes.Communication.SendAndWait(Command.InnerXML)
+            MsgBox(Command.InnerXML)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-
+            MsgBox(xmlRes.InnerXml)
+            'Return xmlRes
         End Sub
 
         Public Sub UserAddProduct(ByVal ProductID As Integer, ByVal Quantity As Integer, ByVal TotalPrice As Double, ByVal PaymentType As String, ByVal TaxPayable As Boolean, ByVal Note As String)

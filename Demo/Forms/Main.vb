@@ -91,6 +91,9 @@ Namespace Forms
         Friend WithEvents btnGetAllOffers As System.Windows.Forms.Button
         Friend WithEvents btnGetAllUserGroup As System.Windows.Forms.Button
         Friend WithEvents btnGetAllUsers As System.Windows.Forms.Button
+        Friend WithEvents ContextLogin As System.Windows.Forms.ContextMenuStrip
+        Friend WithEvents UserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents EmployeeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -101,6 +104,9 @@ Namespace Forms
             Me.btnGetUserInfo = New System.Windows.Forms.Button()
             Me.btnLoginUser = New System.Windows.Forms.Button()
             Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+            Me.btnGetAllUsers = New System.Windows.Forms.Button()
+            Me.btnGetAllUserGroup = New System.Windows.Forms.Button()
+            Me.btnGetAllOffers = New System.Windows.Forms.Button()
             Me.btnUserAddSpecialTime = New System.Windows.Forms.Button()
             Me.btnUserGroupGet = New System.Windows.Forms.Button()
             Me.btnUserGroupGetAll = New System.Windows.Forms.Button()
@@ -145,9 +151,9 @@ Namespace Forms
             Me.mnBookingID = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox7 = New System.Windows.Forms.GroupBox()
             Me.btnGetFinancialData = New System.Windows.Forms.Button()
-            Me.btnGetAllOffers = New System.Windows.Forms.Button()
-            Me.btnGetAllUserGroup = New System.Windows.Forms.Button()
-            Me.btnGetAllUsers = New System.Windows.Forms.Button()
+            Me.ContextLogin = New System.Windows.Forms.ContextMenuStrip(Me.components)
+            Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -156,6 +162,7 @@ Namespace Forms
             Me.GroupBox6.SuspendLayout()
             Me.ContextMenuStrip1.SuspendLayout()
             Me.GroupBox7.SuspendLayout()
+            Me.ContextLogin.SuspendLayout()
             Me.SuspendLayout()
             '
             'btnGetNews
@@ -243,6 +250,36 @@ Namespace Forms
             Me.GroupBox1.TabIndex = 17
             Me.GroupBox1.TabStop = False
             Me.GroupBox1.Text = "User handling"
+            '
+            'btnGetAllUsers
+            '
+            Me.btnGetAllUsers.Enabled = False
+            Me.btnGetAllUsers.Location = New System.Drawing.Point(536, 50)
+            Me.btnGetAllUsers.Name = "btnGetAllUsers"
+            Me.btnGetAllUsers.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllUsers.TabIndex = 45
+            Me.btnGetAllUsers.Text = "GetAllUsers"
+            Me.btnGetAllUsers.UseVisualStyleBackColor = True
+            '
+            'btnGetAllUserGroup
+            '
+            Me.btnGetAllUserGroup.Enabled = False
+            Me.btnGetAllUserGroup.Location = New System.Drawing.Point(536, 19)
+            Me.btnGetAllUserGroup.Name = "btnGetAllUserGroup"
+            Me.btnGetAllUserGroup.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllUserGroup.TabIndex = 44
+            Me.btnGetAllUserGroup.Text = "GetAllUserGroup"
+            Me.btnGetAllUserGroup.UseVisualStyleBackColor = True
+            '
+            'btnGetAllOffers
+            '
+            Me.btnGetAllOffers.Enabled = False
+            Me.btnGetAllOffers.Location = New System.Drawing.Point(421, 144)
+            Me.btnGetAllOffers.Name = "btnGetAllOffers"
+            Me.btnGetAllOffers.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllOffers.TabIndex = 43
+            Me.btnGetAllOffers.Text = "GetAllOffers"
+            Me.btnGetAllOffers.UseVisualStyleBackColor = True
             '
             'btnUserAddSpecialTime
             '
@@ -670,35 +707,23 @@ Namespace Forms
             Me.btnGetFinancialData.TabIndex = 10
             Me.btnGetFinancialData.Text = "Get Financial Data"
             '
-            'btnGetAllOffers
+            'ContextLogin
             '
-            Me.btnGetAllOffers.Enabled = False
-            Me.btnGetAllOffers.Location = New System.Drawing.Point(421, 144)
-            Me.btnGetAllOffers.Name = "btnGetAllOffers"
-            Me.btnGetAllOffers.Size = New System.Drawing.Size(109, 26)
-            Me.btnGetAllOffers.TabIndex = 43
-            Me.btnGetAllOffers.Text = "GetAllOffers"
-            Me.btnGetAllOffers.UseVisualStyleBackColor = True
+            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem})
+            Me.ContextLogin.Name = "ContextMenuStrip1"
+            Me.ContextLogin.Size = New System.Drawing.Size(153, 70)
             '
-            'btnGetAllUserGroup
+            'UserToolStripMenuItem
             '
-            Me.btnGetAllUserGroup.Enabled = False
-            Me.btnGetAllUserGroup.Location = New System.Drawing.Point(536, 19)
-            Me.btnGetAllUserGroup.Name = "btnGetAllUserGroup"
-            Me.btnGetAllUserGroup.Size = New System.Drawing.Size(109, 26)
-            Me.btnGetAllUserGroup.TabIndex = 44
-            Me.btnGetAllUserGroup.Text = "GetAllUserGroup"
-            Me.btnGetAllUserGroup.UseVisualStyleBackColor = True
+            Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
+            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+            Me.UserToolStripMenuItem.Text = "User"
             '
-            'btnGetAllUsers
+            'EmployeeToolStripMenuItem
             '
-            Me.btnGetAllUsers.Enabled = False
-            Me.btnGetAllUsers.Location = New System.Drawing.Point(536, 50)
-            Me.btnGetAllUsers.Name = "btnGetAllUsers"
-            Me.btnGetAllUsers.Size = New System.Drawing.Size(109, 26)
-            Me.btnGetAllUsers.TabIndex = 45
-            Me.btnGetAllUsers.Text = "GetAllUsers"
-            Me.btnGetAllUsers.UseVisualStyleBackColor = True
+            Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
+            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+            Me.EmployeeToolStripMenuItem.Text = "Employee"
             '
             'Main
             '
@@ -728,6 +753,7 @@ Namespace Forms
             Me.GroupBox6.ResumeLayout(False)
             Me.ContextMenuStrip1.ResumeLayout(False)
             Me.GroupBox7.ResumeLayout(False)
+            Me.ContextLogin.ResumeLayout(False)
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -819,24 +845,8 @@ Namespace Forms
         End Sub
 
         Private Sub btnLoginUser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoginUser.Click
-
-            Dim username As String = InputBox("Please enter username", "Username", "test2")
-            Dim passwd As String = InputBox("Please enter password", "Password", "test")
-
-            Dim Response As Int32 = Smartlaunch.TCPInterface.Users.Login(username, passwd)
-
-            Select Case Response
-                Case 1
-                    ActiveUser = New Smartlaunch.TCPInterface.Users.User
-                    ActiveUser = Smartlaunch.TCPInterface.Users.GetUserLogin(username, passwd)
-                    txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
-                Case 0
-                    txtOutput.Text &= NewLine & NewLine & "Password was incorrect." & NewLine
-                Case Else
-                    txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
-            End Select
-
-            SetEnabledState()
+            ContextLogin.Show(MousePosition)
+            
         End Sub
 
         Private Sub SetEnabledState()
@@ -964,11 +974,12 @@ Namespace Forms
         End Sub
 
         Private Sub btnUserLogout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUserLogout.Click
-            If ActiveUser.LogoutUser Then
-                txtOutput.Text &= NewLine & NewLine & "User logout successfully." & NewLine
-            Else
-                txtOutput.Text &= NewLine & NewLine & "User logout failed." & NewLine
-            End If
+            txtOutput.Text &= NewLine & NewLine & ActiveUser.LogoutUser.InnerXml
+            'If ActiveUser.LogoutUser Then
+            '    txtOutput.Text &= NewLine & NewLine & "User logout successfully." & NewLine
+            'Else
+            '    txtOutput.Text &= NewLine & NewLine & "User logout failed." & NewLine
+            'End If
 
         End Sub
 
@@ -996,13 +1007,16 @@ Namespace Forms
                     Dim Sex As String = InputBox("Please enter email sex", "Sex", .Sex)
                     Dim SocialNum As String = InputBox("Please enter personal number", "Personal Number", .SocialNum)
 
-
-                    If ActiveUser.UpdateUserInfo(FName, LName, BirthDate, Address, City, Zip, State, Country, email, _
-                                                 Phone, PhoneMobile, SocialNum, Sex) Then
-                        txtOutput.Text &= NewLine & NewLine & "User Info updated successfully." & NewLine
-                    Else
-                        txtOutput.Text &= NewLine & NewLine & "Failed to update User Info." & NewLine
-                    End If
+                    Dim XML As XmlDocument
+                    XML = ActiveUser.UpdateUserInfo(FName, LName, BirthDate, Address, City, Zip, State, Country, email, _
+                                                 Phone, PhoneMobile, SocialNum, Sex)
+                    txtOutput.Text &= NewLine & NewLine & XML.InnerXml
+                    'If ActiveUser.UpdateUserInfo(FName, LName, BirthDate, Address, City, Zip, State, Country, email, _
+                    '                             Phone, PhoneMobile, SocialNum, Sex) Then
+                    '    txtOutput.Text &= NewLine & NewLine & "User Info updated successfully." & NewLine
+                    'Else
+                    '    txtOutput.Text &= NewLine & NewLine & "Failed to update User Info." & NewLine
+                    'End If
                 End With
 
             End If
@@ -1013,21 +1027,26 @@ Namespace Forms
 
             Dim passwd As String = InputBox("Please enter new passwd.", "Password", "test")
 
-            If ActiveUser.UserSetNewPassword(passwd) Then
-                txtOutput.Text &= NewLine & NewLine & "New password set successfully." & NewLine
-            Else
-                txtOutput.Text &= NewLine & NewLine & "Failed to set new password." & NewLine
-            End If
+            Dim XML As XmlDocument
+            XML = ActiveUser.UserSetNewPassword(passwd)
+            txtOutput.Text &= NewLine & NewLine & XML.InnerXml
+            'If ActiveUser.UserSetNewPassword(passwd) Then
+            '    txtOutput.Text &= NewLine & NewLine & "New password set successfully." & NewLine
+            'Else
+            '    txtOutput.Text &= NewLine & NewLine & "Failed to set new password." & NewLine
+            'End If
 
         End Sub
 
         Private Sub btnLostPwSendMail_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLostPwSendMail.Click
-
-            If ActiveUser.LostPasswdEmail() Then
-                txtOutput.Text &= NewLine & NewLine & "Lost password email sent successfully." & NewLine
-            Else
-                txtOutput.Text &= NewLine & NewLine & "Failed to sent lost password email." & NewLine
-            End If
+            Dim XML As XmlDocument
+            XML = ActiveUser.LostPasswdEmail()
+            txtOutput.Text &= NewLine & NewLine & XML.InnerXml
+            'If ActiveUser.LostPasswdEmail() Then
+            '    txtOutput.Text &= NewLine & NewLine & "Lost password email sent successfully." & NewLine
+            'Else
+            '    txtOutput.Text &= NewLine & NewLine & "Failed to sent lost password email." & NewLine
+            'End If
 
         End Sub
 
@@ -1062,17 +1081,22 @@ Namespace Forms
         Private Sub btnAddOffer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddOffer.Click
 
             'This is just an example. Only for testing!!!
-            Dim OfferID As Integer = InputBox("Please enter the OfferID (use 1 if you are uncertain)", "OfferID", 1)
-            Dim Price As Double = InputBox("Please enter the Price (use 1 if you are uncertain)", "Price", 1)
-            Dim PaymentType As String = InputBox("Please enter the PaymentType (use Cash if you are uncertain)", "PaymentType", "1")
+            Try
+                Dim OfferID As Integer = InputBox("Please enter the OfferID (use 1 if you are uncertain)", "OfferID", 1)
+                Dim Price As Double = InputBox("Please enter the Price (use 1 if you are uncertain)", "Price", 1)
+                Dim PaymentType As String = InputBox("Please enter the PaymentType (use Cash if you are uncertain)", "PaymentType", "1")
 
-            Dim FixedStart As Boolean = True
-            Dim TheDate As Date = Date.Today
-            Dim TaxPayable As Boolean = False
+                Dim FixedStart As Boolean = True
+                Dim TheDate As Date = Date.Today
+                Dim TaxPayable As Boolean = False
 
-            ActiveUser.UserAddOffer(OfferID, Price, PaymentType, FixedStart, TheDate, TaxPayable)
+                ActiveUser.UserAddOffer(OfferID, Price, PaymentType, FixedStart, TheDate, TaxPayable)
 
-            txtOutput.Text &= NewLine & NewLine & "Added offer successfully." & NewLine
+                txtOutput.Text &= NewLine & NewLine & "Added offer successfully." & NewLine
+            Catch ex As Exception
+
+            End Try
+
 
         End Sub
 
@@ -1307,6 +1331,52 @@ Namespace Forms
             Dim StartID As String = InputBox("Please enter Start ID", "Start ID", "1")
             Dim EndID As String = InputBox("Please enter Count", "Count", "10")
             txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(StartID, EndID).InnerXml & NewLine
+        End Sub
+
+        Private Sub UserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UserToolStripMenuItem.Click
+            Dim username As String = InputBox("Please enter username", "Username", "test2")
+            Dim passwd As String = InputBox("Please enter password", "Password", "test")
+
+            Dim Response As Int32 = Smartlaunch.TCPInterface.Users.Login(username, passwd)
+
+            Select Case Response
+                Case 1
+                    ActiveUser = New Smartlaunch.TCPInterface.Users.User
+                    ActiveUser = Smartlaunch.TCPInterface.Users.GetUserLogin(username, passwd)
+                    txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
+                Case 0
+                    txtOutput.Text &= NewLine & NewLine & "Password was incorrect." & NewLine
+                Case Else
+                    txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
+            End Select
+
+            SetEnabledState()
+        End Sub
+
+        Private Sub EmployeeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EmployeeToolStripMenuItem.Click
+            Dim username As String = InputBox("Please enter username", "Username", "Admin")
+            Dim passwd As String = InputBox("Please enter password", "Password", "admin")
+
+            Dim xmlRes As XmlDocument = Smartlaunch.TCPInterface.Users.EmployeeLogin(username, passwd)
+            txtOutput.Text &= NewLine & NewLine & xmlRes.InnerXml & NewLine
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                MsgBox("Login Success" & vbCrLf & "Username : " & username & vbCrLf & "ID : " & xmlRes.DocumentElement.GetElementsByTagName("Object")(0).Attributes("ID").Value, MsgBoxStyle.Exclamation, "Warning")
+            Else
+                MsgBox("Username Or/And Password was incorrect", MsgBoxStyle.Exclamation, "Warning")
+            End If
+            'Select Case Response
+            '    Case 1
+            '        ActiveUser = New Smartlaunch.TCPInterface.Users.User
+            '        ActiveUser = Smartlaunch.TCPInterface.Users.GetUserLogin(username, passwd)
+            '        txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
+            '    Case 0
+            '        txtOutput.Text &= NewLine & NewLine & "Password was incorrect." & NewLine
+            '    Case Else
+            '        txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
+            'End Select
+
+            'SetEnabledState()
         End Sub
     End Class
 
