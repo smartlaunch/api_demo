@@ -94,6 +94,7 @@ Namespace Forms
         Friend WithEvents ContextLogin As System.Windows.Forms.ContextMenuStrip
         Friend WithEvents UserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents EmployeeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents btnUserAddTime As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -154,6 +155,7 @@ Namespace Forms
             Me.ContextLogin = New System.Windows.Forms.ContextMenuStrip(Me.components)
             Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.btnUserAddTime = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -221,6 +223,7 @@ Namespace Forms
             '
             'GroupBox1
             '
+            Me.GroupBox1.Controls.Add(Me.btnUserAddTime)
             Me.GroupBox1.Controls.Add(Me.btnGetAllUsers)
             Me.GroupBox1.Controls.Add(Me.btnGetAllUserGroup)
             Me.GroupBox1.Controls.Add(Me.btnGetAllOffers)
@@ -388,7 +391,7 @@ Namespace Forms
             Me.btnUpdateUserInfo.Name = "btnUpdateUserInfo"
             Me.btnUpdateUserInfo.Size = New System.Drawing.Size(104, 26)
             Me.btnUpdateUserInfo.TabIndex = 30
-            Me.btnUpdateUserInfo.Text = "Update User Info"
+            Me.btnUpdateUserInfo.Text = "UserSave"
             '
             'btnUserLogout
             '
@@ -711,19 +714,29 @@ Namespace Forms
             '
             Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(153, 70)
+            Me.ContextLogin.Size = New System.Drawing.Size(127, 48)
             '
             'UserToolStripMenuItem
             '
             Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
             Me.UserToolStripMenuItem.Text = "User"
             '
             'EmployeeToolStripMenuItem
             '
             Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
             Me.EmployeeToolStripMenuItem.Text = "Employee"
+            '
+            'btnUserAddTime
+            '
+            Me.btnUserAddTime.Enabled = False
+            Me.btnUserAddTime.Location = New System.Drawing.Point(536, 81)
+            Me.btnUserAddTime.Name = "btnUserAddTime"
+            Me.btnUserAddTime.Size = New System.Drawing.Size(109, 26)
+            Me.btnUserAddTime.TabIndex = 46
+            Me.btnUserAddTime.Text = "UserAddTime"
+            Me.btnUserAddTime.UseVisualStyleBackColor = True
             '
             'Main
             '
@@ -846,7 +859,7 @@ Namespace Forms
 
         Private Sub btnLoginUser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoginUser.Click
             ContextLogin.Show(MousePosition)
-            
+
         End Sub
 
         Private Sub SetEnabledState()
@@ -995,7 +1008,7 @@ Namespace Forms
 
                     Dim FName As String = InputBox("Please enter first name", "First Name", .FirstName)
                     Dim LName As String = InputBox("Please enter last name", "Last  Name", .LastName)
-                    Dim BirthDate As Integer = CInt(DateValue(InputBox("Please enter birth date", "Birth Date", .BirthDate) & " 20:00:00").ToOADate)
+                    Dim BirthDate As Integer = CInt(DateValue(InputBox("Please enter birth date", "Birth Date", .BirthDate) & " 00:00:00").ToOADate)
                     Dim Address As String = InputBox("Please enter address", "Address", .Address)
                     Dim City As String = InputBox("Please enter city", "City", .City)
                     Dim Zip As String = InputBox("Please enter zip", "Zip", .Zip)
@@ -1377,6 +1390,10 @@ Namespace Forms
             'End Select
 
             'SetEnabledState()
+        End Sub
+
+        Private Sub btnUserAddTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUserAddTime.Click
+
         End Sub
     End Class
 

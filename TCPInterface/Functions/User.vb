@@ -543,9 +543,6 @@ Namespace Users
             Command.AppendParameter("Mobilephone", PhoneMobile)
             Command.AppendParameter("Personalnumber", SocialNum)
 
-
-            'Classes.Communication.SendAndWait(Command.InnerXML)
-
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
@@ -605,8 +602,7 @@ Namespace Users
             Command.AppendParameter("Email", Email)
 
             'Classes.Communication.SendAndWait(Command.InnerXML)
-            Console.WriteLine(Command.InnerXML)
-
+            
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
@@ -669,12 +665,9 @@ Namespace Users
             Command.AppendParameter("Date", theDate)
             Command.AppendParameter("TaxPayable", TaxPayable)
 
-            MsgBox(Command.InnerXML)
-
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-            MsgBox(xmlRes.InnerXml)
             'Return xmlRes
         End Sub
 

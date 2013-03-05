@@ -9,4 +9,15 @@ Namespace Classes
 
 	End Class
 
+    Friend Class Variable
+        Public Enum Paymode
+            Later = 0
+            Cash = 1
+            Payment1 = 2
+            Payment2 = 3
+            Withdraw = 4
+            Save = 5
+            NA = -1
+        End Enum
+    End Class
 End Namespace
