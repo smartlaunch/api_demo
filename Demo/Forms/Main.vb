@@ -82,7 +82,7 @@ Namespace Forms
         Friend WithEvents btnAddBooking As System.Windows.Forms.Button
         Friend WithEvents btnEditBooking As System.Windows.Forms.Button
         Friend WithEvents btnGetAllBooking As System.Windows.Forms.Button
-        Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+        Friend WithEvents ContextMenu As System.Windows.Forms.ContextMenuStrip
         Friend WithEvents mnAll As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents mnBookingID As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btnUserAddSpecialTime As System.Windows.Forms.Button
@@ -95,6 +95,10 @@ Namespace Forms
         Friend WithEvents UserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents EmployeeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btnUserAddTime As System.Windows.Forms.Button
+        Friend WithEvents mNoParameter As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents mUsing2Parameters As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents AllBookingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents FilterByBookingIDToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -105,6 +109,7 @@ Namespace Forms
             Me.btnGetUserInfo = New System.Windows.Forms.Button()
             Me.btnLoginUser = New System.Windows.Forms.Button()
             Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+            Me.btnUserAddTime = New System.Windows.Forms.Button()
             Me.btnGetAllUsers = New System.Windows.Forms.Button()
             Me.btnGetAllUserGroup = New System.Windows.Forms.Button()
             Me.btnGetAllOffers = New System.Windows.Forms.Button()
@@ -147,7 +152,7 @@ Namespace Forms
             Me.btnEventGet = New System.Windows.Forms.Button()
             Me.GroupBox6 = New System.Windows.Forms.GroupBox()
             Me.btnApplicationGetMostPopular = New System.Windows.Forms.Button()
-            Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+            Me.ContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
             Me.mnAll = New System.Windows.Forms.ToolStripMenuItem()
             Me.mnBookingID = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox7 = New System.Windows.Forms.GroupBox()
@@ -155,14 +160,17 @@ Namespace Forms
             Me.ContextLogin = New System.Windows.Forms.ContextMenuStrip(Me.components)
             Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-            Me.btnUserAddTime = New System.Windows.Forms.Button()
+            Me.mNoParameter = New System.Windows.Forms.ToolStripMenuItem()
+            Me.mUsing2Parameters = New System.Windows.Forms.ToolStripMenuItem()
+            Me.AllBookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.FilterByBookingIDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
             Me.GroupBox4.SuspendLayout()
             Me.GroupBox5.SuspendLayout()
             Me.GroupBox6.SuspendLayout()
-            Me.ContextMenuStrip1.SuspendLayout()
+            Me.ContextMenu.SuspendLayout()
             Me.GroupBox7.SuspendLayout()
             Me.ContextLogin.SuspendLayout()
             Me.SuspendLayout()
@@ -253,6 +261,16 @@ Namespace Forms
             Me.GroupBox1.TabIndex = 17
             Me.GroupBox1.TabStop = False
             Me.GroupBox1.Text = "User handling"
+            '
+            'btnUserAddTime
+            '
+            Me.btnUserAddTime.Enabled = False
+            Me.btnUserAddTime.Location = New System.Drawing.Point(536, 81)
+            Me.btnUserAddTime.Name = "btnUserAddTime"
+            Me.btnUserAddTime.Size = New System.Drawing.Size(109, 26)
+            Me.btnUserAddTime.TabIndex = 46
+            Me.btnUserAddTime.Text = "UserAddTime"
+            Me.btnUserAddTime.UseVisualStyleBackColor = True
             '
             'btnGetAllUsers
             '
@@ -672,11 +690,11 @@ Namespace Forms
             Me.btnApplicationGetMostPopular.TabIndex = 10
             Me.btnApplicationGetMostPopular.Text = "ApplicationGetMostPopular"
             '
-            'ContextMenuStrip1
+            'ContextMenu
             '
-            Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnAll, Me.mnBookingID})
-            Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-            Me.ContextMenuStrip1.Size = New System.Drawing.Size(178, 48)
+            Me.ContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnAll, Me.mnBookingID})
+            Me.ContextMenu.Name = "ContextMenuStrip1"
+            Me.ContextMenu.Size = New System.Drawing.Size(178, 48)
             '
             'mnAll
             '
@@ -712,31 +730,51 @@ Namespace Forms
             '
             'ContextLogin
             '
-            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem})
+            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(127, 48)
+            Me.ContextLogin.Size = New System.Drawing.Size(178, 158)
             '
             'UserToolStripMenuItem
             '
             Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+            Me.UserToolStripMenuItem.Tag = "Login"
             Me.UserToolStripMenuItem.Text = "User"
             '
             'EmployeeToolStripMenuItem
             '
             Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+            Me.EmployeeToolStripMenuItem.Tag = "Login"
             Me.EmployeeToolStripMenuItem.Text = "Employee"
             '
-            'btnUserAddTime
+            'mNoParameter
             '
-            Me.btnUserAddTime.Enabled = False
-            Me.btnUserAddTime.Location = New System.Drawing.Point(536, 81)
-            Me.btnUserAddTime.Name = "btnUserAddTime"
-            Me.btnUserAddTime.Size = New System.Drawing.Size(109, 26)
-            Me.btnUserAddTime.TabIndex = 46
-            Me.btnUserAddTime.Text = "UserAddTime"
-            Me.btnUserAddTime.UseVisualStyleBackColor = True
+            Me.mNoParameter.Name = "mNoParameter"
+            Me.mNoParameter.Size = New System.Drawing.Size(175, 22)
+            Me.mNoParameter.Tag = "GetAllUsers"
+            Me.mNoParameter.Text = "No Parameter"
+            '
+            'mUsing2Parameters
+            '
+            Me.mUsing2Parameters.Name = "mUsing2Parameters"
+            Me.mUsing2Parameters.Size = New System.Drawing.Size(175, 22)
+            Me.mUsing2Parameters.Tag = "GetAllUsers"
+            Me.mUsing2Parameters.Text = "Using 2 Parameters"
+            '
+            'AllBookingToolStripMenuItem
+            '
+            Me.AllBookingToolStripMenuItem.Name = "AllBookingToolStripMenuItem"
+            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+            Me.AllBookingToolStripMenuItem.Tag = "GetBooking"
+            Me.AllBookingToolStripMenuItem.Text = "All Booking"
+            '
+            'FilterByBookingIDToolStripMenuItem
+            '
+            Me.FilterByBookingIDToolStripMenuItem.Name = "FilterByBookingIDToolStripMenuItem"
+            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+            Me.FilterByBookingIDToolStripMenuItem.Tag = "GetBooking"
+            Me.FilterByBookingIDToolStripMenuItem.Text = "Filter by Booking ID"
             '
             'Main
             '
@@ -764,7 +802,7 @@ Namespace Forms
             Me.GroupBox4.ResumeLayout(False)
             Me.GroupBox5.ResumeLayout(False)
             Me.GroupBox6.ResumeLayout(False)
-            Me.ContextMenuStrip1.ResumeLayout(False)
+            Me.ContextMenu.ResumeLayout(False)
             Me.GroupBox7.ResumeLayout(False)
             Me.ContextLogin.ResumeLayout(False)
             Me.ResumeLayout(False)
@@ -774,23 +812,13 @@ Namespace Forms
 
 #End Region
 
-        Private Sub CleanMenu(Optional ByVal StrVisibleTrue As String = "")
-            With ContextMenuStrip1.Items
-                For j As Integer = 0 To .Count - 1
-                    .Item(j).Visible = False
-                    If StrVisibleTrue <> "" Then
-                        Dim StrArray() As String = Split(StrVisibleTrue, ";")
-                        For i As Integer = 0 To StrArray.Length - 1
-                            If .Item(j).Text = StrArray(i) Then
-                                .Item(i).Visible = True
-                            End If
-
-                        Next
-                    End If
+        Private Sub ShowContextMenu(ByVal StrVisibleTrue As String)
+            With ContextLogin
+                For Each x As ToolStripMenuItem In .Items
+                    x.Visible = x.Tag.ToString.ToLower = StrVisibleTrue.ToLower
                 Next
-
             End With
-
+            ContextLogin.Show(MousePosition)
         End Sub
 
         Private ActiveUser As Smartlaunch.TCPInterface.Users.User
@@ -858,7 +886,7 @@ Namespace Forms
         End Sub
 
         Private Sub btnLoginUser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoginUser.Click
-            ContextLogin.Show(MousePosition)
+            ShowContextMenu("Login")
 
         End Sub
 
@@ -1304,20 +1332,7 @@ Namespace Forms
         End Sub
 
         Private Sub btnGetAllBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllBooking.Click
-            ContextMenuStrip1.Show(MousePosition)
-        End Sub
-
-        Private Sub mnAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnAll.Click
-            Dim xmlDoc As New XmlDocument
-            xmlDoc = ActiveUser.GetAllBooking()
-            txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
-        End Sub
-
-        Private Sub mnBookingID_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnBookingID.Click
-            Dim BookingID As Integer = CInt(InputBox("Please enter Booking ID", "Booking ID", "12345"))
-            Dim xmlDoc As New XmlDocument
-            xmlDoc = ActiveUser.GetBookingByBookingID(BookingID)
-            txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+            ShowContextMenu("GetBooking")
         End Sub
 
         Private Sub btnUserAddSpecialTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUserAddSpecialTime.Click
@@ -1341,59 +1356,107 @@ Namespace Forms
         End Sub
 
         Private Sub btnGetAllUsers_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllUsers.Click
-            Dim StartID As String = InputBox("Please enter Start ID", "Start ID", "1")
-            Dim EndID As String = InputBox("Please enter Count", "Count", "10")
-            txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(StartID, EndID).InnerXml & NewLine
-        End Sub
-
-        Private Sub UserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UserToolStripMenuItem.Click
-            Dim username As String = InputBox("Please enter username", "Username", "test2")
-            Dim passwd As String = InputBox("Please enter password", "Password", "test")
-
-            Dim Response As Int32 = Smartlaunch.TCPInterface.Users.Login(username, passwd)
-
-            Select Case Response
-                Case 1
-                    ActiveUser = New Smartlaunch.TCPInterface.Users.User
-                    ActiveUser = Smartlaunch.TCPInterface.Users.GetUserLogin(username, passwd)
-                    txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
-                Case 0
-                    txtOutput.Text &= NewLine & NewLine & "Password was incorrect." & NewLine
-                Case Else
-                    txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
-            End Select
-
-            SetEnabledState()
-        End Sub
-
-        Private Sub EmployeeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EmployeeToolStripMenuItem.Click
-            Dim username As String = InputBox("Please enter username", "Username", "Admin")
-            Dim passwd As String = InputBox("Please enter password", "Password", "admin")
-
-            Dim xmlRes As XmlDocument = Smartlaunch.TCPInterface.Users.EmployeeLogin(username, passwd)
-            txtOutput.Text &= NewLine & NewLine & xmlRes.InnerXml & NewLine
-
-            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                MsgBox("Login Success" & vbCrLf & "Username : " & username & vbCrLf & "ID : " & xmlRes.DocumentElement.GetElementsByTagName("Object")(0).Attributes("ID").Value, MsgBoxStyle.Exclamation, "Warning")
-            Else
-                MsgBox("Username Or/And Password was incorrect", MsgBoxStyle.Exclamation, "Warning")
-            End If
-            'Select Case Response
-            '    Case 1
-            '        ActiveUser = New Smartlaunch.TCPInterface.Users.User
-            '        ActiveUser = Smartlaunch.TCPInterface.Users.GetUserLogin(username, passwd)
-            '        txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
-            '    Case 0
-            '        txtOutput.Text &= NewLine & NewLine & "Password was incorrect." & NewLine
-            '    Case Else
-            '        txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
-            'End Select
-
-            'SetEnabledState()
+            ShowContextMenu("GetAllUsers")
         End Sub
 
         Private Sub btnUserAddTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUserAddTime.Click
 
+        End Sub
+
+        Private Sub ContextLogin_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ContextLogin.ItemClicked
+            'Dim StartID As String = InputBox("Please enter Start ID", "Start ID", "1")
+            'Dim EndID As String = InputBox("Please enter Count", "Count", "10")
+            'txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(StartID, EndID).InnerXml & NewLine
+            Dim item As ToolStripItemClickedEventArgs = CType(e, ToolStripItemClickedEventArgs)
+
+            Select Case item.ClickedItem.ToString
+                Case "User"
+                    Dim username As String = InputBox("Please enter username", "Username", "test2")
+                    Dim passwd As String = InputBox("Please enter password", "Password", "test")
+                    Dim Response As Int32 = Smartlaunch.TCPInterface.Users.Login(username, passwd)
+
+                    Select Case Response
+                        Case 1
+                            ActiveUser = New Smartlaunch.TCPInterface.Users.User
+                            ActiveUser = Smartlaunch.TCPInterface.Users.GetUserLogin(username, passwd)
+                            txtOutput.Text &= NewLine & NewLine & "Login info correct... User loaded succesfully." & NewLine
+                        Case 0
+                            txtOutput.Text &= NewLine & NewLine & "Password was incorrect." & NewLine
+                        Case Else
+                            txtOutput.Text &= NewLine & NewLine & "Username or password was incorrect." & NewLine
+                    End Select
+                    SetEnabledState()
+
+                Case "Employee"
+                    Dim username As String = InputBox("Please enter username", "Username", "Admin")
+                    Dim passwd As String = InputBox("Please enter password", "Password", "admin")
+
+                    Dim xmlRes As XmlDocument = Smartlaunch.TCPInterface.Users.EmployeeLogin(username, passwd)
+                    txtOutput.Text &= NewLine & NewLine & xmlRes.InnerXml & NewLine
+
+                    If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                        MsgBox("Login Success" & vbCrLf & "Username : " & username & vbCrLf & "ID : " & xmlRes.DocumentElement.GetElementsByTagName("Object")(0).Attributes("ID").Value, MsgBoxStyle.Exclamation, "Warning")
+                    Else
+                        MsgBox("Username Or/And Password was incorrect", MsgBoxStyle.Exclamation, "Warning")
+                    End If
+
+                Case "All Booking"
+                    Dim xmlDoc As New XmlDocument
+                    xmlDoc = ActiveUser.GetAllBooking()
+                    txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+
+                Case "Filter by Booking ID"
+                    Dim BookingID As Integer = CInt(InputBox("Please enter Booking ID", "Booking ID", "12345"))
+                    Dim xmlDoc As New XmlDocument
+                    xmlDoc = ActiveUser.GetBookingByBookingID(BookingID)
+                    txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+
+                Case "No Parameter"
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers().InnerXml & NewLine
+
+                Case "Using 2 Parameters"
+                    Dim ColumnName As String = InputBox("Please enter Column Name", "Columns", "Col1,Col2,Col3")
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(ColumnName).InnerXml & NewLine
+
+                Case Else
+                    MsgBox(item.ClickedItem.ToString)
+            End Select
+        End Sub
+
+        Private Sub btnGetUser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            Dim ID As String = InputBox("Please enter ID", "ID", "0")
+            Dim Username As String = InputBox("Please enter Username", "Username", "test")
+            Dim Firstname As String = InputBox("Please enter Firstname", "Firstname", "xxx")
+            Dim Lastname As String = InputBox("Please enter Lastname", "Lastname", "xxx")
+            Dim UsergroupID As String = InputBox("Please enter Group ID", "Group ID", "group")
+            Dim Email As String = InputBox("Please enter Email", "Email", "email@email.com")
+            Dim LastLogin As String = InputBox("Please enter LastLogin", "LastLogin", "12")
+            Dim Password As String = InputBox("Please enter Password", "Password", "password")
+            Dim Birthday As String = InputBox("Please enter Birthday", "Birthday", "12/31/1999")
+
+            ActiveUser = New Smartlaunch.TCPInterface.Users.User(Username)
+
+            'GetUser(ID,Username,PasswordHash,UsergroupID,LastLogin,InfoFirstname,InfoLastname,InfoBirthday)
+
+            If ActiveUser Is Nothing Then
+                txtOutput.Text &= NewLine & NewLine & "Username did not exist." & NewLine
+            Else
+                txtOutput.Text &= NewLine & NewLine & "User loaded." & NewLine
+
+                txtOutput.Text &= NewLine & "A few user details:" & NewLine
+                With ActiveUser
+                    txtOutput.Text &= "Username: " & .UserName & NewLine
+                    txtOutput.Text &= "Firstname: " & .FirstName & NewLine
+                    txtOutput.Text &= "Lastname: " & .LastName & NewLine
+                    txtOutput.Text &= "Group ID: " & .UserGroupID & NewLine
+                    txtOutput.Text &= "Email: " & .Email & NewLine
+                    txtOutput.Text &= "Age: " & .Age & NewLine
+                    txtOutput.Text &= "Time Status: " & .TimeStatus & NewLine
+                    txtOutput.Text &= "Balance: " & .Balance & NewLine
+                    txtOutput.Text &= "Deposit Amount: " & .DepositAmount & NewLine
+                    txtOutput.Text &= "Deposit Date: " & .DepositDate & NewLine
+                End With
+            End If
         End Sub
     End Class
 

@@ -577,6 +577,20 @@ Namespace Users
 
         End Function
 
+        Public Function GetAllUsers(Optional ByVal columnName As String = Nothing) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllUsers")
+            If Not ColumnName Is Nothing Then
+                Command.AppendParameterSection()
+                Command.AppendParameter("Columns", columnName)
+            End If
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
+
         Public Function GetAllUsers(ByVal IDStart As String, ByVal TopCount As String) As XmlDocument
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("GetAllUsers")
@@ -602,7 +616,7 @@ Namespace Users
             Command.AppendParameter("Email", Email)
 
             'Classes.Communication.SendAndWait(Command.InnerXML)
-            
+
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
