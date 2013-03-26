@@ -99,6 +99,11 @@ Namespace Forms
         Friend WithEvents mUsing2Parameters As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents AllBookingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents FilterByBookingIDToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents btnGetAllProduct As System.Windows.Forms.Button
+        Friend WithEvents GetAllProductGroups As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents GetAllProduct As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents btnProduct As System.Windows.Forms.Button
+        Friend WithEvents GetAllTaxToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -109,6 +114,7 @@ Namespace Forms
             Me.btnGetUserInfo = New System.Windows.Forms.Button()
             Me.btnLoginUser = New System.Windows.Forms.Button()
             Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+            Me.btnGetAllProduct = New System.Windows.Forms.Button()
             Me.btnUserAddTime = New System.Windows.Forms.Button()
             Me.btnGetAllUsers = New System.Windows.Forms.Button()
             Me.btnGetAllUserGroup = New System.Windows.Forms.Button()
@@ -164,6 +170,10 @@ Namespace Forms
             Me.mUsing2Parameters = New System.Windows.Forms.ToolStripMenuItem()
             Me.AllBookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.FilterByBookingIDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.GetAllProductGroups = New System.Windows.Forms.ToolStripMenuItem()
+            Me.GetAllProduct = New System.Windows.Forms.ToolStripMenuItem()
+            Me.btnProduct = New System.Windows.Forms.Button()
+            Me.GetAllTaxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -231,6 +241,7 @@ Namespace Forms
             '
             'GroupBox1
             '
+            Me.GroupBox1.Controls.Add(Me.btnGetAllProduct)
             Me.GroupBox1.Controls.Add(Me.btnUserAddTime)
             Me.GroupBox1.Controls.Add(Me.btnGetAllUsers)
             Me.GroupBox1.Controls.Add(Me.btnGetAllUserGroup)
@@ -261,6 +272,15 @@ Namespace Forms
             Me.GroupBox1.TabIndex = 17
             Me.GroupBox1.TabStop = False
             Me.GroupBox1.Text = "User handling"
+            '
+            'btnGetAllProduct
+            '
+            Me.btnGetAllProduct.Location = New System.Drawing.Point(536, 112)
+            Me.btnGetAllProduct.Name = "btnGetAllProduct"
+            Me.btnGetAllProduct.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllProduct.TabIndex = 47
+            Me.btnGetAllProduct.Text = "GetAllProduct"
+            Me.btnGetAllProduct.UseVisualStyleBackColor = True
             '
             'btnUserAddTime
             '
@@ -730,51 +750,81 @@ Namespace Forms
             '
             'ContextLogin
             '
-            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem})
+            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(178, 158)
+            Me.ContextLogin.Size = New System.Drawing.Size(187, 202)
             '
             'UserToolStripMenuItem
             '
             Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
             Me.UserToolStripMenuItem.Tag = "Login"
             Me.UserToolStripMenuItem.Text = "User"
             '
             'EmployeeToolStripMenuItem
             '
             Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
             Me.EmployeeToolStripMenuItem.Tag = "Login"
             Me.EmployeeToolStripMenuItem.Text = "Employee"
             '
             'mNoParameter
             '
             Me.mNoParameter.Name = "mNoParameter"
-            Me.mNoParameter.Size = New System.Drawing.Size(175, 22)
+            Me.mNoParameter.Size = New System.Drawing.Size(186, 22)
             Me.mNoParameter.Tag = "GetAllUsers"
             Me.mNoParameter.Text = "No Parameter"
             '
             'mUsing2Parameters
             '
             Me.mUsing2Parameters.Name = "mUsing2Parameters"
-            Me.mUsing2Parameters.Size = New System.Drawing.Size(175, 22)
+            Me.mUsing2Parameters.Size = New System.Drawing.Size(186, 22)
             Me.mUsing2Parameters.Tag = "GetAllUsers"
             Me.mUsing2Parameters.Text = "Using 2 Parameters"
             '
             'AllBookingToolStripMenuItem
             '
             Me.AllBookingToolStripMenuItem.Name = "AllBookingToolStripMenuItem"
-            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
             Me.AllBookingToolStripMenuItem.Tag = "GetBooking"
             Me.AllBookingToolStripMenuItem.Text = "All Booking"
             '
             'FilterByBookingIDToolStripMenuItem
             '
             Me.FilterByBookingIDToolStripMenuItem.Name = "FilterByBookingIDToolStripMenuItem"
-            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
             Me.FilterByBookingIDToolStripMenuItem.Tag = "GetBooking"
             Me.FilterByBookingIDToolStripMenuItem.Text = "Filter by Booking ID"
+            '
+            'GetAllProductGroups
+            '
+            Me.GetAllProductGroups.Name = "GetAllProductGroups"
+            Me.GetAllProductGroups.Size = New System.Drawing.Size(186, 22)
+            Me.GetAllProductGroups.Tag = "GetAllProduct"
+            Me.GetAllProductGroups.Text = "GetAllProductGroups"
+            '
+            'GetAllProduct
+            '
+            Me.GetAllProduct.Name = "GetAllProduct"
+            Me.GetAllProduct.Size = New System.Drawing.Size(186, 22)
+            Me.GetAllProduct.Tag = "GetAllProduct"
+            Me.GetAllProduct.Text = "GetAllProducts"
+            '
+            'btnProduct
+            '
+            Me.btnProduct.Location = New System.Drawing.Point(536, 112)
+            Me.btnProduct.Name = "btnProduct"
+            Me.btnProduct.Size = New System.Drawing.Size(109, 26)
+            Me.btnProduct.TabIndex = 47
+            Me.btnProduct.Text = "GetAllProduct"
+            Me.btnProduct.UseVisualStyleBackColor = True
+            '
+            'GetAllTaxToolStripMenuItem
+            '
+            Me.GetAllTaxToolStripMenuItem.Name = "GetAllTaxToolStripMenuItem"
+            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+            Me.GetAllTaxToolStripMenuItem.Tag = "GetAllProduct"
+            Me.GetAllTaxToolStripMenuItem.Text = "GetAllTax"
             '
             'Main
             '
@@ -911,6 +961,7 @@ Namespace Forms
             btnGetAllOffers.Enabled = Enabled
             btnGetAllUserGroup.Enabled = Enabled
             btnGetAllUsers.Enabled = Enabled
+            btnGetAllProduct.Enabled = Enabled
         End Sub
 
         Private Sub btnDepositMoney_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDepositMoney.Click
@@ -1418,21 +1469,30 @@ Namespace Forms
                     Dim ColumnName As String = InputBox("Please enter Column Name", "Columns", "Col1,Col2,Col3")
                     txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(ColumnName).InnerXml & NewLine
 
+                Case "GetAllProductGroups"
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllProductGroups() & NewLine
+
+                Case "GetAllProducts"
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllProducts() & NewLine
+
+                Case "GetAllTax"
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllTax() & NewLine
+
                 Case Else
                     MsgBox(item.ClickedItem.ToString)
             End Select
         End Sub
 
         Private Sub btnGetUser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-            Dim ID As String = InputBox("Please enter ID", "ID", "0")
+            'Dim ID As String = InputBox("Please enter ID", "ID", "0")
             Dim Username As String = InputBox("Please enter Username", "Username", "test")
-            Dim Firstname As String = InputBox("Please enter Firstname", "Firstname", "xxx")
-            Dim Lastname As String = InputBox("Please enter Lastname", "Lastname", "xxx")
-            Dim UsergroupID As String = InputBox("Please enter Group ID", "Group ID", "group")
-            Dim Email As String = InputBox("Please enter Email", "Email", "email@email.com")
-            Dim LastLogin As String = InputBox("Please enter LastLogin", "LastLogin", "12")
-            Dim Password As String = InputBox("Please enter Password", "Password", "password")
-            Dim Birthday As String = InputBox("Please enter Birthday", "Birthday", "12/31/1999")
+            'Dim Firstname As String = InputBox("Please enter Firstname", "Firstname", "xxx")
+            'Dim Lastname As String = InputBox("Please enter Lastname", "Lastname", "xxx")
+            'Dim UsergroupID As String = InputBox("Please enter Group ID", "Group ID", "group")
+            'Dim Email As String = InputBox("Please enter Email", "Email", "email@email.com")
+            'Dim LastLogin As String = InputBox("Please enter LastLogin", "LastLogin", "12")
+            'Dim Password As String = InputBox("Please enter Password", "Password", "password")
+            'Dim Birthday As String = InputBox("Please enter Birthday", "Birthday", "12/31/1999")
 
             ActiveUser = New Smartlaunch.TCPInterface.Users.User(Username)
 
@@ -1457,6 +1517,10 @@ Namespace Forms
                     txtOutput.Text &= "Deposit Date: " & .DepositDate & NewLine
                 End With
             End If
+        End Sub
+
+        Private Sub btnProduct_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllProduct.Click, btnProduct.Click
+            ShowContextMenu("GetAllProduct")
         End Sub
     End Class
 

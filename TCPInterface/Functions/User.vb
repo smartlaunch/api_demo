@@ -707,6 +707,36 @@ Namespace Users
 
         End Sub
 
+        Public Function GetAllProductGroups() As String
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllProductGroups")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+        End Function
+
+        Public Function GetAllProducts() As String
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllProducts")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+        End Function
+
+        Public Function GetAllTax() As String
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetAllTax")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+        End Function
+
         Public Sub UserRemoveOffer(ByVal OfferStatID As Integer)
 
             Dim Command As New Classes.XMLCommand

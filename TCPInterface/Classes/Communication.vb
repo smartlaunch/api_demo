@@ -52,7 +52,12 @@ Namespace Classes
                     LastResponse &= NewData
                 End If
 
-                client.GetStream().BeginRead(receiveData, 0, receiveData.Length, AddressOf ReceiveDataCallback, client)
+                Try
+                    client.GetStream().BeginRead(receiveData, 0, receiveData.Length, AddressOf ReceiveDataCallback, client)
+                Catch ex As Exception
+
+                End Try
+
             End If
 
         End Sub
