@@ -577,10 +577,10 @@ Namespace Users
 
         End Function
 
-        Public Function GetAllUsers(Optional ByVal columnName As String = Nothing) As XmlDocument
+        Public Function GetAllUsers(Optional ByVal columnName As String = Nothing) As String
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("GetAllUsers")
-            If Not ColumnName Is Nothing Then
+            If Not columnName Is Nothing Then
                 Command.AppendParameterSection()
                 Command.AppendParameter("Columns", columnName)
             End If
@@ -588,23 +588,20 @@ Namespace Users
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-            Return xmlRes
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
         End Function
 
-        Public Function GetAllUsers(ByVal IDStart As String, ByVal TopCount As String) As XmlDocument
+        Public Function GetAllUsers(ByVal IDStart As String, ByVal TopCount As String) As String
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("GetAllUsers")
-
             Command.AppendParameterSection()
             Command.AppendParameter("IDStart", IDStart)
             Command.AppendParameter("TopCount", TopCount)
 
-            'Classes.Communication.SendAndWait(Command.InnerXML)
-
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
-            Return xmlRes
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
         End Function
 
         Public Function LostPasswdEmail() As XmlDocument ' Boolean

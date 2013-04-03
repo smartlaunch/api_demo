@@ -104,6 +104,7 @@ Namespace Forms
         Friend WithEvents GetAllProduct As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btnProduct As System.Windows.Forms.Button
         Friend WithEvents GetAllTaxToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents UsingColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -172,8 +173,9 @@ Namespace Forms
             Me.FilterByBookingIDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GetAllProductGroups = New System.Windows.Forms.ToolStripMenuItem()
             Me.GetAllProduct = New System.Windows.Forms.ToolStripMenuItem()
-            Me.btnProduct = New System.Windows.Forms.Button()
             Me.GetAllTaxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.btnProduct = New System.Windows.Forms.Button()
+            Me.UsingColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -750,65 +752,72 @@ Namespace Forms
             '
             'ContextLogin
             '
-            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem})
+            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(187, 202)
+            Me.ContextLogin.Size = New System.Drawing.Size(191, 246)
             '
             'UserToolStripMenuItem
             '
             Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
             Me.UserToolStripMenuItem.Tag = "Login"
             Me.UserToolStripMenuItem.Text = "User"
             '
             'EmployeeToolStripMenuItem
             '
             Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
             Me.EmployeeToolStripMenuItem.Tag = "Login"
             Me.EmployeeToolStripMenuItem.Text = "Employee"
             '
             'mNoParameter
             '
             Me.mNoParameter.Name = "mNoParameter"
-            Me.mNoParameter.Size = New System.Drawing.Size(186, 22)
+            Me.mNoParameter.Size = New System.Drawing.Size(190, 22)
             Me.mNoParameter.Tag = "GetAllUsers"
             Me.mNoParameter.Text = "No Parameter"
             '
             'mUsing2Parameters
             '
             Me.mUsing2Parameters.Name = "mUsing2Parameters"
-            Me.mUsing2Parameters.Size = New System.Drawing.Size(186, 22)
+            Me.mUsing2Parameters.Size = New System.Drawing.Size(190, 22)
             Me.mUsing2Parameters.Tag = "GetAllUsers"
             Me.mUsing2Parameters.Text = "Using 2 Parameters"
             '
             'AllBookingToolStripMenuItem
             '
             Me.AllBookingToolStripMenuItem.Name = "AllBookingToolStripMenuItem"
-            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
             Me.AllBookingToolStripMenuItem.Tag = "GetBooking"
             Me.AllBookingToolStripMenuItem.Text = "All Booking"
             '
             'FilterByBookingIDToolStripMenuItem
             '
             Me.FilterByBookingIDToolStripMenuItem.Name = "FilterByBookingIDToolStripMenuItem"
-            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
             Me.FilterByBookingIDToolStripMenuItem.Tag = "GetBooking"
             Me.FilterByBookingIDToolStripMenuItem.Text = "Filter by Booking ID"
             '
             'GetAllProductGroups
             '
             Me.GetAllProductGroups.Name = "GetAllProductGroups"
-            Me.GetAllProductGroups.Size = New System.Drawing.Size(186, 22)
+            Me.GetAllProductGroups.Size = New System.Drawing.Size(190, 22)
             Me.GetAllProductGroups.Tag = "GetAllProduct"
             Me.GetAllProductGroups.Text = "GetAllProductGroups"
             '
             'GetAllProduct
             '
             Me.GetAllProduct.Name = "GetAllProduct"
-            Me.GetAllProduct.Size = New System.Drawing.Size(186, 22)
+            Me.GetAllProduct.Size = New System.Drawing.Size(190, 22)
             Me.GetAllProduct.Tag = "GetAllProduct"
             Me.GetAllProduct.Text = "GetAllProducts"
+            '
+            'GetAllTaxToolStripMenuItem
+            '
+            Me.GetAllTaxToolStripMenuItem.Name = "GetAllTaxToolStripMenuItem"
+            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+            Me.GetAllTaxToolStripMenuItem.Tag = "GetAllProduct"
+            Me.GetAllTaxToolStripMenuItem.Text = "GetAllTax"
             '
             'btnProduct
             '
@@ -819,12 +828,12 @@ Namespace Forms
             Me.btnProduct.Text = "GetAllProduct"
             Me.btnProduct.UseVisualStyleBackColor = True
             '
-            'GetAllTaxToolStripMenuItem
+            'UsingColumnNamesToolStripMenuItem
             '
-            Me.GetAllTaxToolStripMenuItem.Name = "GetAllTaxToolStripMenuItem"
-            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
-            Me.GetAllTaxToolStripMenuItem.Tag = "GetAllProduct"
-            Me.GetAllTaxToolStripMenuItem.Text = "GetAllTax"
+            Me.UsingColumnNamesToolStripMenuItem.Name = "UsingColumnNamesToolStripMenuItem"
+            Me.UsingColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+            Me.UsingColumnNamesToolStripMenuItem.Tag = "GetAllUsers"
+            Me.UsingColumnNamesToolStripMenuItem.Text = "Using Column Names"
             '
             'Main
             '
@@ -1462,12 +1471,17 @@ Namespace Forms
                     xmlDoc = ActiveUser.GetBookingByBookingID(BookingID)
                     txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
 
+                Case "Using Column Names"
+                    Dim ColumnName As String = InputBox("Please enter Column Name", "Columns", "Col1,Col2,Col3")
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(ColumnName) & NewLine
+
                 Case "No Parameter"
-                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers().InnerXml & NewLine
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers() & NewLine
 
                 Case "Using 2 Parameters"
-                    Dim ColumnName As String = InputBox("Please enter Column Name", "Columns", "Col1,Col2,Col3")
-                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(ColumnName).InnerXml & NewLine
+                    Dim IDStart As String = InputBox("Please enter Start ID", "Start ID", "123")
+                    Dim TopCount As String = InputBox("Please enter Count", "Count", "10")
+                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(IDStart, TopCount) & NewLine
 
                 Case "GetAllProductGroups"
                     txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllProductGroups() & NewLine
