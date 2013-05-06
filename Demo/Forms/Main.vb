@@ -105,6 +105,9 @@ Namespace Forms
         Friend WithEvents btnProduct As System.Windows.Forms.Button
         Friend WithEvents GetAllTaxToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents UsingColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents EmployeesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents EmployeesGetAllUseColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents EmployeesGetAllUsing2ParametersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -168,6 +171,7 @@ Namespace Forms
             Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.mNoParameter = New System.Windows.Forms.ToolStripMenuItem()
+            Me.UsingColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.mUsing2Parameters = New System.Windows.Forms.ToolStripMenuItem()
             Me.AllBookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.FilterByBookingIDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,7 +179,9 @@ Namespace Forms
             Me.GetAllProduct = New System.Windows.Forms.ToolStripMenuItem()
             Me.GetAllTaxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.btnProduct = New System.Windows.Forms.Button()
-            Me.UsingColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -752,70 +758,77 @@ Namespace Forms
             '
             'ContextLogin
             '
-            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem})
+            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(191, 246)
+            Me.ContextLogin.Size = New System.Drawing.Size(283, 312)
             '
             'UserToolStripMenuItem
             '
             Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
             Me.UserToolStripMenuItem.Tag = "Login"
             Me.UserToolStripMenuItem.Text = "User"
             '
             'EmployeeToolStripMenuItem
             '
             Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
             Me.EmployeeToolStripMenuItem.Tag = "Login"
             Me.EmployeeToolStripMenuItem.Text = "Employee"
             '
             'mNoParameter
             '
             Me.mNoParameter.Name = "mNoParameter"
-            Me.mNoParameter.Size = New System.Drawing.Size(190, 22)
+            Me.mNoParameter.Size = New System.Drawing.Size(271, 22)
             Me.mNoParameter.Tag = "GetAllUsers"
             Me.mNoParameter.Text = "No Parameter"
+            '
+            'UsingColumnNamesToolStripMenuItem
+            '
+            Me.UsingColumnNamesToolStripMenuItem.Name = "UsingColumnNamesToolStripMenuItem"
+            Me.UsingColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.UsingColumnNamesToolStripMenuItem.Tag = "GetAllUsers"
+            Me.UsingColumnNamesToolStripMenuItem.Text = "Using Column Names"
             '
             'mUsing2Parameters
             '
             Me.mUsing2Parameters.Name = "mUsing2Parameters"
-            Me.mUsing2Parameters.Size = New System.Drawing.Size(190, 22)
+            Me.mUsing2Parameters.Size = New System.Drawing.Size(271, 22)
             Me.mUsing2Parameters.Tag = "GetAllUsers"
             Me.mUsing2Parameters.Text = "Using 2 Parameters"
             '
             'AllBookingToolStripMenuItem
             '
             Me.AllBookingToolStripMenuItem.Name = "AllBookingToolStripMenuItem"
-            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
             Me.AllBookingToolStripMenuItem.Tag = "GetBooking"
             Me.AllBookingToolStripMenuItem.Text = "All Booking"
             '
             'FilterByBookingIDToolStripMenuItem
             '
             Me.FilterByBookingIDToolStripMenuItem.Name = "FilterByBookingIDToolStripMenuItem"
-            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
             Me.FilterByBookingIDToolStripMenuItem.Tag = "GetBooking"
             Me.FilterByBookingIDToolStripMenuItem.Text = "Filter by Booking ID"
             '
             'GetAllProductGroups
             '
             Me.GetAllProductGroups.Name = "GetAllProductGroups"
-            Me.GetAllProductGroups.Size = New System.Drawing.Size(190, 22)
+            Me.GetAllProductGroups.Size = New System.Drawing.Size(271, 22)
             Me.GetAllProductGroups.Tag = "GetAllProduct"
             Me.GetAllProductGroups.Text = "GetAllProductGroups"
             '
             'GetAllProduct
             '
             Me.GetAllProduct.Name = "GetAllProduct"
-            Me.GetAllProduct.Size = New System.Drawing.Size(190, 22)
+            Me.GetAllProduct.Size = New System.Drawing.Size(271, 22)
             Me.GetAllProduct.Tag = "GetAllProduct"
             Me.GetAllProduct.Text = "GetAllProducts"
             '
             'GetAllTaxToolStripMenuItem
             '
             Me.GetAllTaxToolStripMenuItem.Name = "GetAllTaxToolStripMenuItem"
-            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
             Me.GetAllTaxToolStripMenuItem.Tag = "GetAllProduct"
             Me.GetAllTaxToolStripMenuItem.Text = "GetAllTax"
             '
@@ -828,12 +841,26 @@ Namespace Forms
             Me.btnProduct.Text = "GetAllProduct"
             Me.btnProduct.UseVisualStyleBackColor = True
             '
-            'UsingColumnNamesToolStripMenuItem
+            'EmployeesToolStripMenuItem
             '
-            Me.UsingColumnNamesToolStripMenuItem.Name = "UsingColumnNamesToolStripMenuItem"
-            Me.UsingColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-            Me.UsingColumnNamesToolStripMenuItem.Tag = "GetAllUsers"
-            Me.UsingColumnNamesToolStripMenuItem.Text = "Using Column Names"
+            Me.EmployeesToolStripMenuItem.Name = "EmployeesToolStripMenuItem"
+            Me.EmployeesToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.EmployeesToolStripMenuItem.Tag = "EmployeesGetAll"
+            Me.EmployeesToolStripMenuItem.Text = "EmployeesGetAll No Parameter"
+            '
+            'EmployeesGetAllUseColumnNamesToolStripMenuItem
+            '
+            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Name = "EmployeesGetAllUseColumnNamesToolStripMenuItem"
+            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
+            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Tag = "EmployeesGetAll"
+            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Text = "EmployeesGetAll Using Column Names"
+            '
+            'EmployeesGetAllUsing2ParametersToolStripMenuItem
+            '
+            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Name = "EmployeesGetAllUsing2ParametersToolStripMenuItem"
+            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Tag = "EmployeesGetAll"
+            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Text = "EmployeesGetAll Using 2 Parameters"
             '
             'Main
             '
@@ -882,7 +909,8 @@ Namespace Forms
 
         Private ActiveUser As Smartlaunch.TCPInterface.Users.User
         Private ActiveComputer As Smartlaunch.TCPInterface.Computers.Computer = New Smartlaunch.TCPInterface.Computers.Computer
-
+        Private objGeneral As New General
+        
         Private Sub btnGetNews_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetNews.Click
 
             Try
@@ -1162,21 +1190,7 @@ Namespace Forms
         End Sub
 
         Private Sub btnEmployeesGetAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEmployeesGetAll.Click
-
-            Dim employeeType As String = InputBox("Please enter Employee Type (use Admin if you are uncertain)", "Employee Type", "Admin")
-
-            If employeeType <> "" Then
-                Dim objGeneral As New General
-                Dim xmlDoc As New XmlDocument
-
-                xmlDoc = objGeneral.GetAllEmployees(employeeType)
-
-                txtOutput.Text = xmlDoc.InnerXml
-
-            Else
-                MessageBox.Show("Please enter Employee Type.")
-            End If
-
+            ShowContextMenu("EmployeesGetAll")
         End Sub
 
         Private Sub btnAddOffer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddOffer.Click
@@ -1282,18 +1296,18 @@ Namespace Forms
 
         End Sub
 
-        Private Sub btnCafeStatusGet_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCafeStatusGet.Click
+        'Private Sub btnCafeStatusGet_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCafeStatusGet.Click
 
-            Dim employeeType As String = InputBox("Please enter Employee Type", "Employee Type", "Employee")
+        '    Dim employeeType As String = InputBox("Please enter Employee Type", "Employee Type", "Employee")
 
-            Dim objGeneral As New General
+        '    Dim objGeneral As New General
 
-            Dim xmlDoc As New XmlDocument
-            xmlDoc = objGeneral.GetAllEmployees(employeeType)
+        '    Dim xmlDoc As New XmlDocument
+        '    'xmlDoc = objGeneral.GetAllEmployees(employeeType)
 
-            txtOutput.Text = xmlDoc.InnerXml
+        '    txtOutput.Text = xmlDoc.InnerXml
 
-        End Sub
+        'End Sub
 
         Private Sub btnApplicationGetMostPopular_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApplicationGetMostPopular.Click
 
@@ -1491,6 +1505,24 @@ Namespace Forms
 
                 Case "GetAllTax"
                     txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllTax() & NewLine
+
+                Case "EmployeesGetAll No Parameter"
+                    Dim xmlDoc As New XmlDocument
+                    xmlDoc = objGeneral.GetAllEmployees()
+                    txtOutput.Text = xmlDoc.InnerXml
+
+                Case "EmployeesGetAll Using Column Names"
+                    Dim ColumnName As String = InputBox("Please enter Column Name", "Columns", "Col1,Col2,Col3")
+                    Dim xmlDoc As New XmlDocument
+                    xmlDoc = objGeneral.GetAllEmployees(ColumnName)
+                    txtOutput.Text = xmlDoc.InnerXml
+
+                Case "EmployeesGetAll Using 2 Parameters"
+                    Dim IDStart As String = InputBox("Please enter ID Start", "ID Start", "username")
+                    Dim TopCount As String = InputBox("Please enter Count", "Count", "10")
+                    Dim xmlDoc As New XmlDocument
+                    xmlDoc = objGeneral.GetAllEmployees(IDStart, TopCount)
+                    txtOutput.Text = xmlDoc.InnerXml
 
                 Case Else
                     MsgBox(item.ClickedItem.ToString)

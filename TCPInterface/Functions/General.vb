@@ -24,13 +24,33 @@ Public Class General
     Sub New()
     End Sub
 
-    Public Function GetAllEmployees(ByVal employeeType As String) As XmlDocument
+    Public Function GetAllEmployees(Optional ByVal ColumnName As String = Nothing) As XmlDocument
+
+        Dim Command As New Classes.XMLCommand
+        Command.AppendCommand("EmployeesGetAll")
+
+        If Not ColumnName Is Nothing Then
+            Command.AppendParameterSection()
+            Command.AppendParameter("Columns", ColumnName)
+        End If
+
+        Classes.Communication.SendAndWait(Command.InnerXML)
+
+        Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+        Debug.WriteLine(xmlRes.InnerXml)
+
+        Return xmlRes
+
+    End Function
+
+    Public Function GetAllEmployees(ByVal IDStart As String, ByVal TopCount As Integer) As XmlDocument
 
         Dim Command As New Classes.XMLCommand
         Command.AppendCommand("EmployeesGetAll")
 
         Command.AppendParameterSection()
-        Command.AppendParameter("EmployeeType", employeeType)
+        Command.AppendParameter("IDStart", IDStart)
+        Command.AppendParameter("TopCount", TopCount)
 
         Classes.Communication.SendAndWait(Command.InnerXML)
 

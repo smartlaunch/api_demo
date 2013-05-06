@@ -42,7 +42,7 @@ Namespace Classes
 
             If (client.Connected) Then
                 Dim bytesReceived As Int32 = (client.GetStream().EndRead(iar))
-                Dim NewData As String = Encoding.ASCII.GetString(receiveData, 0, bytesReceived)
+                Dim NewData As String = Encoding.UTF8.GetString(receiveData, 0, bytesReceived) 'Encoding.ASCII.GetString(receiveData, 0, bytesReceived)
 
                 If NewData.EndsWith(EOLs) Then
                     LastResponse &= NewData.Substring(0, NewData.Length - EOLs.Length)
