@@ -1,5 +1,6 @@
 Imports System.Xml
 Imports System.Environment
+Imports System.Collections.Generic
 Imports Smartlaunch.TCPInterface
 
 Namespace Forms
@@ -108,6 +109,7 @@ Namespace Forms
         Friend WithEvents EmployeesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents EmployeesGetAllUseColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents EmployeesGetAllUsing2ParametersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+        Friend WithEvents btnGetAllComputerGroups As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -178,10 +180,11 @@ Namespace Forms
             Me.GetAllProductGroups = New System.Windows.Forms.ToolStripMenuItem()
             Me.GetAllProduct = New System.Windows.Forms.ToolStripMenuItem()
             Me.GetAllTaxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-            Me.btnProduct = New System.Windows.Forms.Button()
             Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeesGetAllUseColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeesGetAllUsing2ParametersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+            Me.btnProduct = New System.Windows.Forms.Button()
+            Me.btnGetAllComputerGroups = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -550,6 +553,7 @@ Namespace Forms
             '
             'GroupBox3
             '
+            Me.GroupBox3.Controls.Add(Me.btnGetAllComputerGroups)
             Me.GroupBox3.Controls.Add(Me.btnTurnOn)
             Me.GroupBox3.Controls.Add(Me.btnTurnOff)
             Me.GroupBox3.Controls.Add(Me.Button1)
@@ -557,25 +561,25 @@ Namespace Forms
             Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox3.Location = New System.Drawing.Point(148, 211)
             Me.GroupBox3.Name = "GroupBox3"
-            Me.GroupBox3.Size = New System.Drawing.Size(134, 202)
+            Me.GroupBox3.Size = New System.Drawing.Size(148, 202)
             Me.GroupBox3.TabIndex = 20
             Me.GroupBox3.TabStop = False
             Me.GroupBox3.Text = "Computer commands"
             '
             'btnTurnOn
             '
-            Me.btnTurnOn.Location = New System.Drawing.Point(23, 113)
+            Me.btnTurnOn.Location = New System.Drawing.Point(13, 136)
             Me.btnTurnOn.Name = "btnTurnOn"
-            Me.btnTurnOn.Size = New System.Drawing.Size(91, 23)
+            Me.btnTurnOn.Size = New System.Drawing.Size(122, 23)
             Me.btnTurnOn.TabIndex = 25
             Me.btnTurnOn.Text = "Turn On Client"
             Me.btnTurnOn.UseVisualStyleBackColor = True
             '
             'btnTurnOff
             '
-            Me.btnTurnOff.Location = New System.Drawing.Point(23, 84)
+            Me.btnTurnOff.Location = New System.Drawing.Point(13, 107)
             Me.btnTurnOff.Name = "btnTurnOff"
-            Me.btnTurnOff.Size = New System.Drawing.Size(91, 23)
+            Me.btnTurnOff.Size = New System.Drawing.Size(122, 23)
             Me.btnTurnOff.TabIndex = 24
             Me.btnTurnOff.Text = "Turn Off Client"
             Me.btnTurnOff.UseVisualStyleBackColor = True
@@ -583,18 +587,18 @@ Namespace Forms
             'Button1
             '
             Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.Button1.Location = New System.Drawing.Point(16, 54)
+            Me.Button1.Location = New System.Drawing.Point(13, 48)
             Me.Button1.Name = "Button1"
-            Me.Button1.Size = New System.Drawing.Size(104, 24)
+            Me.Button1.Size = New System.Drawing.Size(122, 24)
             Me.Button1.TabIndex = 18
             Me.Button1.Text = "Get Computer"
             '
             'Button2
             '
             Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.Button2.Location = New System.Drawing.Point(16, 24)
+            Me.Button2.Location = New System.Drawing.Point(13, 18)
             Me.Button2.Name = "Button2"
-            Me.Button2.Size = New System.Drawing.Size(104, 24)
+            Me.Button2.Size = New System.Drawing.Size(122, 24)
             Me.Button2.TabIndex = 10
             Me.Button2.Text = "Get All Computers"
             '
@@ -607,9 +611,9 @@ Namespace Forms
             Me.GroupBox4.Controls.Add(Me.Button4)
             Me.GroupBox4.Controls.Add(Me.btnEmployeesGetAll)
             Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox4.Location = New System.Drawing.Point(288, 211)
+            Me.GroupBox4.Location = New System.Drawing.Point(302, 211)
             Me.GroupBox4.Name = "GroupBox4"
-            Me.GroupBox4.Size = New System.Drawing.Size(275, 202)
+            Me.GroupBox4.Size = New System.Drawing.Size(261, 202)
             Me.GroupBox4.TabIndex = 21
             Me.GroupBox4.TabStop = False
             Me.GroupBox4.Text = "Employees commands"
@@ -617,7 +621,7 @@ Namespace Forms
             'btnGetAllBooking
             '
             Me.btnGetAllBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetAllBooking.Location = New System.Drawing.Point(15, 167)
+            Me.btnGetAllBooking.Location = New System.Drawing.Point(15, 165)
             Me.btnGetAllBooking.Name = "btnGetAllBooking"
             Me.btnGetAllBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnGetAllBooking.TabIndex = 15
@@ -626,7 +630,7 @@ Namespace Forms
             'btnEditBooking
             '
             Me.btnEditBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnEditBooking.Location = New System.Drawing.Point(15, 107)
+            Me.btnEditBooking.Location = New System.Drawing.Point(15, 106)
             Me.btnEditBooking.Name = "btnEditBooking"
             Me.btnEditBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnEditBooking.TabIndex = 14
@@ -635,7 +639,7 @@ Namespace Forms
             'btnDeleteBooking
             '
             Me.btnDeleteBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnDeleteBooking.Location = New System.Drawing.Point(15, 137)
+            Me.btnDeleteBooking.Location = New System.Drawing.Point(15, 135)
             Me.btnDeleteBooking.Name = "btnDeleteBooking"
             Me.btnDeleteBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnDeleteBooking.TabIndex = 13
@@ -652,7 +656,7 @@ Namespace Forms
             '
             'Button4
             '
-            Me.Button4.Location = New System.Drawing.Point(15, 48)
+            Me.Button4.Location = New System.Drawing.Point(15, 49)
             Me.Button4.Name = "Button4"
             Me.Button4.Size = New System.Drawing.Size(104, 23)
             Me.Button4.TabIndex = 11
@@ -760,91 +764,82 @@ Namespace Forms
             '
             Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(283, 312)
+            Me.ContextLogin.Size = New System.Drawing.Size(283, 290)
             '
             'UserToolStripMenuItem
             '
             Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.UserToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.UserToolStripMenuItem.Tag = "Login"
             Me.UserToolStripMenuItem.Text = "User"
             '
             'EmployeeToolStripMenuItem
             '
             Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.EmployeeToolStripMenuItem.Tag = "Login"
             Me.EmployeeToolStripMenuItem.Text = "Employee"
             '
             'mNoParameter
             '
             Me.mNoParameter.Name = "mNoParameter"
-            Me.mNoParameter.Size = New System.Drawing.Size(271, 22)
+            Me.mNoParameter.Size = New System.Drawing.Size(282, 22)
             Me.mNoParameter.Tag = "GetAllUsers"
             Me.mNoParameter.Text = "No Parameter"
             '
             'UsingColumnNamesToolStripMenuItem
             '
             Me.UsingColumnNamesToolStripMenuItem.Name = "UsingColumnNamesToolStripMenuItem"
-            Me.UsingColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.UsingColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.UsingColumnNamesToolStripMenuItem.Tag = "GetAllUsers"
             Me.UsingColumnNamesToolStripMenuItem.Text = "Using Column Names"
             '
             'mUsing2Parameters
             '
             Me.mUsing2Parameters.Name = "mUsing2Parameters"
-            Me.mUsing2Parameters.Size = New System.Drawing.Size(271, 22)
+            Me.mUsing2Parameters.Size = New System.Drawing.Size(282, 22)
             Me.mUsing2Parameters.Tag = "GetAllUsers"
             Me.mUsing2Parameters.Text = "Using 2 Parameters"
             '
             'AllBookingToolStripMenuItem
             '
             Me.AllBookingToolStripMenuItem.Name = "AllBookingToolStripMenuItem"
-            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.AllBookingToolStripMenuItem.Tag = "GetBooking"
             Me.AllBookingToolStripMenuItem.Text = "All Booking"
             '
             'FilterByBookingIDToolStripMenuItem
             '
             Me.FilterByBookingIDToolStripMenuItem.Name = "FilterByBookingIDToolStripMenuItem"
-            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.FilterByBookingIDToolStripMenuItem.Tag = "GetBooking"
             Me.FilterByBookingIDToolStripMenuItem.Text = "Filter by Booking ID"
             '
             'GetAllProductGroups
             '
             Me.GetAllProductGroups.Name = "GetAllProductGroups"
-            Me.GetAllProductGroups.Size = New System.Drawing.Size(271, 22)
+            Me.GetAllProductGroups.Size = New System.Drawing.Size(282, 22)
             Me.GetAllProductGroups.Tag = "GetAllProduct"
             Me.GetAllProductGroups.Text = "GetAllProductGroups"
             '
             'GetAllProduct
             '
             Me.GetAllProduct.Name = "GetAllProduct"
-            Me.GetAllProduct.Size = New System.Drawing.Size(271, 22)
+            Me.GetAllProduct.Size = New System.Drawing.Size(282, 22)
             Me.GetAllProduct.Tag = "GetAllProduct"
             Me.GetAllProduct.Text = "GetAllProducts"
             '
             'GetAllTaxToolStripMenuItem
             '
             Me.GetAllTaxToolStripMenuItem.Name = "GetAllTaxToolStripMenuItem"
-            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.GetAllTaxToolStripMenuItem.Tag = "GetAllProduct"
             Me.GetAllTaxToolStripMenuItem.Text = "GetAllTax"
-            '
-            'btnProduct
-            '
-            Me.btnProduct.Location = New System.Drawing.Point(536, 112)
-            Me.btnProduct.Name = "btnProduct"
-            Me.btnProduct.Size = New System.Drawing.Size(109, 26)
-            Me.btnProduct.TabIndex = 47
-            Me.btnProduct.Text = "GetAllProduct"
-            Me.btnProduct.UseVisualStyleBackColor = True
             '
             'EmployeesToolStripMenuItem
             '
             Me.EmployeesToolStripMenuItem.Name = "EmployeesToolStripMenuItem"
-            Me.EmployeesToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.EmployeesToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.EmployeesToolStripMenuItem.Tag = "EmployeesGetAll"
             Me.EmployeesToolStripMenuItem.Text = "EmployeesGetAll No Parameter"
             '
@@ -858,9 +853,27 @@ Namespace Forms
             'EmployeesGetAllUsing2ParametersToolStripMenuItem
             '
             Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Name = "EmployeesGetAllUsing2ParametersToolStripMenuItem"
-            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Size = New System.Drawing.Size(271, 22)
+            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Tag = "EmployeesGetAll"
             Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Text = "EmployeesGetAll Using 2 Parameters"
+            '
+            'btnProduct
+            '
+            Me.btnProduct.Location = New System.Drawing.Point(536, 112)
+            Me.btnProduct.Name = "btnProduct"
+            Me.btnProduct.Size = New System.Drawing.Size(109, 26)
+            Me.btnProduct.TabIndex = 47
+            Me.btnProduct.Text = "GetAllProduct"
+            Me.btnProduct.UseVisualStyleBackColor = True
+            '
+            'btnGetAllComputerGroups
+            '
+            Me.btnGetAllComputerGroups.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllComputerGroups.Location = New System.Drawing.Point(13, 77)
+            Me.btnGetAllComputerGroups.Name = "btnGetAllComputerGroups"
+            Me.btnGetAllComputerGroups.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetAllComputerGroups.TabIndex = 26
+            Me.btnGetAllComputerGroups.Text = "GetAllComputerGroups"
             '
             'Main
             '
@@ -897,6 +910,7 @@ Namespace Forms
         End Sub
 
 #End Region
+        Public ComputerGroups As New List(Of Computers.ComputerGroups)
 
         Private Sub ShowContextMenu(ByVal StrVisibleTrue As String)
             With ContextLogin
@@ -909,8 +923,8 @@ Namespace Forms
 
         Private ActiveUser As Smartlaunch.TCPInterface.Users.User
         Private ActiveComputer As Smartlaunch.TCPInterface.Computers.Computer = New Smartlaunch.TCPInterface.Computers.Computer
-        Private objGeneral As New General
-        
+        Private objGeneral As New Smartlaunch.TCPInterface.General
+
         Private Sub btnGetNews_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetNews.Click
 
             Try
@@ -1078,6 +1092,11 @@ Namespace Forms
                 MessageBox.Show("Please enter your PC number.")
             End If
 
+
+        End Sub
+
+        Private Sub btnGetAllComputerGroups_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllComputerGroups.Click
+            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAll().InnerXml
 
         End Sub
 
@@ -1314,7 +1333,7 @@ Namespace Forms
             Dim catName As String = InputBox("Please enter the Category Name (use Games if you uncertain)", "Category Name", "Games")
             Dim WithinDays As Integer = InputBox("Please enter the within days (use 1 if you unsure)", "WithinDays", 1)
 
-            Dim objGen As New General
+            Dim objGen As New Smartlaunch.TCPInterface.General
 
             Dim xmlDoc As New XmlDocument
             xmlDoc = objGen.ApplicationGetMostPopular(catName, WithinDays)

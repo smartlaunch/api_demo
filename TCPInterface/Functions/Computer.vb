@@ -1,4 +1,5 @@
 Imports System.Xml
+Imports System.Collections.Generic
 Imports Smartlaunch.TCPInterface.Classes.Definitions
 
 Namespace Computers
@@ -82,14 +83,10 @@ Namespace Computers
 
             Return Computers
         End Function
-
-      
-
-
+        
         Public Shared Function LoadComputerItemFromXml(ByVal xmlDoc As Xml.XmlDocument, ByVal index As Integer) As Computer
 
             Dim Computer As New TCPInterface.Computers.Computer
-
             With xmlDoc.DocumentElement.GetElementsByTagName("Object")(index)
                 Computer.Type = CType(Convert.ToInt32(.Attributes("ConsoleType").Value), Computer.ComputerTypes)
                 Computer.ComputerID = CInt(.Attributes("ComputerID").Value)
@@ -105,7 +102,6 @@ Namespace Computers
         End Function
 
     End Class
-
 
     Public Class Computer
 
@@ -271,7 +267,49 @@ Namespace Computers
 
     End Class
 
+#Region "ComputerGroups"
+    Public Class ComputerGroups
 
+        Public Class ComputerGroup
+            Private _ID As Integer
+            Private _Name As String
+
+            Public Sub New(ByVal ID As Integer, ByVal GroupName As String)
+                _ID = ID
+                _Name = GroupName
+            End Sub
+
+            Public ReadOnly Property ID() As Integer
+                Get
+                    Return _ID
+                End Get
+            End Property
+
+            Public ReadOnly Property Name() As String
+                Get
+                    Return _Name
+                End Get
+            End Property
+        End Class
+
+        Private Shared Computers As New List(Of ComputerGroup)
+
+        Public Shared Function GetAll() As XmlDocument
+            Dim xmlCmd As New Classes.XMLCommand
+            xmlCmd.AppendCommand("GetAllComputerGroups")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+
+            For i As Integer = 0 To xmlRes.GetElementsByTagName("Object").Count - 1
+                With xmlRes.DocumentElement.GetElementsByTagName("Object")(i)
+                    Computers.Add(New ComputerGroup(CInt(.Attributes("ID").Value), .Attributes("Name").Value))
+                End With
+            Next
+            Return xmlRes
+        End Function
+    End Class
+
+#End Region
 
 End Namespace
 
