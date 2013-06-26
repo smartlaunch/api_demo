@@ -1096,7 +1096,7 @@ Namespace Forms
         End Sub
 
         Private Sub btnGetAllComputerGroups_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllComputerGroups.Click
-            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAll().InnerXml
+            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAll()
 
         End Sub
 

@@ -267,7 +267,6 @@ Namespace Computers
 
     End Class
 
-#Region "ComputerGroups"
     Public Class ComputerGroups
 
         Public Class ComputerGroup
@@ -294,7 +293,7 @@ Namespace Computers
 
         Private Shared Computers As New List(Of ComputerGroup)
 
-        Public Shared Function GetAll() As XmlDocument
+        Public Shared Function GetAll() As String
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("GetAllComputerGroups")
 
@@ -305,11 +304,9 @@ Namespace Computers
                     Computers.Add(New ComputerGroup(CInt(.Attributes("ID").Value), .Attributes("Name").Value))
                 End With
             Next
-            Return xmlRes
+            Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml
         End Function
     End Class
-
-#End Region
-
+    
 End Namespace
 
