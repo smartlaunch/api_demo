@@ -112,6 +112,7 @@ Namespace Forms
         Friend WithEvents btnGetAllComputerGroups As System.Windows.Forms.Button
         Friend WithEvents btnOpenAccount As System.Windows.Forms.Button
         Friend WithEvents btnLockAccount As System.Windows.Forms.Button
+        Friend WithEvents btnLoginEmployee As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -189,6 +190,7 @@ Namespace Forms
             Me.btnProduct = New System.Windows.Forms.Button()
             Me.btnLockAccount = New System.Windows.Forms.Button()
             Me.btnOpenAccount = New System.Windows.Forms.Button()
+            Me.btnLoginEmployee = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -617,6 +619,7 @@ Namespace Forms
             '
             'GroupBox4
             '
+            Me.GroupBox4.Controls.Add(Me.btnLoginEmployee)
             Me.GroupBox4.Controls.Add(Me.btnOpenAccount)
             Me.GroupBox4.Controls.Add(Me.btnGetAllBooking)
             Me.GroupBox4.Controls.Add(Me.btnLockAccount)
@@ -779,7 +782,7 @@ Namespace Forms
             '
             Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(283, 290)
+            Me.ContextLogin.Size = New System.Drawing.Size(283, 312)
             '
             'UserToolStripMenuItem
             '
@@ -898,6 +901,15 @@ Namespace Forms
             Me.btnOpenAccount.TabIndex = 49
             Me.btnOpenAccount.Text = "Open Account"
             Me.btnOpenAccount.UseVisualStyleBackColor = True
+            '
+            'btnLoginEmployee
+            '
+            Me.btnLoginEmployee.Location = New System.Drawing.Point(125, 77)
+            Me.btnLoginEmployee.Name = "btnLoginEmployee"
+            Me.btnLoginEmployee.Size = New System.Drawing.Size(104, 23)
+            Me.btnLoginEmployee.TabIndex = 50
+            Me.btnLoginEmployee.Text = "Login Employee"
+            Me.btnLoginEmployee.UseVisualStyleBackColor = True
             '
             'Main
             '
@@ -1635,6 +1647,24 @@ Namespace Forms
                 txtOutput.Text &= NewLine & NewLine & "User opened." & NewLine
             End If
         End Sub
+
+        Private Sub btnLoginEmployee_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoginEmployee.Click
+
+            Dim username As String = InputBox("Please enter username", "Username", "Admin")
+            Dim passwd As String = InputBox("Please enter password", "Password", "admin")
+
+            Dim xmlRes As XmlDocument = Smartlaunch.TCPInterface.Users.EmployeeLogin(username, passwd)
+            txtOutput.Text &= NewLine & NewLine & xmlRes.InnerXml & NewLine
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                MsgBox("Login Success" & vbCrLf & "Username : " & username & vbCrLf & "ID : " & xmlRes.DocumentElement.GetElementsByTagName("Object")(0).Attributes("ID").Value, MsgBoxStyle.Exclamation, "Warning")
+            Else
+                MsgBox("Username Or/And Password was incorrect", MsgBoxStyle.Exclamation, "Warning")
+            End If
+
+        End Sub
+
+      
     End Class
 
 End Namespace
