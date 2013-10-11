@@ -919,7 +919,30 @@ Namespace Users
 
             Return xmlRes
         End Function
+        Public Function LockUserAccount(ByVal Username As String) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserLockAccount")
 
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", Username)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
+        Public Function OpenUserAccount(ByVal Username As String) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserOpenAccount")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("Username", Username)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
+        End Function
     End Class
 
 End Namespace

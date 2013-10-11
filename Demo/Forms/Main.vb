@@ -110,6 +110,8 @@ Namespace Forms
         Friend WithEvents EmployeesGetAllUseColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents EmployeesGetAllUsing2ParametersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btnGetAllComputerGroups As System.Windows.Forms.Button
+        Friend WithEvents btnOpenAccount As System.Windows.Forms.Button
+        Friend WithEvents btnLockAccount As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -148,6 +150,7 @@ Namespace Forms
             Me.btnTestConnection = New System.Windows.Forms.Button()
             Me.btnClear = New System.Windows.Forms.Button()
             Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+            Me.btnGetAllComputerGroups = New System.Windows.Forms.Button()
             Me.btnTurnOn = New System.Windows.Forms.Button()
             Me.btnTurnOff = New System.Windows.Forms.Button()
             Me.Button1 = New System.Windows.Forms.Button()
@@ -184,7 +187,8 @@ Namespace Forms
             Me.EmployeesGetAllUseColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeesGetAllUsing2ParametersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.btnProduct = New System.Windows.Forms.Button()
-            Me.btnGetAllComputerGroups = New System.Windows.Forms.Button()
+            Me.btnLockAccount = New System.Windows.Forms.Button()
+            Me.btnOpenAccount = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -566,6 +570,15 @@ Namespace Forms
             Me.GroupBox3.TabStop = False
             Me.GroupBox3.Text = "Computer commands"
             '
+            'btnGetAllComputerGroups
+            '
+            Me.btnGetAllComputerGroups.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllComputerGroups.Location = New System.Drawing.Point(13, 77)
+            Me.btnGetAllComputerGroups.Name = "btnGetAllComputerGroups"
+            Me.btnGetAllComputerGroups.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetAllComputerGroups.TabIndex = 26
+            Me.btnGetAllComputerGroups.Text = "GetAllComputerGroups"
+            '
             'btnTurnOn
             '
             Me.btnTurnOn.Location = New System.Drawing.Point(13, 136)
@@ -604,7 +617,9 @@ Namespace Forms
             '
             'GroupBox4
             '
+            Me.GroupBox4.Controls.Add(Me.btnOpenAccount)
             Me.GroupBox4.Controls.Add(Me.btnGetAllBooking)
+            Me.GroupBox4.Controls.Add(Me.btnLockAccount)
             Me.GroupBox4.Controls.Add(Me.btnEditBooking)
             Me.GroupBox4.Controls.Add(Me.btnDeleteBooking)
             Me.GroupBox4.Controls.Add(Me.btnAddBooking)
@@ -866,14 +881,23 @@ Namespace Forms
             Me.btnProduct.Text = "GetAllProduct"
             Me.btnProduct.UseVisualStyleBackColor = True
             '
-            'btnGetAllComputerGroups
+            'btnLockAccount
             '
-            Me.btnGetAllComputerGroups.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetAllComputerGroups.Location = New System.Drawing.Point(13, 77)
-            Me.btnGetAllComputerGroups.Name = "btnGetAllComputerGroups"
-            Me.btnGetAllComputerGroups.Size = New System.Drawing.Size(122, 24)
-            Me.btnGetAllComputerGroups.TabIndex = 26
-            Me.btnGetAllComputerGroups.Text = "GetAllComputerGroups"
+            Me.btnLockAccount.Location = New System.Drawing.Point(125, 18)
+            Me.btnLockAccount.Name = "btnLockAccount"
+            Me.btnLockAccount.Size = New System.Drawing.Size(104, 23)
+            Me.btnLockAccount.TabIndex = 48
+            Me.btnLockAccount.Text = "Lock Account"
+            Me.btnLockAccount.UseVisualStyleBackColor = True
+            '
+            'btnOpenAccount
+            '
+            Me.btnOpenAccount.Location = New System.Drawing.Point(125, 49)
+            Me.btnOpenAccount.Name = "btnOpenAccount"
+            Me.btnOpenAccount.Size = New System.Drawing.Size(104, 23)
+            Me.btnOpenAccount.TabIndex = 49
+            Me.btnOpenAccount.Text = "Open Account"
+            Me.btnOpenAccount.UseVisualStyleBackColor = True
             '
             'Main
             '
@@ -1586,6 +1610,30 @@ Namespace Forms
 
         Private Sub btnProduct_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllProduct.Click, btnProduct.Click
             ShowContextMenu("GetAllProduct")
+        End Sub
+
+        Private Sub btnLockAccount_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLockAccount.Click
+            Dim username As String = InputBox("Please enter username", "Username", "test2")
+            ActiveUser = New Smartlaunch.TCPInterface.Users.User(username)
+
+            If ActiveUser Is Nothing Then
+                txtOutput.Text &= NewLine & NewLine & "Username did not exist." & NewLine
+            Else
+                ActiveUser.LockUserAccount(username)
+                txtOutput.Text &= NewLine & NewLine & "User locked." & NewLine
+            End If
+        End Sub
+
+        Private Sub btnOpenAccount_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOpenAccount.Click
+            Dim username As String = InputBox("Please enter username", "Username", "test2")
+            ActiveUser = New Smartlaunch.TCPInterface.Users.User(username)
+
+            If ActiveUser Is Nothing Then
+                txtOutput.Text &= NewLine & NewLine & "Username did not exist." & NewLine
+            Else
+                ActiveUser.OpenUserAccount(username)
+                txtOutput.Text &= NewLine & NewLine & "User opened." & NewLine
+            End If
         End Sub
     End Class
 
