@@ -92,8 +92,20 @@ Namespace Computers
                 Computer.ComputerID = CInt(.Attributes("ComputerID").Value)
                 Computer.GroupID = CInt(.Attributes("GroupID").Value)
                 Computer.Name = .Attributes("Name").Value
-                Computer.ActiveUserID = CInt(.Attributes("ActiveUserID").Value)
-                Computer.ActiveApplications = Convert.ToString(.Attributes("ActiveApplications").Value)
+
+                If .Attributes("ActiveUserID") Is Nothing Then
+                    Computer = New TCPInterface.Computers.Computer
+                    Computer.ActiveUserID = 0
+                Else
+                    Computer.ActiveUserID = CInt(.Attributes("ActiveUserID").Value)
+                End If
+
+                If .Attributes("ActiveApplications") Is Nothing Then
+                    Computer.ActiveApplications = ""
+                Else
+                    Computer.ActiveApplications = Convert.ToString(.Attributes("ActiveApplications").Value)
+                End If
+
                 Computer.PositionX = CInt(.Attributes("PositionX").Value)
                 Computer.PositionY = CInt(.Attributes("PositionY").Value)
             End With
