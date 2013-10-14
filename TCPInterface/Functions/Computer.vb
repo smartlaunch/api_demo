@@ -306,7 +306,37 @@ Namespace Computers
             Next
             Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml
         End Function
+
+        Public Shared Function GetComputerGroupNameBasedOnGroupID(groupID As Integer) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetComputerGroupNameBasedOnGroupID")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("GroupID", groupID)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        End Function
+
+        Public Shared Function GetLayoutNameBasedOnLayoutID(groupID As Integer) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("GetLayoutGroupBasedOnGroupID")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("GroupID", groupID)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        End Function
+
     End Class
+
+   
+
     
 End Namespace
 
