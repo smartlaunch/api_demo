@@ -305,7 +305,7 @@ Namespace Computers
 
         Private Shared Computers As New List(Of ComputerGroup)
 
-        Public Shared Function GetAll() As String
+        Public Shared Function GetAllComputerGroups() As String
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("GetAllComputerGroups")
 
@@ -343,6 +343,20 @@ Namespace Computers
 
             Return Command.InnerXML & NewLine & xmlRes.InnerXml
 
+        End Function
+
+        Public Shared Function GetAllComputerLayoutGroups() As String
+            Dim xmlCmd As New Classes.XMLCommand
+            xmlCmd.AppendCommand("GetAllComputerLayoutGroups")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+
+            For i As Integer = 0 To xmlRes.GetElementsByTagName("Object").Count - 1
+                With xmlRes.DocumentElement.GetElementsByTagName("Object")(i)
+                    Computers.Add(New ComputerGroup(CInt(.Attributes("ID").Value), .Attributes("Name").Value))
+                End With
+            Next
+            Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml
         End Function
 
     End Class
