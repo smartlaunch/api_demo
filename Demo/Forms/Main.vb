@@ -1726,22 +1726,15 @@ Namespace Forms
         Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
-            Dim pcNumber As String = InputBox("Please enter your PC number (use PC001 if you uncertain)", "ComputerID", "PC001")
+            Dim strComputerGroupID As String = InputBox("Please enter your computer group ID", "Computer Group ID", "1")
+            Dim computerGroupID As Integer
 
-            If pcNumber <> "" Then
+            If Integer.TryParse(strComputerGroupID, computerGroupID) Then
 
-                For Each C As Smartlaunch.TCPInterface.Computers.Computer In Smartlaunch.TCPInterface.Computers.Items
-                    If Not C Is Nothing AndAlso Not C.Name Is Nothing Then
-
-                        If pcNumber.ToUpper = C.Name.ToUpper Then
-                            'Get group name based on group ID
-                            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetLayoutNameBasedOnLayoutID(C.GroupID)
-                        End If
-                    End If
-                Next
+                txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetLayoutNameBasedOnLayoutID(computerGroupID)
 
             Else
-                MessageBox.Show("Please enter your PC number.")
+                MessageBox.Show("Please enter your computer group ID.")
             End If
         End Sub
 
