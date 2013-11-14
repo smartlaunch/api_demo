@@ -359,6 +359,8 @@ Namespace Computers
             Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml
         End Function
 
+        
+
     End Class
 
    

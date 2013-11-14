@@ -1,4 +1,5 @@
 ﻿Imports System.Xml
+Imports System.Collections.Generic
 
 Public Class General
 
@@ -85,9 +86,27 @@ Public Class General
         Return xmlRes
     End Function
 
+    Public Shared Function GetSmartlaunchServerVersion() As String
+        Dim Command As New Classes.XMLCommand
+        Command.AppendCommand("GetSmartlaunchServerVersion")
+
+        Classes.Communication.SendAndWait(Command.InnerXML)
+
+        Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+        Debug.WriteLine(xmlRes.InnerXml)
+
+        Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+    End Function
+
+
     Public Class Cafe
 
     End Class
+
+    Private Shared Function SmartlaunchVersion(p1 As Integer, p2 As String) As String
+        Throw New NotImplementedException
+    End Function
 
 
 End Class
