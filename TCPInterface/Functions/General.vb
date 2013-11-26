@@ -100,9 +100,34 @@ Public Class General
     End Function
 
 
-    Public Class Cafe
+    Public Shared Function GetAllFinancialTransactions(StartDate As Date, EndDate As Date, FilterAdministratorID As Integer, FilterEmployeeID As Integer, OnlyPrintReport As Boolean, EmployeeName As String) As String
+        Dim Command As New Classes.XMLCommand
+        Command.AppendCommand("GetAllFinancialTransactions")
 
-    End Class
+        Command.AppendParameterSection()
+        Command.AppendParameter("StartDate", StartDate)
+        Command.AppendParameter("EndDate", EndDate)
+        Command.AppendParameter("FilterAdministratorID", FilterAdministratorID)
+        Command.AppendParameter("FilterEmployeeID", FilterEmployeeID)
+        Command.AppendParameter("OnlyPrintReport", OnlyPrintReport)
+        Command.AppendParameter("EmployeeName", EmployeeName)
+
+        Classes.Communication.SendAndWait(Command.InnerXML)
+
+        Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+        Debug.WriteLine(xmlRes.InnerXml)
+
+        'Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        For i As Integer = 0 To xmlRes.GetElementsByTagName("Object").Count - 1
+            'With xmlRes.DocumentElement.GetElementsByTagName("Object")(i)
+            '    Computers.Add(New ComputerGroup(CInt(.Attributes("ID").Value), .Attributes("Name").Value))
+            'End With
+        Next
+        Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+
+    End Function
 
     Private Shared Function SmartlaunchVersion(p1 As Integer, p2 As String) As String
         Throw New NotImplementedException

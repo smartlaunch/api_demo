@@ -88,7 +88,6 @@ Namespace Forms
         Friend WithEvents mnBookingID As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btnUserAddSpecialTime As System.Windows.Forms.Button
         Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
-        Friend WithEvents btnGetFinancialData As System.Windows.Forms.Button
         Friend WithEvents btnGetAllOffers As System.Windows.Forms.Button
         Friend WithEvents btnGetAllUserGroup As System.Windows.Forms.Button
         Friend WithEvents btnGetAllUsers As System.Windows.Forms.Button
@@ -117,6 +116,7 @@ Namespace Forms
         Friend WithEvents btnGetComputerGroup As System.Windows.Forms.Button
         Friend WithEvents btnGetAllLayoutGroups As System.Windows.Forms.Button
         Friend WithEvents btnGetSmartlaunchVersion As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllFinancialTransactions As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -182,8 +182,8 @@ Namespace Forms
             Me.mnAll = New System.Windows.Forms.ToolStripMenuItem()
             Me.mnBookingID = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+            Me.btnGetAllFinancialTransactions = New System.Windows.Forms.Button()
             Me.btnGetSmartlaunchVersion = New System.Windows.Forms.Button()
-            Me.btnGetFinancialData = New System.Windows.Forms.Button()
             Me.ContextLogin = New System.Windows.Forms.ContextMenuStrip(Me.components)
             Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -537,6 +537,7 @@ Namespace Forms
             Me.btnCafeStatusGet.Size = New System.Drawing.Size(104, 24)
             Me.btnCafeStatusGet.TabIndex = 13
             Me.btnCafeStatusGet.Text = "CafeStatusGet"
+            Me.btnCafeStatusGet.Visible = False
             '
             'Label6
             '
@@ -825,8 +826,8 @@ Namespace Forms
             '
             'GroupBox7
             '
+            Me.GroupBox7.Controls.Add(Me.btnGetAllFinancialTransactions)
             Me.GroupBox7.Controls.Add(Me.btnGetSmartlaunchVersion)
-            Me.GroupBox7.Controls.Add(Me.btnGetFinancialData)
             Me.GroupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox7.Location = New System.Drawing.Point(684, 211)
             Me.GroupBox7.Name = "GroupBox7"
@@ -835,23 +836,23 @@ Namespace Forms
             Me.GroupBox7.TabStop = False
             Me.GroupBox7.Text = "Administrator command"
             '
+            'btnGetAllFinancialTransactions
+            '
+            Me.btnGetAllFinancialTransactions.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllFinancialTransactions.Location = New System.Drawing.Point(6, 47)
+            Me.btnGetAllFinancialTransactions.Name = "btnGetAllFinancialTransactions"
+            Me.btnGetAllFinancialTransactions.Size = New System.Drawing.Size(148, 24)
+            Me.btnGetAllFinancialTransactions.TabIndex = 12
+            Me.btnGetAllFinancialTransactions.Text = "GetAllFinancialTransactions"
+            '
             'btnGetSmartlaunchVersion
             '
             Me.btnGetSmartlaunchVersion.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetSmartlaunchVersion.Location = New System.Drawing.Point(6, 47)
+            Me.btnGetSmartlaunchVersion.Location = New System.Drawing.Point(6, 19)
             Me.btnGetSmartlaunchVersion.Name = "btnGetSmartlaunchVersion"
             Me.btnGetSmartlaunchVersion.Size = New System.Drawing.Size(148, 24)
             Me.btnGetSmartlaunchVersion.TabIndex = 11
             Me.btnGetSmartlaunchVersion.Text = "Get SL Server Version"
-            '
-            'btnGetFinancialData
-            '
-            Me.btnGetFinancialData.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetFinancialData.Location = New System.Drawing.Point(6, 17)
-            Me.btnGetFinancialData.Name = "btnGetFinancialData"
-            Me.btnGetFinancialData.Size = New System.Drawing.Size(148, 24)
-            Me.btnGetFinancialData.TabIndex = 10
-            Me.btnGetFinancialData.Text = "Get Financial Data"
             '
             'ContextLogin
             '
@@ -1754,12 +1755,24 @@ Namespace Forms
             txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAllComputerLayoutGroups()
         End Sub
 
-       
+
         Private Sub btnGetSmartlaunchVersion_Click(sender As System.Object, e As System.EventArgs) Handles btnGetSmartlaunchVersion.Click
             txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.General.GetSmartlaunchServerVersion()
         End Sub
 
-        Private Sub btnCafeStatusGet_Click(sender As System.Object, e As System.EventArgs) Handles btnCafeStatusGet.Click
+        Private Sub btnGetAllFinancialTransactions_Click(sender As System.Object, e As System.EventArgs) Handles btnGetAllFinancialTransactions.Click
+            Dim StartDate As Date = InputBox("Please enter start date", "Startdate", Date.Today)
+            Dim EndDate As Date = InputBox("Please enter end date", "Enddate", Date.Today)
+            Dim FilterAdministratorID As Integer = InputBox("Please enter AdministratorID", "AdministratorID", 1)
+            Dim FilterEmployeeID As Integer = InputBox("Please enter EmployeeID", "EmployeeID", 1)
+            Dim OnlyPrintReport As Boolean = True
+            Dim EmployeeName As String = InputBox("Please enter EmployeeName", "EmployeeName", "admin")
+
+            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.General.GetAllFinancialTransactions(StartDate, EndDate, FilterAdministratorID, FilterEmployeeID, OnlyPrintReport, EmployeeName)
+
+        End Sub
+
+        Private Sub btnGetFinancialData_Click(sender As System.Object, e As System.EventArgs)
 
         End Sub
     End Class
