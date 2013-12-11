@@ -94,7 +94,6 @@ Namespace Forms
         Friend WithEvents btnGetAllUsers As System.Windows.Forms.Button
         Friend WithEvents ContextLogin As System.Windows.Forms.ContextMenuStrip
         Friend WithEvents UserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-        Friend WithEvents EmployeeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btnUserAddTime As System.Windows.Forms.Button
         Friend WithEvents mNoParameter As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents mUsing2Parameters As System.Windows.Forms.ToolStripMenuItem
@@ -157,7 +156,10 @@ Namespace Forms
             Me.Button1 = New System.Windows.Forms.Button()
             Me.Button2 = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+            Me.btnLoginEmployee = New System.Windows.Forms.Button()
+            Me.btnOpenAccount = New System.Windows.Forms.Button()
             Me.btnGetAllBooking = New System.Windows.Forms.Button()
+            Me.btnLockAccount = New System.Windows.Forms.Button()
             Me.btnEditBooking = New System.Windows.Forms.Button()
             Me.btnDeleteBooking = New System.Windows.Forms.Button()
             Me.btnAddBooking = New System.Windows.Forms.Button()
@@ -175,7 +177,6 @@ Namespace Forms
             Me.btnGetFinancialData = New System.Windows.Forms.Button()
             Me.ContextLogin = New System.Windows.Forms.ContextMenuStrip(Me.components)
             Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-            Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.mNoParameter = New System.Windows.Forms.ToolStripMenuItem()
             Me.UsingColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.mUsing2Parameters = New System.Windows.Forms.ToolStripMenuItem()
@@ -188,9 +189,6 @@ Namespace Forms
             Me.EmployeesGetAllUseColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.EmployeesGetAllUsing2ParametersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.btnProduct = New System.Windows.Forms.Button()
-            Me.btnLockAccount = New System.Windows.Forms.Button()
-            Me.btnOpenAccount = New System.Windows.Forms.Button()
-            Me.btnLoginEmployee = New System.Windows.Forms.Button()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -636,6 +634,24 @@ Namespace Forms
             Me.GroupBox4.TabStop = False
             Me.GroupBox4.Text = "Employees commands"
             '
+            'btnLoginEmployee
+            '
+            Me.btnLoginEmployee.Location = New System.Drawing.Point(125, 77)
+            Me.btnLoginEmployee.Name = "btnLoginEmployee"
+            Me.btnLoginEmployee.Size = New System.Drawing.Size(104, 23)
+            Me.btnLoginEmployee.TabIndex = 50
+            Me.btnLoginEmployee.Text = "Login Employee"
+            Me.btnLoginEmployee.UseVisualStyleBackColor = True
+            '
+            'btnOpenAccount
+            '
+            Me.btnOpenAccount.Location = New System.Drawing.Point(125, 49)
+            Me.btnOpenAccount.Name = "btnOpenAccount"
+            Me.btnOpenAccount.Size = New System.Drawing.Size(104, 23)
+            Me.btnOpenAccount.TabIndex = 49
+            Me.btnOpenAccount.Text = "Open Account"
+            Me.btnOpenAccount.UseVisualStyleBackColor = True
+            '
             'btnGetAllBooking
             '
             Me.btnGetAllBooking.FlatStyle = System.Windows.Forms.FlatStyle.System
@@ -644,6 +660,15 @@ Namespace Forms
             Me.btnGetAllBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnGetAllBooking.TabIndex = 15
             Me.btnGetAllBooking.Text = "Get Booking"
+            '
+            'btnLockAccount
+            '
+            Me.btnLockAccount.Location = New System.Drawing.Point(125, 18)
+            Me.btnLockAccount.Name = "btnLockAccount"
+            Me.btnLockAccount.Size = New System.Drawing.Size(104, 23)
+            Me.btnLockAccount.TabIndex = 48
+            Me.btnLockAccount.Text = "Lock Account"
+            Me.btnLockAccount.UseVisualStyleBackColor = True
             '
             'btnEditBooking
             '
@@ -780,9 +805,9 @@ Namespace Forms
             '
             'ContextLogin
             '
-            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
+            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(283, 312)
+            Me.ContextLogin.Size = New System.Drawing.Size(283, 268)
             '
             'UserToolStripMenuItem
             '
@@ -790,13 +815,6 @@ Namespace Forms
             Me.UserToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
             Me.UserToolStripMenuItem.Tag = "Login"
             Me.UserToolStripMenuItem.Text = "User"
-            '
-            'EmployeeToolStripMenuItem
-            '
-            Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-            Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
-            Me.EmployeeToolStripMenuItem.Tag = "Login"
-            Me.EmployeeToolStripMenuItem.Text = "Employee"
             '
             'mNoParameter
             '
@@ -883,33 +901,6 @@ Namespace Forms
             Me.btnProduct.TabIndex = 47
             Me.btnProduct.Text = "GetAllProduct"
             Me.btnProduct.UseVisualStyleBackColor = True
-            '
-            'btnLockAccount
-            '
-            Me.btnLockAccount.Location = New System.Drawing.Point(125, 18)
-            Me.btnLockAccount.Name = "btnLockAccount"
-            Me.btnLockAccount.Size = New System.Drawing.Size(104, 23)
-            Me.btnLockAccount.TabIndex = 48
-            Me.btnLockAccount.Text = "Lock Account"
-            Me.btnLockAccount.UseVisualStyleBackColor = True
-            '
-            'btnOpenAccount
-            '
-            Me.btnOpenAccount.Location = New System.Drawing.Point(125, 49)
-            Me.btnOpenAccount.Name = "btnOpenAccount"
-            Me.btnOpenAccount.Size = New System.Drawing.Size(104, 23)
-            Me.btnOpenAccount.TabIndex = 49
-            Me.btnOpenAccount.Text = "Open Account"
-            Me.btnOpenAccount.UseVisualStyleBackColor = True
-            '
-            'btnLoginEmployee
-            '
-            Me.btnLoginEmployee.Location = New System.Drawing.Point(125, 77)
-            Me.btnLoginEmployee.Name = "btnLoginEmployee"
-            Me.btnLoginEmployee.Size = New System.Drawing.Size(104, 23)
-            Me.btnLoginEmployee.TabIndex = 50
-            Me.btnLoginEmployee.Text = "Login Employee"
-            Me.btnLoginEmployee.UseVisualStyleBackColor = True
             '
             'Main
             '
@@ -1005,6 +996,7 @@ Namespace Forms
 
                 txtOutput.Text &= NewLine & "A few user details:" & NewLine
                 With ActiveUser
+                    txtOutput.Text &= "============================" & NewLine
                     txtOutput.Text &= "Username: " & .UserName & NewLine
                     txtOutput.Text &= "Firstname: " & .FirstName & NewLine
                     txtOutput.Text &= "Lastname: " & .LastName & NewLine
@@ -1013,8 +1005,14 @@ Namespace Forms
                     txtOutput.Text &= "Age: " & .Age & NewLine
                     txtOutput.Text &= "Time Status: " & .TimeStatus & NewLine
                     txtOutput.Text &= "Balance: " & .Balance & NewLine
+                    txtOutput.Text &= "============================" & NewLine
                     txtOutput.Text &= "Deposit Amount: " & .DepositAmount & NewLine
                     txtOutput.Text &= "Deposit Date: " & .DepositDate & NewLine
+                    txtOutput.Text &= "============================" & NewLine
+                    txtOutput.Text &= "Withdraw Amount: " & .WithdrawAmount & NewLine
+                    txtOutput.Text &= "Withdraw Date: " & .WithdrawDate & NewLine
+                    txtOutput.Text &= "============================" & NewLine
+                    txtOutput.Text &= "Add Offer: " & .AddOffer & NewLine
                 End With
             End If
 
@@ -1252,9 +1250,9 @@ Namespace Forms
 
             'This is just an example. Only for testing!!!
             Try
-                Dim OfferID As Integer = InputBox("Please enter the OfferID (use 1 if you are uncertain)", "OfferID", 1)
+                Dim OfferID As Integer = InputBox("Please enter the OfferID (use 1 if you are uncertain, and make sure that you have a offer item on your server)", "OfferID", 1)
                 Dim Price As Double = InputBox("Please enter the Price (use 1 if you are uncertain)", "Price", 1)
-                Dim PaymentType As String = InputBox("Please enter the PaymentType (use Cash if you are uncertain)", "PaymentType", "1")
+                Dim PaymentType As String = InputBox("Please enter the PaymentType (use 1 for Cash payment type if you are uncertain)", "PaymentType", "1")
 
                 Dim FixedStart As Boolean = True
                 Dim TheDate As Date = Date.Today
@@ -1516,19 +1514,6 @@ Namespace Forms
                     End Select
                     SetEnabledState()
 
-                Case "Employee"
-                    Dim username As String = InputBox("Please enter username", "Username", "Admin")
-                    Dim passwd As String = InputBox("Please enter password", "Password", "admin")
-
-                    Dim xmlRes As XmlDocument = Smartlaunch.TCPInterface.Users.EmployeeLogin(username, passwd)
-                    txtOutput.Text &= NewLine & NewLine & xmlRes.InnerXml & NewLine
-
-                    If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                        MsgBox("Login Success" & vbCrLf & "Username : " & username & vbCrLf & "ID : " & xmlRes.DocumentElement.GetElementsByTagName("Object")(0).Attributes("ID").Value, MsgBoxStyle.Exclamation, "Warning")
-                    Else
-                        MsgBox("Username Or/And Password was incorrect", MsgBoxStyle.Exclamation, "Warning")
-                    End If
-
                 Case "All Booking"
                     Dim xmlDoc As New XmlDocument
                     xmlDoc = ActiveUser.GetAllBooking()
@@ -1616,6 +1601,9 @@ Namespace Forms
                     txtOutput.Text &= "Balance: " & .Balance & NewLine
                     txtOutput.Text &= "Deposit Amount: " & .DepositAmount & NewLine
                     txtOutput.Text &= "Deposit Date: " & .DepositDate & NewLine
+                    txtOutput.Text &= "Withdraw Amount: " & .WithdrawAmount & NewLine
+                    txtOutput.Text &= "Withdraw Date: " & .WithdrawDate & NewLine
+
                 End With
             End If
         End Sub

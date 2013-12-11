@@ -103,9 +103,12 @@ Namespace Users
         Private _EndDate As Date
         Private _Description As String
         Private _ComputerCount As Integer
-        Private _DepositAmount As Integer
+        Private _DepositAmount As Double
         Private _DepositDate As System.DateTime
+        Private _WithdrawAmount As Double
+        Private _WithdrawDate As System.DateTime
         Private _UserGroupName As String
+        Private _AddOffer As Integer
 
 
 #Region "Properties"
@@ -326,11 +329,11 @@ Namespace Users
             End Set
         End Property
 
-        Public Property DepositAmount() As Integer
+        Public Property DepositAmount() As Double
             Get
                 Return _DepositAmount
             End Get
-            Set(ByVal value As Integer)
+            Set(ByVal value As Double)
                 _DepositAmount = value
             End Set
         End Property
@@ -344,6 +347,32 @@ Namespace Users
             End Set
         End Property
 
+        Public Property WithdrawAmount() As Double
+            Get
+                Return _WithdrawAmount
+            End Get
+            Set(ByVal value As Double)
+                _WithdrawAmount = value
+            End Set
+        End Property
+
+        Public Property WithdrawDate() As System.DateTime
+            Get
+                Return _WithdrawDate
+            End Get
+            Set(ByVal value As System.DateTime)
+                _WithdrawDate = value
+            End Set
+        End Property
+
+        Public Property AddOffer() As Integer
+            Get
+                Return _AddOffer
+            End Get
+            Set(ByVal value As Integer)
+                _AddOffer = value
+            End Set
+        End Property
 #End Region
 
 #Region "Enums"
@@ -417,8 +446,20 @@ Namespace Users
                 _SocialNum = Convert.ToString(.Attributes("Personalnumber").Value)
                 _TimeStatus = Convert.ToInt32(.Attributes("Time").Value)
                 _Balance = Convert.ToDouble(.Attributes("Balance").Value)
-                _DepositAmount = CInt(.Attributes("DepositAmount").Value)
+                _DepositAmount = Convert.ToDouble(.Attributes("DepositAmount").Value)
                 _DepositDate = Date.FromOADate(CDbl(.Attributes("DepositDate").Value))
+                Try
+                    _WithdrawAmount = Convert.ToDouble(.Attributes("WithdrawAmount").Value)
+                    _WithdrawDate = Date.FromOADate(CDbl(.Attributes("WithdrawDate").Value))
+                Catch ex As Exception
+                    _WithdrawAmount = 0
+                End Try
+                Try
+                    _AddOffer = Convert.ToInt32(.Attributes("OfferID").Value)
+                Catch ex As Exception
+
+                End Try
+
             End With
 
         End Sub
@@ -430,6 +471,10 @@ Namespace Users
             Command.AppendParameterSection()
             Command.AppendParameter("Username", _UserName)
             Command.AppendParameter("Amount", Amount)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
 
             ' Classes.Communication.SendAndWait(Command.InnerXML)
         End Sub
@@ -685,7 +730,7 @@ Namespace Users
         Public Sub UserAddProduct(ByVal ProductID As Integer, ByVal Quantity As Integer, ByVal TotalPrice As Double, ByVal PaymentType As String, ByVal TaxPayable As Boolean, ByVal Note As String)
 
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("UserAddOffer")
+            Command.AppendCommand("UserAddProduct")
 
             Command.AppendParameterSection()
             Command.AppendParameter("Username", _UserName)
