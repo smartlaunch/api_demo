@@ -54,8 +54,8 @@ Namespace Forms
         Friend WithEvents btnTestConnection As System.Windows.Forms.Button
         Friend WithEvents btnAsk As System.Windows.Forms.Button
         Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-        Friend WithEvents Button2 As System.Windows.Forms.Button
-        Friend WithEvents Button1 As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllComputers As System.Windows.Forms.Button
+        Friend WithEvents btnGetComputer As System.Windows.Forms.Button
         Friend WithEvents btnCreateUser As System.Windows.Forms.Button
         Friend WithEvents btnUserLogout As System.Windows.Forms.Button
         Friend WithEvents btnUpdateUserInfo As System.Windows.Forms.Button
@@ -88,7 +88,6 @@ Namespace Forms
         Friend WithEvents mnBookingID As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btnUserAddSpecialTime As System.Windows.Forms.Button
         Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
-        Friend WithEvents btnGetFinancialData As System.Windows.Forms.Button
         Friend WithEvents btnGetAllOffers As System.Windows.Forms.Button
         Friend WithEvents btnGetAllUserGroup As System.Windows.Forms.Button
         Friend WithEvents btnGetAllUsers As System.Windows.Forms.Button
@@ -112,6 +111,11 @@ Namespace Forms
         Friend WithEvents btnOpenAccount As System.Windows.Forms.Button
         Friend WithEvents btnLockAccount As System.Windows.Forms.Button
         Friend WithEvents btnLoginEmployee As System.Windows.Forms.Button
+        Friend WithEvents btnGetLayoutGroup As System.Windows.Forms.Button
+        Friend WithEvents btnGetComputerGroup As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllLayoutGroups As System.Windows.Forms.Button
+        Friend WithEvents btnGetSmartlaunchVersion As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllFinancialTransactions As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -150,11 +154,14 @@ Namespace Forms
             Me.btnTestConnection = New System.Windows.Forms.Button()
             Me.btnClear = New System.Windows.Forms.Button()
             Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+            Me.btnGetAllLayoutGroups = New System.Windows.Forms.Button()
+            Me.btnGetLayoutGroup = New System.Windows.Forms.Button()
+            Me.btnGetComputerGroup = New System.Windows.Forms.Button()
             Me.btnGetAllComputerGroups = New System.Windows.Forms.Button()
             Me.btnTurnOn = New System.Windows.Forms.Button()
             Me.btnTurnOff = New System.Windows.Forms.Button()
-            Me.Button1 = New System.Windows.Forms.Button()
-            Me.Button2 = New System.Windows.Forms.Button()
+            Me.btnGetComputer = New System.Windows.Forms.Button()
+            Me.btnGetAllComputers = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
             Me.btnLoginEmployee = New System.Windows.Forms.Button()
             Me.btnOpenAccount = New System.Windows.Forms.Button()
@@ -174,7 +181,8 @@ Namespace Forms
             Me.mnAll = New System.Windows.Forms.ToolStripMenuItem()
             Me.mnBookingID = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-            Me.btnGetFinancialData = New System.Windows.Forms.Button()
+            Me.btnGetAllFinancialTransactions = New System.Windows.Forms.Button()
+            Me.btnGetSmartlaunchVersion = New System.Windows.Forms.Button()
             Me.ContextLogin = New System.Windows.Forms.ContextMenuStrip(Me.components)
             Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.mNoParameter = New System.Windows.Forms.ToolStripMenuItem()
@@ -219,8 +227,8 @@ Namespace Forms
             'txtOutput
             '
             Me.txtOutput.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                        Or System.Windows.Forms.AnchorStyles.Left) _
-                        Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                Or System.Windows.Forms.AnchorStyles.Left) _
+                Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtOutput.Location = New System.Drawing.Point(8, 453)
             Me.txtOutput.Multiline = True
             Me.txtOutput.Name = "txtOutput"
@@ -527,6 +535,7 @@ Namespace Forms
             Me.btnCafeStatusGet.Size = New System.Drawing.Size(104, 24)
             Me.btnCafeStatusGet.TabIndex = 13
             Me.btnCafeStatusGet.Text = "CafeStatusGet"
+            Me.btnCafeStatusGet.Visible = False
             '
             'Label6
             '
@@ -557,23 +566,53 @@ Namespace Forms
             '
             'GroupBox3
             '
+            Me.GroupBox3.Controls.Add(Me.btnGetAllLayoutGroups)
+            Me.GroupBox3.Controls.Add(Me.btnGetLayoutGroup)
+            Me.GroupBox3.Controls.Add(Me.btnGetComputerGroup)
             Me.GroupBox3.Controls.Add(Me.btnGetAllComputerGroups)
             Me.GroupBox3.Controls.Add(Me.btnTurnOn)
             Me.GroupBox3.Controls.Add(Me.btnTurnOff)
-            Me.GroupBox3.Controls.Add(Me.Button1)
-            Me.GroupBox3.Controls.Add(Me.Button2)
+            Me.GroupBox3.Controls.Add(Me.btnGetComputer)
+            Me.GroupBox3.Controls.Add(Me.btnGetAllComputers)
             Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox3.Location = New System.Drawing.Point(148, 211)
             Me.GroupBox3.Name = "GroupBox3"
-            Me.GroupBox3.Size = New System.Drawing.Size(148, 202)
+            Me.GroupBox3.Size = New System.Drawing.Size(263, 202)
             Me.GroupBox3.TabIndex = 20
             Me.GroupBox3.TabStop = False
             Me.GroupBox3.Text = "Computer commands"
             '
+            'btnGetAllLayoutGroups
+            '
+            Me.btnGetAllLayoutGroups.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllLayoutGroups.Location = New System.Drawing.Point(7, 106)
+            Me.btnGetAllLayoutGroups.Name = "btnGetAllLayoutGroups"
+            Me.btnGetAllLayoutGroups.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetAllLayoutGroups.TabIndex = 29
+            Me.btnGetAllLayoutGroups.Text = "GetAllLayoutGroups"
+            '
+            'btnGetLayoutGroup
+            '
+            Me.btnGetLayoutGroup.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetLayoutGroup.Location = New System.Drawing.Point(135, 107)
+            Me.btnGetLayoutGroup.Name = "btnGetLayoutGroup"
+            Me.btnGetLayoutGroup.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetLayoutGroup.TabIndex = 28
+            Me.btnGetLayoutGroup.Text = "Get Layout Group"
+            '
+            'btnGetComputerGroup
+            '
+            Me.btnGetComputerGroup.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetComputerGroup.Location = New System.Drawing.Point(135, 49)
+            Me.btnGetComputerGroup.Name = "btnGetComputerGroup"
+            Me.btnGetComputerGroup.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetComputerGroup.TabIndex = 27
+            Me.btnGetComputerGroup.Text = "Get Computer Group"
+            '
             'btnGetAllComputerGroups
             '
             Me.btnGetAllComputerGroups.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetAllComputerGroups.Location = New System.Drawing.Point(13, 77)
+            Me.btnGetAllComputerGroups.Location = New System.Drawing.Point(8, 47)
             Me.btnGetAllComputerGroups.Name = "btnGetAllComputerGroups"
             Me.btnGetAllComputerGroups.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllComputerGroups.TabIndex = 26
@@ -581,7 +620,7 @@ Namespace Forms
             '
             'btnTurnOn
             '
-            Me.btnTurnOn.Location = New System.Drawing.Point(13, 136)
+            Me.btnTurnOn.Location = New System.Drawing.Point(135, 77)
             Me.btnTurnOn.Name = "btnTurnOn"
             Me.btnTurnOn.Size = New System.Drawing.Size(122, 23)
             Me.btnTurnOn.TabIndex = 25
@@ -590,30 +629,30 @@ Namespace Forms
             '
             'btnTurnOff
             '
-            Me.btnTurnOff.Location = New System.Drawing.Point(13, 107)
+            Me.btnTurnOff.Location = New System.Drawing.Point(8, 79)
             Me.btnTurnOff.Name = "btnTurnOff"
             Me.btnTurnOff.Size = New System.Drawing.Size(122, 23)
             Me.btnTurnOff.TabIndex = 24
             Me.btnTurnOff.Text = "Turn Off Client"
             Me.btnTurnOff.UseVisualStyleBackColor = True
             '
-            'Button1
+            'btnGetComputer
             '
-            Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.Button1.Location = New System.Drawing.Point(13, 48)
-            Me.Button1.Name = "Button1"
-            Me.Button1.Size = New System.Drawing.Size(122, 24)
-            Me.Button1.TabIndex = 18
-            Me.Button1.Text = "Get Computer"
+            Me.btnGetComputer.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetComputer.Location = New System.Drawing.Point(135, 19)
+            Me.btnGetComputer.Name = "btnGetComputer"
+            Me.btnGetComputer.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetComputer.TabIndex = 18
+            Me.btnGetComputer.Text = "Get Computer"
             '
-            'Button2
+            'btnGetAllComputers
             '
-            Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.Button2.Location = New System.Drawing.Point(13, 18)
-            Me.Button2.Name = "Button2"
-            Me.Button2.Size = New System.Drawing.Size(122, 24)
-            Me.Button2.TabIndex = 10
-            Me.Button2.Text = "Get All Computers"
+            Me.btnGetAllComputers.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllComputers.Location = New System.Drawing.Point(8, 18)
+            Me.btnGetAllComputers.Name = "btnGetAllComputers"
+            Me.btnGetAllComputers.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetAllComputers.TabIndex = 10
+            Me.btnGetAllComputers.Text = "Get All Computers"
             '
             'GroupBox4
             '
@@ -627,7 +666,7 @@ Namespace Forms
             Me.GroupBox4.Controls.Add(Me.Button4)
             Me.GroupBox4.Controls.Add(Me.btnEmployeesGetAll)
             Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox4.Location = New System.Drawing.Point(302, 211)
+            Me.GroupBox4.Location = New System.Drawing.Point(417, 211)
             Me.GroupBox4.Name = "GroupBox4"
             Me.GroupBox4.Size = New System.Drawing.Size(261, 202)
             Me.GroupBox4.TabIndex = 21
@@ -785,29 +824,43 @@ Namespace Forms
             '
             'GroupBox7
             '
-            Me.GroupBox7.Controls.Add(Me.btnGetFinancialData)
+            Me.GroupBox7.Controls.Add(Me.btnGetAllFinancialTransactions)
+            Me.GroupBox7.Controls.Add(Me.btnGetSmartlaunchVersion)
             Me.GroupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.GroupBox7.Location = New System.Drawing.Point(569, 211)
+            Me.GroupBox7.Location = New System.Drawing.Point(684, 211)
             Me.GroupBox7.Name = "GroupBox7"
-            Me.GroupBox7.Size = New System.Drawing.Size(275, 202)
+            Me.GroupBox7.Size = New System.Drawing.Size(160, 202)
             Me.GroupBox7.TabIndex = 24
             Me.GroupBox7.TabStop = False
             Me.GroupBox7.Text = "Administrator command"
             '
-            'btnGetFinancialData
+            'btnGetAllFinancialTransactions
             '
-            Me.btnGetFinancialData.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetFinancialData.Location = New System.Drawing.Point(15, 18)
-            Me.btnGetFinancialData.Name = "btnGetFinancialData"
-            Me.btnGetFinancialData.Size = New System.Drawing.Size(104, 24)
-            Me.btnGetFinancialData.TabIndex = 10
-            Me.btnGetFinancialData.Text = "Get Financial Data"
+            Me.btnGetAllFinancialTransactions.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllFinancialTransactions.Location = New System.Drawing.Point(6, 47)
+            Me.btnGetAllFinancialTransactions.Name = "btnGetAllFinancialTransactions"
+            Me.btnGetAllFinancialTransactions.Size = New System.Drawing.Size(148, 24)
+            Me.btnGetAllFinancialTransactions.TabIndex = 12
+            Me.btnGetAllFinancialTransactions.Text = "GetAllFinancialTransactions"
+            '
+            'btnGetSmartlaunchVersion
+            '
+            Me.btnGetSmartlaunchVersion.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetSmartlaunchVersion.Location = New System.Drawing.Point(6, 19)
+            Me.btnGetSmartlaunchVersion.Name = "btnGetSmartlaunchVersion"
+            Me.btnGetSmartlaunchVersion.Size = New System.Drawing.Size(148, 24)
+            Me.btnGetSmartlaunchVersion.TabIndex = 11
+            Me.btnGetSmartlaunchVersion.Text = "Get SL Server Version"
             '
             'ContextLogin
             '
             Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
+<<<<<<< HEAD
             Me.ContextLogin.Size = New System.Drawing.Size(283, 268)
+=======
+            Me.ContextLogin.Size = New System.Drawing.Size(283, 290)
+>>>>>>> 68e1ae0c276bfe2edcbfb0fb18628f09ddde8846
             '
             'UserToolStripMenuItem
             '
@@ -912,9 +965,9 @@ Namespace Forms
             Me.Controls.Add(Me.GroupBox2)
             Me.Controls.Add(Me.GroupBox5)
             Me.Controls.Add(Me.btnClear)
-            Me.Controls.Add(Me.GroupBox4)
             Me.Controls.Add(Me.GroupBox1)
             Me.Controls.Add(Me.txtOutput)
+            Me.Controls.Add(Me.GroupBox4)
             Me.Controls.Add(Me.StatusBar)
             Me.Controls.Add(Me.Label1)
             Me.MaximizeBox = False
@@ -1101,24 +1154,24 @@ Namespace Forms
 
         End Sub
 
-        Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllComputers.Click
             txtOutput.Text &= NewLine & NewLine & "Computers: " & NewLine
             For Each C As Smartlaunch.TCPInterface.Computers.Computer In Smartlaunch.TCPInterface.Computers.Items
                 txtOutput.Text &= C.ComputerID & "    " & C.Name & "          Console Type: " & C.Type.ToString & "        Group ID: " & C.GroupID & "         X: " & C.PositionX & "  Y: " & C.PositionY & NewLine
             Next
         End Sub
 
-        Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetComputer.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim pcNumber As String = InputBox("Please enter your PC number (use PC001 if you uncertain)", "ComputerID", "PC001")
 
             If pcNumber <> "" Then
-
                 For Each C As Smartlaunch.TCPInterface.Computers.Computer In Smartlaunch.TCPInterface.Computers.Items
-
-                    If pcNumber.ToUpper = C.Name.ToUpper Then
-                        txtOutput.Text &= C.ComputerID & "    " & C.Name & "          Console Type: " & C.Type.ToString & "        Group ID: " & C.GroupID & "         X: " & C.PositionX & "  Y: " & C.PositionY & NewLine
+                    If Not C Is Nothing AndAlso Not C.Name Is Nothing Then
+                        If pcNumber.ToUpper = C.Name.ToUpper Then
+                            txtOutput.Text &= C.ComputerID & "    " & C.Name & "          Console Type: " & C.Type.ToString & "        Group ID: " & C.GroupID & "         X: " & C.PositionX & "  Y: " & C.PositionY & NewLine
+                        End If
                     End If
                 Next
 
@@ -1130,7 +1183,7 @@ Namespace Forms
         End Sub
 
         Private Sub btnGetAllComputerGroups_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllComputerGroups.Click
-            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAll()
+            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAllComputerGroups()
 
         End Sub
 
@@ -1652,7 +1705,68 @@ Namespace Forms
 
         End Sub
 
-      
+
+        Private Sub btnGetComputerGroup_Click(sender As System.Object, e As System.EventArgs) Handles btnGetComputerGroup.Click
+            txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
+
+            Dim pcNumber As String = InputBox("Please enter your PC number (use PC001 if you uncertain)", "ComputerID", "PC001")
+
+            If pcNumber <> "" Then
+
+                For Each C As Smartlaunch.TCPInterface.Computers.Computer In Smartlaunch.TCPInterface.Computers.Items
+                    If Not C Is Nothing AndAlso Not C.Name Is Nothing Then
+
+                        If pcNumber.ToUpper = C.Name.ToUpper Then
+                            'Get group name based on group ID
+                            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetComputerGroupNameBasedOnGroupID(C.GroupID)
+                        End If
+                    End If
+                Next
+
+            Else
+                MessageBox.Show("Please enter your PC number.")
+            End If
+        End Sub
+
+        Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles btnGetLayoutGroup.Click
+            txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
+
+            Dim strComputerGroupID As String = InputBox("Please enter your computer group ID", "Computer Group ID", "1")
+            Dim computerGroupID As Integer
+
+            If Integer.TryParse(strComputerGroupID, computerGroupID) Then
+
+                txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetLayoutNameBasedOnLayoutID(computerGroupID)
+
+            Else
+                MessageBox.Show("Please enter your computer group ID.")
+            End If
+        End Sub
+
+        Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles btnGetAllLayoutGroups.Click
+            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAllComputerLayoutGroups()
+        End Sub
+
+
+        Private Sub btnGetSmartlaunchVersion_Click(sender As System.Object, e As System.EventArgs) Handles btnGetSmartlaunchVersion.Click
+            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.General.GetSmartlaunchServerVersion()
+        End Sub
+
+        Private Sub btnGetAllFinancialTransactions_Click(sender As System.Object, e As System.EventArgs) Handles btnGetAllFinancialTransactions.Click
+            Dim StartDate As Date = InputBox("Please enter start date", "Startdate", Date.Today)
+            Dim EndDate As Date = InputBox("Please enter end date", "Enddate", Date.Today)
+            Dim FilterAdministratorID As Integer = InputBox("Please enter AdministratorID", "AdministratorID", 1)
+            Dim FilterEmployeeID As Integer = InputBox("Please enter EmployeeID", "EmployeeID", 1)
+            Dim OnlyPrintReport As Boolean = True
+            Dim EmployeeName As String = InputBox("Please enter EmployeeName", "EmployeeName", "admin")
+
+            txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.General.GetAllFinancialTransactions(StartDate, EndDate, FilterAdministratorID, FilterEmployeeID, OnlyPrintReport, EmployeeName)
+
+        End Sub
+
+        Private Sub btnGetFinancialData_Click(sender As System.Object, e As System.EventArgs)
+
+        End Sub
     End Class
 
 End Namespace
