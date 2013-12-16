@@ -856,11 +856,8 @@ Namespace Forms
             '
             Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-<<<<<<< HEAD
-            Me.ContextLogin.Size = New System.Drawing.Size(283, 268)
-=======
             Me.ContextLogin.Size = New System.Drawing.Size(283, 290)
->>>>>>> 68e1ae0c276bfe2edcbfb0fb18628f09ddde8846
+
             '
             'UserToolStripMenuItem
             '
@@ -990,7 +987,8 @@ Namespace Forms
         End Sub
 
 #End Region
-        Public ComputerGroups As New List(Of Computers.ComputerGroups)
+
+            Public ComputerGroups As New List(Of Computers.ComputerGroups)
 
         Private Sub ShowContextMenu(ByVal StrVisibleTrue As String)
             With ContextLogin
@@ -1706,7 +1704,7 @@ Namespace Forms
         End Sub
 
 
-        Private Sub btnGetComputerGroup_Click(sender As System.Object, e As System.EventArgs) Handles btnGetComputerGroup.Click
+        Private Sub btnGetComputerGroup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetComputerGroup.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim pcNumber As String = InputBox("Please enter your PC number (use PC001 if you uncertain)", "ComputerID", "PC001")
@@ -1728,7 +1726,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles btnGetLayoutGroup.Click
+        Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetLayoutGroup.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim strComputerGroupID As String = InputBox("Please enter your computer group ID", "Computer Group ID", "1")
@@ -1743,16 +1741,16 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles btnGetAllLayoutGroups.Click
+        Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllLayoutGroups.Click
             txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAllComputerLayoutGroups()
         End Sub
 
 
-        Private Sub btnGetSmartlaunchVersion_Click(sender As System.Object, e As System.EventArgs) Handles btnGetSmartlaunchVersion.Click
+        Private Sub btnGetSmartlaunchVersion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetSmartlaunchVersion.Click
             txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.General.GetSmartlaunchServerVersion()
         End Sub
 
-        Private Sub btnGetAllFinancialTransactions_Click(sender As System.Object, e As System.EventArgs) Handles btnGetAllFinancialTransactions.Click
+        Private Sub btnGetAllFinancialTransactions_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllFinancialTransactions.Click
             Dim StartDate As Date = InputBox("Please enter start date", "Startdate", Date.Today)
             Dim EndDate As Date = InputBox("Please enter end date", "Enddate", Date.Today)
             Dim FilterAdministratorID As Integer = InputBox("Please enter AdministratorID", "AdministratorID", 1)
@@ -1764,7 +1762,7 @@ Namespace Forms
 
         End Sub
 
-        Private Sub btnGetFinancialData_Click(sender As System.Object, e As System.EventArgs)
+        Private Sub btnGetFinancialData_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         End Sub
     End Class
