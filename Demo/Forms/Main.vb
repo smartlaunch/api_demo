@@ -73,7 +73,7 @@ Namespace Forms
         Friend WithEvents btnEventGet As System.Windows.Forms.Button
         Friend WithEvents btnUserGroupGet As System.Windows.Forms.Button
         Friend WithEvents Button3 As System.Windows.Forms.Button
-        Friend WithEvents btnCafeStatusGet As System.Windows.Forms.Button
+        Friend WithEvents btnGetAllTax As System.Windows.Forms.Button
         Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
         Friend WithEvents btnApplicationGetMostPopular As System.Windows.Forms.Button
         Friend WithEvents Button4 As System.Windows.Forms.Button
@@ -127,9 +127,11 @@ Namespace Forms
             Me.btnLoginUser = New System.Windows.Forms.Button()
             Me.GroupBox1 = New System.Windows.Forms.GroupBox()
             Me.btnGetAllProduct = New System.Windows.Forms.Button()
+            Me.btnOpenAccount = New System.Windows.Forms.Button()
             Me.btnUserAddTime = New System.Windows.Forms.Button()
             Me.btnGetAllUsers = New System.Windows.Forms.Button()
             Me.btnGetAllUserGroup = New System.Windows.Forms.Button()
+            Me.btnLockAccount = New System.Windows.Forms.Button()
             Me.btnGetAllOffers = New System.Windows.Forms.Button()
             Me.btnUserAddSpecialTime = New System.Windows.Forms.Button()
             Me.btnUserGroupGet = New System.Windows.Forms.Button()
@@ -149,7 +151,7 @@ Namespace Forms
             Me.btnWithdrawMoney = New System.Windows.Forms.Button()
             Me.btnDepositMoney = New System.Windows.Forms.Button()
             Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-            Me.btnCafeStatusGet = New System.Windows.Forms.Button()
+            Me.btnGetAllTax = New System.Windows.Forms.Button()
             Me.Label6 = New System.Windows.Forms.Label()
             Me.btnTestConnection = New System.Windows.Forms.Button()
             Me.btnClear = New System.Windows.Forms.Button()
@@ -164,9 +166,7 @@ Namespace Forms
             Me.btnGetAllComputers = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
             Me.btnLoginEmployee = New System.Windows.Forms.Button()
-            Me.btnOpenAccount = New System.Windows.Forms.Button()
             Me.btnGetAllBooking = New System.Windows.Forms.Button()
-            Me.btnLockAccount = New System.Windows.Forms.Button()
             Me.btnEditBooking = New System.Windows.Forms.Button()
             Me.btnDeleteBooking = New System.Windows.Forms.Button()
             Me.btnAddBooking = New System.Windows.Forms.Button()
@@ -211,11 +211,12 @@ Namespace Forms
             'btnGetNews
             '
             Me.btnGetNews.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetNews.Location = New System.Drawing.Point(16, 123)
+            Me.btnGetNews.Location = New System.Drawing.Point(6, 111)
             Me.btnGetNews.Name = "btnGetNews"
-            Me.btnGetNews.Size = New System.Drawing.Size(104, 24)
+            Me.btnGetNews.Size = New System.Drawing.Size(122, 24)
             Me.btnGetNews.TabIndex = 6
-            Me.btnGetNews.Text = "Get All News"
+            Me.btnGetNews.Text = "2. GetAllNews"
+            Me.btnGetNews.TextAlign = System.Drawing.ContentAlignment.TopLeft
             '
             'StatusBar
             '
@@ -227,8 +228,8 @@ Namespace Forms
             'txtOutput
             '
             Me.txtOutput.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                        Or System.Windows.Forms.AnchorStyles.Left) _
-                        Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                Or System.Windows.Forms.AnchorStyles.Left) _
+                Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtOutput.Location = New System.Drawing.Point(8, 475)
             Me.txtOutput.Multiline = True
             Me.txtOutput.Name = "txtOutput"
@@ -247,33 +248,34 @@ Namespace Forms
             'btnGetUserInfo
             '
             Me.btnGetUserInfo.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetUserInfo.Location = New System.Drawing.Point(536, 172)
+            Me.btnGetUserInfo.Location = New System.Drawing.Point(136, 138)
             Me.btnGetUserInfo.Name = "btnGetUserInfo"
-            Me.btnGetUserInfo.Size = New System.Drawing.Size(109, 24)
+            Me.btnGetUserInfo.Size = New System.Drawing.Size(122, 24)
             Me.btnGetUserInfo.TabIndex = 11
-            Me.btnGetUserInfo.Text = "Get User Info"
+            Me.btnGetUserInfo.Text = "11. GetUserInfo"
+            Me.btnGetUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnGetUserInfo.UseVisualStyleBackColor = True
             '
             'btnLoginUser
             '
             Me.btnLoginUser.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnLoginUser.Location = New System.Drawing.Point(17, 19)
+            Me.btnLoginUser.Location = New System.Drawing.Point(8, 23)
             Me.btnLoginUser.Name = "btnLoginUser"
-            Me.btnLoginUser.Size = New System.Drawing.Size(104, 26)
+            Me.btnLoginUser.Size = New System.Drawing.Size(122, 24)
             Me.btnLoginUser.TabIndex = 12
-            Me.btnLoginUser.Text = "Login User"
+            Me.btnLoginUser.Text = "1. LoginUser"
+            Me.btnLoginUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnLoginUser.UseVisualStyleBackColor = True
             '
             'GroupBox1
             '
             Me.GroupBox1.Controls.Add(Me.btnGetAllProduct)
             Me.GroupBox1.Controls.Add(Me.btnOpenAccount)
             Me.GroupBox1.Controls.Add(Me.btnUserAddTime)
-            Me.GroupBox1.Controls.Add(Me.btnGetAllUsers)
-            Me.GroupBox1.Controls.Add(Me.btnGetAllUserGroup)
             Me.GroupBox1.Controls.Add(Me.btnLockAccount)
             Me.GroupBox1.Controls.Add(Me.btnGetAllOffers)
             Me.GroupBox1.Controls.Add(Me.btnUserAddSpecialTime)
             Me.GroupBox1.Controls.Add(Me.btnUserGroupGet)
-            Me.GroupBox1.Controls.Add(Me.btnUserGroupGetAll)
             Me.GroupBox1.Controls.Add(Me.btnUserLogHistory)
             Me.GroupBox1.Controls.Add(Me.btnUserRemoveOffer)
             Me.GroupBox1.Controls.Add(Me.btnAddProduct)
@@ -300,224 +302,273 @@ Namespace Forms
             '
             'btnGetAllProduct
             '
-            Me.btnGetAllProduct.Location = New System.Drawing.Point(536, 112)
+            Me.btnGetAllProduct.Location = New System.Drawing.Point(392, 53)
             Me.btnGetAllProduct.Name = "btnGetAllProduct"
-            Me.btnGetAllProduct.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllProduct.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllProduct.TabIndex = 47
-            Me.btnGetAllProduct.Text = "GetAllProduct"
+            Me.btnGetAllProduct.Text = "20. GetAllProduct"
+            Me.btnGetAllProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnGetAllProduct.UseVisualStyleBackColor = True
+            '
+            'btnOpenAccount
+            '
+            Me.btnOpenAccount.Location = New System.Drawing.Point(8, 138)
+            Me.btnOpenAccount.Name = "btnOpenAccount"
+            Me.btnOpenAccount.Size = New System.Drawing.Size(122, 24)
+            Me.btnOpenAccount.TabIndex = 49
+            Me.btnOpenAccount.Text = "5. OpenUserAccount"
+            Me.btnOpenAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnOpenAccount.UseVisualStyleBackColor = True
             '
             'btnUserAddTime
             '
             Me.btnUserAddTime.Enabled = False
-            Me.btnUserAddTime.Location = New System.Drawing.Point(536, 81)
+            Me.btnUserAddTime.Location = New System.Drawing.Point(392, 23)
             Me.btnUserAddTime.Name = "btnUserAddTime"
-            Me.btnUserAddTime.Size = New System.Drawing.Size(109, 26)
+            Me.btnUserAddTime.Size = New System.Drawing.Size(122, 24)
             Me.btnUserAddTime.TabIndex = 46
-            Me.btnUserAddTime.Text = "UserAddTime"
+            Me.btnUserAddTime.Text = "19. AddTime"
+            Me.btnUserAddTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnUserAddTime.UseVisualStyleBackColor = True
             '
             'btnGetAllUsers
             '
             Me.btnGetAllUsers.Enabled = False
-            Me.btnGetAllUsers.Location = New System.Drawing.Point(536, 50)
+            Me.btnGetAllUsers.Location = New System.Drawing.Point(125, 106)
             Me.btnGetAllUsers.Name = "btnGetAllUsers"
-            Me.btnGetAllUsers.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllUsers.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllUsers.TabIndex = 45
-            Me.btnGetAllUsers.Text = "GetAllUsers"
+            Me.btnGetAllUsers.Text = "10. GetAllUsers"
+            Me.btnGetAllUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnGetAllUsers.UseVisualStyleBackColor = True
             '
             'btnGetAllUserGroup
             '
             Me.btnGetAllUserGroup.Enabled = False
-            Me.btnGetAllUserGroup.Location = New System.Drawing.Point(536, 19)
+            Me.btnGetAllUserGroup.Location = New System.Drawing.Point(125, 79)
             Me.btnGetAllUserGroup.Name = "btnGetAllUserGroup"
-            Me.btnGetAllUserGroup.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllUserGroup.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllUserGroup.TabIndex = 44
-            Me.btnGetAllUserGroup.Text = "GetAllUserGroup"
+            Me.btnGetAllUserGroup.Text = "9. GetAllUserGroup"
+            Me.btnGetAllUserGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnGetAllUserGroup.UseVisualStyleBackColor = True
+            '
+            'btnLockAccount
+            '
+            Me.btnLockAccount.Location = New System.Drawing.Point(8, 108)
+            Me.btnLockAccount.Name = "btnLockAccount"
+            Me.btnLockAccount.Size = New System.Drawing.Size(122, 24)
+            Me.btnLockAccount.TabIndex = 48
+            Me.btnLockAccount.Text = "4. LockUserAccount"
+            Me.btnLockAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnLockAccount.UseVisualStyleBackColor = True
             '
             'btnGetAllOffers
             '
             Me.btnGetAllOffers.Enabled = False
-            Me.btnGetAllOffers.Location = New System.Drawing.Point(421, 113)
+            Me.btnGetAllOffers.Location = New System.Drawing.Point(264, 138)
             Me.btnGetAllOffers.Name = "btnGetAllOffers"
-            Me.btnGetAllOffers.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetAllOffers.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllOffers.TabIndex = 43
-            Me.btnGetAllOffers.Text = "GetAllOffers"
+            Me.btnGetAllOffers.Text = "17. GetAllOffers"
+            Me.btnGetAllOffers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnGetAllOffers.UseVisualStyleBackColor = True
             '
             'btnUserAddSpecialTime
             '
             Me.btnUserAddSpecialTime.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnUserAddSpecialTime.Location = New System.Drawing.Point(237, 81)
+            Me.btnUserAddSpecialTime.Location = New System.Drawing.Point(136, 168)
             Me.btnUserAddSpecialTime.Name = "btnUserAddSpecialTime"
-            Me.btnUserAddSpecialTime.Size = New System.Drawing.Size(178, 26)
+            Me.btnUserAddSpecialTime.Size = New System.Drawing.Size(122, 24)
             Me.btnUserAddSpecialTime.TabIndex = 42
-            Me.btnUserAddSpecialTime.Text = "User Add Special Time"
+            Me.btnUserAddSpecialTime.Text = "12. AddSpecialTime"
+            Me.btnUserAddSpecialTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnUserAddSpecialTime.UseVisualStyleBackColor = True
             '
             'btnUserGroupGet
             '
             Me.btnUserGroupGet.Enabled = False
-            Me.btnUserGroupGet.Location = New System.Drawing.Point(421, 81)
+            Me.btnUserGroupGet.Location = New System.Drawing.Point(392, 80)
             Me.btnUserGroupGet.Name = "btnUserGroupGet"
-            Me.btnUserGroupGet.Size = New System.Drawing.Size(109, 26)
+            Me.btnUserGroupGet.Size = New System.Drawing.Size(193, 24)
             Me.btnUserGroupGet.TabIndex = 41
-            Me.btnUserGroupGet.Text = "UserGroupGet"
+            Me.btnUserGroupGet.Text = "21. GetUsergroupOfUser"
+            Me.btnUserGroupGet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnUserGroupGet.UseVisualStyleBackColor = True
             '
             'btnUserGroupGetAll
             '
             Me.btnUserGroupGetAll.Enabled = False
-            Me.btnUserGroupGetAll.Location = New System.Drawing.Point(421, 50)
+            Me.btnUserGroupGetAll.Location = New System.Drawing.Point(125, 49)
             Me.btnUserGroupGetAll.Name = "btnUserGroupGetAll"
-            Me.btnUserGroupGetAll.Size = New System.Drawing.Size(109, 26)
+            Me.btnUserGroupGetAll.Size = New System.Drawing.Size(122, 24)
             Me.btnUserGroupGetAll.TabIndex = 40
-            Me.btnUserGroupGetAll.Text = "UserGroupGetAll"
+            Me.btnUserGroupGetAll.Text = "8. GetAllUsergroup"
+            Me.btnUserGroupGetAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnUserGroupGetAll.UseVisualStyleBackColor = True
             '
             'btnUserLogHistory
             '
             Me.btnUserLogHistory.Enabled = False
-            Me.btnUserLogHistory.Location = New System.Drawing.Point(421, 19)
+            Me.btnUserLogHistory.Location = New System.Drawing.Point(264, 108)
             Me.btnUserLogHistory.Name = "btnUserLogHistory"
-            Me.btnUserLogHistory.Size = New System.Drawing.Size(109, 26)
+            Me.btnUserLogHistory.Size = New System.Drawing.Size(122, 24)
             Me.btnUserLogHistory.TabIndex = 39
-            Me.btnUserLogHistory.Text = "UserLogHistory"
+            Me.btnUserLogHistory.Text = "16. UserLogHistory"
+            Me.btnUserLogHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnUserLogHistory.UseVisualStyleBackColor = True
             '
             'btnUserRemoveOffer
             '
             Me.btnUserRemoveOffer.Enabled = False
-            Me.btnUserRemoveOffer.Location = New System.Drawing.Point(237, 144)
+            Me.btnUserRemoveOffer.Location = New System.Drawing.Point(264, 50)
             Me.btnUserRemoveOffer.Name = "btnUserRemoveOffer"
-            Me.btnUserRemoveOffer.Size = New System.Drawing.Size(178, 26)
+            Me.btnUserRemoveOffer.Size = New System.Drawing.Size(122, 24)
             Me.btnUserRemoveOffer.TabIndex = 38
-            Me.btnUserRemoveOffer.Text = "UserRemoveOffer"
+            Me.btnUserRemoveOffer.Text = "14. RemoveOffer"
+            Me.btnUserRemoveOffer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnUserRemoveOffer.UseVisualStyleBackColor = True
             '
             'btnAddProduct
             '
             Me.btnAddProduct.Enabled = False
-            Me.btnAddProduct.Location = New System.Drawing.Point(237, 173)
+            Me.btnAddProduct.Location = New System.Drawing.Point(264, 78)
             Me.btnAddProduct.Name = "btnAddProduct"
-            Me.btnAddProduct.Size = New System.Drawing.Size(178, 26)
+            Me.btnAddProduct.Size = New System.Drawing.Size(122, 24)
             Me.btnAddProduct.TabIndex = 37
-            Me.btnAddProduct.Text = "User Add Product"
+            Me.btnAddProduct.Text = "15. AddProduct"
+            Me.btnAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnAddProduct.UseVisualStyleBackColor = True
             '
             'btnAddOffer
             '
             Me.btnAddOffer.Enabled = False
-            Me.btnAddOffer.Location = New System.Drawing.Point(237, 112)
+            Me.btnAddOffer.Location = New System.Drawing.Point(264, 23)
             Me.btnAddOffer.Name = "btnAddOffer"
-            Me.btnAddOffer.Size = New System.Drawing.Size(178, 26)
+            Me.btnAddOffer.Size = New System.Drawing.Size(122, 24)
             Me.btnAddOffer.TabIndex = 36
-            Me.btnAddOffer.Text = "User Add Offer"
+            Me.btnAddOffer.Text = "13. AddOffer"
+            Me.btnAddOffer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnAddOffer.UseVisualStyleBackColor = True
             '
             'btnAskAccDetails
             '
             Me.btnAskAccDetails.Enabled = False
-            Me.btnAskAccDetails.Location = New System.Drawing.Point(237, 19)
+            Me.btnAskAccDetails.Location = New System.Drawing.Point(392, 108)
             Me.btnAskAccDetails.Name = "btnAskAccDetails"
-            Me.btnAskAccDetails.Size = New System.Drawing.Size(178, 26)
+            Me.btnAskAccDetails.Size = New System.Drawing.Size(193, 24)
             Me.btnAskAccDetails.TabIndex = 35
-            Me.btnAskAccDetails.Text = "Ask Account Detail At Next Login"
+            Me.btnAskAccDetails.Text = "22. AskAccountDetailAtNextLogin"
+            Me.btnAskAccDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnAskAccDetails.UseVisualStyleBackColor = True
             '
             'btnLostPwSendMail
             '
             Me.btnLostPwSendMail.Enabled = False
-            Me.btnLostPwSendMail.Location = New System.Drawing.Point(127, 50)
+            Me.btnLostPwSendMail.Location = New System.Drawing.Point(136, 23)
             Me.btnLostPwSendMail.Name = "btnLostPwSendMail"
-            Me.btnLostPwSendMail.Size = New System.Drawing.Size(104, 26)
+            Me.btnLostPwSendMail.Size = New System.Drawing.Size(122, 24)
             Me.btnLostPwSendMail.TabIndex = 34
-            Me.btnLostPwSendMail.Text = "LostPwSendMail"
+            Me.btnLostPwSendMail.Text = "7. LostPwSendMail"
+            Me.btnLostPwSendMail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnLostPwSendMail.UseVisualStyleBackColor = True
             '
             'btnSetPasswd
             '
             Me.btnSetPasswd.Enabled = False
             Me.btnSetPasswd.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnSetPasswd.Location = New System.Drawing.Point(127, 19)
+            Me.btnSetPasswd.Location = New System.Drawing.Point(8, 168)
             Me.btnSetPasswd.Name = "btnSetPasswd"
-            Me.btnSetPasswd.Size = New System.Drawing.Size(104, 26)
+            Me.btnSetPasswd.Size = New System.Drawing.Size(122, 24)
             Me.btnSetPasswd.TabIndex = 31
-            Me.btnSetPasswd.Text = "Set Password"
+            Me.btnSetPasswd.Text = "6. SetUserPassword"
+            Me.btnSetPasswd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnSetPasswd.UseVisualStyleBackColor = True
             '
             'btnUpdateUserInfo
             '
             Me.btnUpdateUserInfo.Enabled = False
             Me.btnUpdateUserInfo.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnUpdateUserInfo.Location = New System.Drawing.Point(536, 142)
+            Me.btnUpdateUserInfo.Location = New System.Drawing.Point(136, 108)
             Me.btnUpdateUserInfo.Name = "btnUpdateUserInfo"
-            Me.btnUpdateUserInfo.Size = New System.Drawing.Size(109, 24)
+            Me.btnUpdateUserInfo.Size = New System.Drawing.Size(122, 24)
             Me.btnUpdateUserInfo.TabIndex = 30
-            Me.btnUpdateUserInfo.Text = "UserSave"
+            Me.btnUpdateUserInfo.Text = "10. SaveUser"
+            Me.btnUpdateUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnUpdateUserInfo.UseVisualStyleBackColor = True
             '
             'btnUserLogout
             '
             Me.btnUserLogout.Enabled = False
-            Me.btnUserLogout.Location = New System.Drawing.Point(17, 50)
+            Me.btnUserLogout.Location = New System.Drawing.Point(8, 50)
             Me.btnUserLogout.Name = "btnUserLogout"
-            Me.btnUserLogout.Size = New System.Drawing.Size(104, 26)
+            Me.btnUserLogout.Size = New System.Drawing.Size(122, 24)
             Me.btnUserLogout.TabIndex = 27
-            Me.btnUserLogout.Text = "User Logout"
+            Me.btnUserLogout.Text = "2. LogoutUser"
+            Me.btnUserLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnUserLogout.UseVisualStyleBackColor = True
             '
             'btnCreateUser
             '
             Me.btnCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnCreateUser.Location = New System.Drawing.Point(17, 82)
+            Me.btnCreateUser.Location = New System.Drawing.Point(8, 80)
             Me.btnCreateUser.Name = "btnCreateUser"
-            Me.btnCreateUser.Size = New System.Drawing.Size(104, 26)
+            Me.btnCreateUser.Size = New System.Drawing.Size(122, 24)
             Me.btnCreateUser.TabIndex = 24
-            Me.btnCreateUser.Text = "Create user"
+            Me.btnCreateUser.Text = "3. CreateUser"
+            Me.btnCreateUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnCreateUser.UseVisualStyleBackColor = True
             '
             'btnAsk
             '
             Me.btnAsk.Enabled = False
-            Me.btnAsk.Location = New System.Drawing.Point(237, 50)
+            Me.btnAsk.Location = New System.Drawing.Point(392, 138)
             Me.btnAsk.Name = "btnAsk"
-            Me.btnAsk.Size = New System.Drawing.Size(178, 26)
+            Me.btnAsk.Size = New System.Drawing.Size(193, 24)
             Me.btnAsk.TabIndex = 20
-            Me.btnAsk.Text = "Ask For Password At Next Login"
+            Me.btnAsk.Text = "23. AskForPasswordAtNextLogin"
+            Me.btnAsk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnAsk.UseVisualStyleBackColor = True
             '
             'btnGetPrice
             '
             Me.btnGetPrice.Enabled = False
             Me.btnGetPrice.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnGetPrice.Location = New System.Drawing.Point(421, 142)
+            Me.btnGetPrice.Location = New System.Drawing.Point(264, 168)
             Me.btnGetPrice.Name = "btnGetPrice"
-            Me.btnGetPrice.Size = New System.Drawing.Size(109, 26)
+            Me.btnGetPrice.Size = New System.Drawing.Size(122, 24)
             Me.btnGetPrice.TabIndex = 23
-            Me.btnGetPrice.Text = "Get Price"
+            Me.btnGetPrice.Text = "18. GetPrice"
+            Me.btnGetPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnGetPrice.UseVisualStyleBackColor = True
             '
             'btnWithdrawMoney
             '
             Me.btnWithdrawMoney.Enabled = False
             Me.btnWithdrawMoney.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnWithdrawMoney.Location = New System.Drawing.Point(127, 82)
+            Me.btnWithdrawMoney.Location = New System.Drawing.Point(136, 50)
             Me.btnWithdrawMoney.Name = "btnWithdrawMoney"
-            Me.btnWithdrawMoney.Size = New System.Drawing.Size(104, 26)
+            Me.btnWithdrawMoney.Size = New System.Drawing.Size(122, 24)
             Me.btnWithdrawMoney.TabIndex = 20
-            Me.btnWithdrawMoney.Text = "Withdraw money"
+            Me.btnWithdrawMoney.Text = "8. WithdrawMoney"
+            Me.btnWithdrawMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnWithdrawMoney.UseVisualStyleBackColor = True
             '
             'btnDepositMoney
             '
             Me.btnDepositMoney.Enabled = False
             Me.btnDepositMoney.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnDepositMoney.Location = New System.Drawing.Point(127, 111)
+            Me.btnDepositMoney.Location = New System.Drawing.Point(136, 80)
             Me.btnDepositMoney.Name = "btnDepositMoney"
-            Me.btnDepositMoney.Size = New System.Drawing.Size(104, 26)
+            Me.btnDepositMoney.Size = New System.Drawing.Size(122, 24)
             Me.btnDepositMoney.TabIndex = 17
-            Me.btnDepositMoney.Text = "Deposit money"
+            Me.btnDepositMoney.Text = "9. DepositMoney"
+            Me.btnDepositMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btnDepositMoney.UseVisualStyleBackColor = True
             '
             'GroupBox2
             '
-            Me.GroupBox2.Controls.Add(Me.btnCafeStatusGet)
+            Me.GroupBox2.Controls.Add(Me.btnGetAllTax)
             Me.GroupBox2.Controls.Add(Me.Label6)
             Me.GroupBox2.Controls.Add(Me.btnTestConnection)
             Me.GroupBox2.Controls.Add(Me.btnGetNews)
@@ -529,19 +580,20 @@ Namespace Forms
             Me.GroupBox2.TabStop = False
             Me.GroupBox2.Text = "General commands"
             '
-            'btnCafeStatusGet
+            'btnGetAllTax
             '
-            Me.btnCafeStatusGet.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnCafeStatusGet.Location = New System.Drawing.Point(16, 153)
-            Me.btnCafeStatusGet.Name = "btnCafeStatusGet"
-            Me.btnCafeStatusGet.Size = New System.Drawing.Size(104, 24)
-            Me.btnCafeStatusGet.TabIndex = 13
-            Me.btnCafeStatusGet.Text = "CafeStatusGet"
-            Me.btnCafeStatusGet.Visible = False
+            Me.btnGetAllTax.FlatStyle = System.Windows.Forms.FlatStyle.System
+            Me.btnGetAllTax.Location = New System.Drawing.Point(6, 141)
+            Me.btnGetAllTax.Name = "btnGetAllTax"
+            Me.btnGetAllTax.Size = New System.Drawing.Size(122, 24)
+            Me.btnGetAllTax.TabIndex = 13
+            Me.btnGetAllTax.Text = "3. GetAllTax"
+            Me.btnGetAllTax.TextAlign = System.Drawing.ContentAlignment.TopLeft
+            Me.btnGetAllTax.Visible = False
             '
             'Label6
             '
-            Me.Label6.Location = New System.Drawing.Point(16, 64)
+            Me.Label6.Location = New System.Drawing.Point(6, 50)
             Me.Label6.Name = "Label6"
             Me.Label6.Size = New System.Drawing.Size(104, 56)
             Me.Label6.TabIndex = 12
@@ -550,11 +602,12 @@ Namespace Forms
             'btnTestConnection
             '
             Me.btnTestConnection.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnTestConnection.Location = New System.Drawing.Point(16, 24)
+            Me.btnTestConnection.Location = New System.Drawing.Point(6, 23)
             Me.btnTestConnection.Name = "btnTestConnection"
-            Me.btnTestConnection.Size = New System.Drawing.Size(104, 24)
+            Me.btnTestConnection.Size = New System.Drawing.Size(122, 24)
             Me.btnTestConnection.TabIndex = 11
-            Me.btnTestConnection.Text = "Test Connection"
+            Me.btnTestConnection.Text = "1. Test Connection"
+            Me.btnTestConnection.TextAlign = System.Drawing.ContentAlignment.TopLeft
             '
             'btnClear
             '
@@ -591,7 +644,8 @@ Namespace Forms
             Me.btnGetAllLayoutGroups.Name = "btnGetAllLayoutGroups"
             Me.btnGetAllLayoutGroups.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllLayoutGroups.TabIndex = 29
-            Me.btnGetAllLayoutGroups.Text = "GetAllLayoutGroups"
+            Me.btnGetAllLayoutGroups.Text = "4. GetAllLayoutGroups"
+            Me.btnGetAllLayoutGroups.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnGetLayoutGroup
             '
@@ -600,7 +654,8 @@ Namespace Forms
             Me.btnGetLayoutGroup.Name = "btnGetLayoutGroup"
             Me.btnGetLayoutGroup.Size = New System.Drawing.Size(122, 24)
             Me.btnGetLayoutGroup.TabIndex = 28
-            Me.btnGetLayoutGroup.Text = "Get Layout Group"
+            Me.btnGetLayoutGroup.Text = "8. GetLayoutGroup"
+            Me.btnGetLayoutGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnGetComputerGroup
             '
@@ -609,7 +664,8 @@ Namespace Forms
             Me.btnGetComputerGroup.Name = "btnGetComputerGroup"
             Me.btnGetComputerGroup.Size = New System.Drawing.Size(122, 24)
             Me.btnGetComputerGroup.TabIndex = 27
-            Me.btnGetComputerGroup.Text = "Get Computer Group"
+            Me.btnGetComputerGroup.Text = "6. GetCompGroup"
+            Me.btnGetComputerGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnGetAllComputerGroups
             '
@@ -618,7 +674,8 @@ Namespace Forms
             Me.btnGetAllComputerGroups.Name = "btnGetAllComputerGroups"
             Me.btnGetAllComputerGroups.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllComputerGroups.TabIndex = 26
-            Me.btnGetAllComputerGroups.Text = "GetAllComputerGroups"
+            Me.btnGetAllComputerGroups.Text = "2. GetAllCompGroups"
+            Me.btnGetAllComputerGroups.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnTurnOn
             '
@@ -626,7 +683,8 @@ Namespace Forms
             Me.btnTurnOn.Name = "btnTurnOn"
             Me.btnTurnOn.Size = New System.Drawing.Size(122, 23)
             Me.btnTurnOn.TabIndex = 25
-            Me.btnTurnOn.Text = "Turn On Client"
+            Me.btnTurnOn.Text = "7. TurnOnClient"
+            Me.btnTurnOn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnTurnOn.UseVisualStyleBackColor = True
             '
             'btnTurnOff
@@ -635,7 +693,8 @@ Namespace Forms
             Me.btnTurnOff.Name = "btnTurnOff"
             Me.btnTurnOff.Size = New System.Drawing.Size(122, 23)
             Me.btnTurnOff.TabIndex = 24
-            Me.btnTurnOff.Text = "Turn Off Client"
+            Me.btnTurnOff.Text = "3. TurnOffClient"
+            Me.btnTurnOff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnTurnOff.UseVisualStyleBackColor = True
             '
             'btnGetComputer
@@ -645,7 +704,8 @@ Namespace Forms
             Me.btnGetComputer.Name = "btnGetComputer"
             Me.btnGetComputer.Size = New System.Drawing.Size(122, 24)
             Me.btnGetComputer.TabIndex = 18
-            Me.btnGetComputer.Text = "Get Computer"
+            Me.btnGetComputer.Text = "5. GetComputer"
+            Me.btnGetComputer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnGetAllComputers
             '
@@ -654,17 +714,21 @@ Namespace Forms
             Me.btnGetAllComputers.Name = "btnGetAllComputers"
             Me.btnGetAllComputers.Size = New System.Drawing.Size(122, 24)
             Me.btnGetAllComputers.TabIndex = 10
-            Me.btnGetAllComputers.Text = "Get All Computers"
+            Me.btnGetAllComputers.Text = "1. GetAllComputers"
+            Me.btnGetAllComputers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'GroupBox4
             '
             Me.GroupBox4.Controls.Add(Me.btnLoginEmployee)
             Me.GroupBox4.Controls.Add(Me.btnGetAllBooking)
             Me.GroupBox4.Controls.Add(Me.btnEditBooking)
+            Me.GroupBox4.Controls.Add(Me.btnGetAllUsers)
             Me.GroupBox4.Controls.Add(Me.btnDeleteBooking)
+            Me.GroupBox4.Controls.Add(Me.btnGetAllUserGroup)
             Me.GroupBox4.Controls.Add(Me.btnAddBooking)
             Me.GroupBox4.Controls.Add(Me.Button4)
             Me.GroupBox4.Controls.Add(Me.btnEmployeesGetAll)
+            Me.GroupBox4.Controls.Add(Me.btnUserGroupGetAll)
             Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox4.Location = New System.Drawing.Point(417, 233)
             Me.GroupBox4.Name = "GroupBox4"
@@ -679,17 +743,9 @@ Namespace Forms
             Me.btnLoginEmployee.Name = "btnLoginEmployee"
             Me.btnLoginEmployee.Size = New System.Drawing.Size(104, 23)
             Me.btnLoginEmployee.TabIndex = 50
-            Me.btnLoginEmployee.Text = "Login Employee"
+            Me.btnLoginEmployee.Text = "7. LoginEmployee"
+            Me.btnLoginEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnLoginEmployee.UseVisualStyleBackColor = True
-            '
-            'btnOpenAccount
-            '
-            Me.btnOpenAccount.Location = New System.Drawing.Point(17, 144)
-            Me.btnOpenAccount.Name = "btnOpenAccount"
-            Me.btnOpenAccount.Size = New System.Drawing.Size(104, 24)
-            Me.btnOpenAccount.TabIndex = 49
-            Me.btnOpenAccount.Text = "Open Account"
-            Me.btnOpenAccount.UseVisualStyleBackColor = True
             '
             'btnGetAllBooking
             '
@@ -698,16 +754,8 @@ Namespace Forms
             Me.btnGetAllBooking.Name = "btnGetAllBooking"
             Me.btnGetAllBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnGetAllBooking.TabIndex = 15
-            Me.btnGetAllBooking.Text = "Get Booking"
-            '
-            'btnLockAccount
-            '
-            Me.btnLockAccount.Location = New System.Drawing.Point(17, 114)
-            Me.btnLockAccount.Name = "btnLockAccount"
-            Me.btnLockAccount.Size = New System.Drawing.Size(104, 26)
-            Me.btnLockAccount.TabIndex = 48
-            Me.btnLockAccount.Text = "Lock Account"
-            Me.btnLockAccount.UseVisualStyleBackColor = True
+            Me.btnGetAllBooking.Text = "6. GetBooking"
+            Me.btnGetAllBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnEditBooking
             '
@@ -716,7 +764,8 @@ Namespace Forms
             Me.btnEditBooking.Name = "btnEditBooking"
             Me.btnEditBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnEditBooking.TabIndex = 14
-            Me.btnEditBooking.Text = "Edit Booking"
+            Me.btnEditBooking.Text = "4. EditBooking"
+            Me.btnEditBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnDeleteBooking
             '
@@ -725,7 +774,8 @@ Namespace Forms
             Me.btnDeleteBooking.Name = "btnDeleteBooking"
             Me.btnDeleteBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnDeleteBooking.TabIndex = 13
-            Me.btnDeleteBooking.Text = "Delete Booking"
+            Me.btnDeleteBooking.Text = "5. DeleteBooking"
+            Me.btnDeleteBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnAddBooking
             '
@@ -734,7 +784,8 @@ Namespace Forms
             Me.btnAddBooking.Name = "btnAddBooking"
             Me.btnAddBooking.Size = New System.Drawing.Size(104, 24)
             Me.btnAddBooking.TabIndex = 12
-            Me.btnAddBooking.Text = "Add Booking"
+            Me.btnAddBooking.Text = "3. AddBooking"
+            Me.btnAddBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'Button4
             '
@@ -742,7 +793,8 @@ Namespace Forms
             Me.Button4.Name = "Button4"
             Me.Button4.Size = New System.Drawing.Size(104, 23)
             Me.Button4.TabIndex = 11
-            Me.Button4.Text = "Get User Bill"
+            Me.Button4.Text = "2. GetUserBill"
+            Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.Button4.UseVisualStyleBackColor = True
             '
             'btnEmployeesGetAll
@@ -752,7 +804,8 @@ Namespace Forms
             Me.btnEmployeesGetAll.Name = "btnEmployeesGetAll"
             Me.btnEmployeesGetAll.Size = New System.Drawing.Size(104, 24)
             Me.btnEmployeesGetAll.TabIndex = 10
-            Me.btnEmployeesGetAll.Text = "EmployeesGetAll"
+            Me.btnEmployeesGetAll.Text = "1. GetAllEmployees"
+            Me.btnEmployeesGetAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'GroupBox5
             '
@@ -769,20 +822,22 @@ Namespace Forms
             'Button3
             '
             Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.Button3.Location = New System.Drawing.Point(15, 49)
+            Me.Button3.Location = New System.Drawing.Point(6, 47)
             Me.Button3.Name = "Button3"
-            Me.Button3.Size = New System.Drawing.Size(104, 40)
+            Me.Button3.Size = New System.Drawing.Size(104, 24)
             Me.Button3.TabIndex = 11
-            Me.Button3.Text = "EventGet Based on ID"
+            Me.Button3.Text = "2. GetEvent"
+            Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnEventGet
             '
             Me.btnEventGet.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnEventGet.Location = New System.Drawing.Point(15, 19)
+            Me.btnEventGet.Location = New System.Drawing.Point(6, 17)
             Me.btnEventGet.Name = "btnEventGet"
             Me.btnEventGet.Size = New System.Drawing.Size(104, 24)
             Me.btnEventGet.TabIndex = 10
-            Me.btnEventGet.Text = "EventGetAll"
+            Me.btnEventGet.Text = "1. GetAllEvents"
+            Me.btnEventGet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'GroupBox6
             '
@@ -798,11 +853,11 @@ Namespace Forms
             'btnApplicationGetMostPopular
             '
             Me.btnApplicationGetMostPopular.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnApplicationGetMostPopular.Location = New System.Drawing.Point(15, 19)
+            Me.btnApplicationGetMostPopular.Location = New System.Drawing.Point(6, 19)
             Me.btnApplicationGetMostPopular.Name = "btnApplicationGetMostPopular"
-            Me.btnApplicationGetMostPopular.Size = New System.Drawing.Size(104, 55)
+            Me.btnApplicationGetMostPopular.Size = New System.Drawing.Size(122, 28)
             Me.btnApplicationGetMostPopular.TabIndex = 10
-            Me.btnApplicationGetMostPopular.Text = "ApplicationGetMostPopular"
+            Me.btnApplicationGetMostPopular.Text = "1. GetMostPopularApps"
             '
             'ContextMenu
             '
@@ -841,7 +896,8 @@ Namespace Forms
             Me.btnGetAllFinancialTransactions.Name = "btnGetAllFinancialTransactions"
             Me.btnGetAllFinancialTransactions.Size = New System.Drawing.Size(148, 24)
             Me.btnGetAllFinancialTransactions.TabIndex = 12
-            Me.btnGetAllFinancialTransactions.Text = "GetAllFinancialTransactions"
+            Me.btnGetAllFinancialTransactions.Text = "2. GetFinancialTransactions"
+            Me.btnGetAllFinancialTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'btnGetSmartlaunchVersion
             '
@@ -850,13 +906,14 @@ Namespace Forms
             Me.btnGetSmartlaunchVersion.Name = "btnGetSmartlaunchVersion"
             Me.btnGetSmartlaunchVersion.Size = New System.Drawing.Size(148, 24)
             Me.btnGetSmartlaunchVersion.TabIndex = 11
-            Me.btnGetSmartlaunchVersion.Text = "Get SL Server Version"
+            Me.btnGetSmartlaunchVersion.Text = "1. GetServerVersion"
+            Me.btnGetSmartlaunchVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'ContextLogin
             '
             Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllProductGroups, Me.GetAllProduct, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(283, 290)
+            Me.ContextLogin.Size = New System.Drawing.Size(283, 268)
             '
             'UserToolStripMenuItem
             '
@@ -987,7 +1044,7 @@ Namespace Forms
 
 #End Region
 
-            Public ComputerGroups As New List(Of Computers.ComputerGroups)
+        Public ComputerGroups As New List(Of Computers.ComputerGroups)
 
         Private Sub ShowContextMenu(ByVal StrVisibleTrue As String)
             With ContextLogin
@@ -1765,7 +1822,7 @@ Namespace Forms
 
         End Sub
 
-        Private Sub btnCafeStatusGet_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCafeStatusGet.Click
+        Private Sub btnCafeStatusGet_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllTax.Click
 
         End Sub
     End Class
