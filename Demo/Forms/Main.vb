@@ -1566,7 +1566,9 @@ Namespace Forms
         End Sub
 
         Private Sub btnGetAllBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetAllBooking.Click
-            ShowContextMenu("GetBooking")
+            MsgBox("We were sorry for this inconvenience. This feature is temporary unavailable", MsgBoxStyle.Information, "Unavailable Features")
+            Exit Sub
+            'ShowContextMenu("GetBooking")
         End Sub
 
         Private Sub btnUserAddSpecialTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUserAddSpecialTime.Click
