@@ -612,7 +612,7 @@ Namespace Users
 
         End Function
 
-        Public Function GetAllUsers(Optional ByVal columnName As String = Nothing) As String
+        Public Shared Function GetAllUsers(Optional ByVal columnName As String = Nothing) As String
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserAll")
             If Not columnName Is Nothing Then
@@ -626,7 +626,7 @@ Namespace Users
             Return Command.InnerXML & NewLine & xmlRes.InnerXml
         End Function
 
-        Public Function GetAllUsers(ByVal IDStart As String, ByVal TopCount As String) As String
+        Public Shared Function GetAllUsers(ByVal IDStart As String, ByVal TopCount As String) As String
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserAll")
             Command.AppendParameterSection()

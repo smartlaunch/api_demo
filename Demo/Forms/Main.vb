@@ -319,7 +319,6 @@ Namespace Forms
             '
             'btnUserAddTime
             '
-            Me.btnUserAddTime.Enabled = False
             Me.btnUserAddTime.Location = New System.Drawing.Point(474, 19)
             Me.btnUserAddTime.Name = "btnUserAddTime"
             Me.btnUserAddTime.Size = New System.Drawing.Size(150, 24)
@@ -353,7 +352,6 @@ Namespace Forms
             '
             'btnGetAllOffers
             '
-            Me.btnGetAllOffers.Enabled = False
             Me.btnGetAllOffers.Location = New System.Drawing.Point(318, 134)
             Me.btnGetAllOffers.Name = "btnGetAllOffers"
             Me.btnGetAllOffers.Size = New System.Drawing.Size(150, 24)
@@ -387,7 +385,6 @@ Namespace Forms
             '
             'btnUserGroupGet
             '
-            Me.btnUserGroupGet.Enabled = False
             Me.btnUserGroupGet.Location = New System.Drawing.Point(474, 76)
             Me.btnUserGroupGet.Name = "btnUserGroupGet"
             Me.btnUserGroupGet.Size = New System.Drawing.Size(150, 24)
@@ -410,7 +407,6 @@ Namespace Forms
             '
             'btnUserLogHistory
             '
-            Me.btnUserLogHistory.Enabled = False
             Me.btnUserLogHistory.Location = New System.Drawing.Point(318, 104)
             Me.btnUserLogHistory.Name = "btnUserLogHistory"
             Me.btnUserLogHistory.Size = New System.Drawing.Size(150, 24)
@@ -421,7 +417,6 @@ Namespace Forms
             '
             'btnUserRemoveOffer
             '
-            Me.btnUserRemoveOffer.Enabled = False
             Me.btnUserRemoveOffer.Location = New System.Drawing.Point(318, 46)
             Me.btnUserRemoveOffer.Name = "btnUserRemoveOffer"
             Me.btnUserRemoveOffer.Size = New System.Drawing.Size(150, 24)
@@ -432,7 +427,6 @@ Namespace Forms
             '
             'btnAddProduct
             '
-            Me.btnAddProduct.Enabled = False
             Me.btnAddProduct.Location = New System.Drawing.Point(318, 74)
             Me.btnAddProduct.Name = "btnAddProduct"
             Me.btnAddProduct.Size = New System.Drawing.Size(150, 24)
@@ -443,7 +437,6 @@ Namespace Forms
             '
             'btnAddOffer
             '
-            Me.btnAddOffer.Enabled = False
             Me.btnAddOffer.Location = New System.Drawing.Point(318, 19)
             Me.btnAddOffer.Name = "btnAddOffer"
             Me.btnAddOffer.Size = New System.Drawing.Size(150, 24)
@@ -454,7 +447,6 @@ Namespace Forms
             '
             'btnAskAccDetails
             '
-            Me.btnAskAccDetails.Enabled = False
             Me.btnAskAccDetails.Location = New System.Drawing.Point(474, 104)
             Me.btnAskAccDetails.Name = "btnAskAccDetails"
             Me.btnAskAccDetails.Size = New System.Drawing.Size(150, 24)
@@ -465,7 +457,6 @@ Namespace Forms
             '
             'btnLostPwSendMail
             '
-            Me.btnLostPwSendMail.Enabled = False
             Me.btnLostPwSendMail.Location = New System.Drawing.Point(630, 49)
             Me.btnLostPwSendMail.Name = "btnLostPwSendMail"
             Me.btnLostPwSendMail.Size = New System.Drawing.Size(150, 24)
@@ -476,7 +467,6 @@ Namespace Forms
             '
             'btnSetPasswd
             '
-            Me.btnSetPasswd.Enabled = False
             Me.btnSetPasswd.Location = New System.Drawing.Point(474, 164)
             Me.btnSetPasswd.Name = "btnSetPasswd"
             Me.btnSetPasswd.Size = New System.Drawing.Size(150, 24)
@@ -523,7 +513,6 @@ Namespace Forms
             '
             'btnAsk
             '
-            Me.btnAsk.Enabled = False
             Me.btnAsk.Location = New System.Drawing.Point(474, 134)
             Me.btnAsk.Name = "btnAsk"
             Me.btnAsk.Size = New System.Drawing.Size(150, 24)
@@ -534,7 +523,6 @@ Namespace Forms
             '
             'btnGetPrice
             '
-            Me.btnGetPrice.Enabled = False
             Me.btnGetPrice.Location = New System.Drawing.Point(318, 164)
             Me.btnGetPrice.Name = "btnGetPrice"
             Me.btnGetPrice.Size = New System.Drawing.Size(150, 24)
@@ -545,7 +533,6 @@ Namespace Forms
             '
             'btnWithdrawMoney
             '
-            Me.btnWithdrawMoney.Enabled = False
             Me.btnWithdrawMoney.Location = New System.Drawing.Point(630, 164)
             Me.btnWithdrawMoney.Name = "btnWithdrawMoney"
             Me.btnWithdrawMoney.Size = New System.Drawing.Size(150, 24)
@@ -556,7 +543,6 @@ Namespace Forms
             '
             'btnDepositMoney
             '
-            Me.btnDepositMoney.Enabled = False
             Me.btnDepositMoney.Location = New System.Drawing.Point(630, 19)
             Me.btnDepositMoney.Name = "btnDepositMoney"
             Me.btnDepositMoney.Size = New System.Drawing.Size(150, 24)
@@ -1056,18 +1042,18 @@ Namespace Forms
 
                     ''' GetAllUsers
                 Case "No Parameter"
-                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers() & NewLine
+                    txtOutput.Text &= NewLine & NewLine & Users.User.GetAllUsers() & NewLine
 
                     ''' GetAllUsers
                 Case "Using Column Names"
                     Dim ColumnName As String = InputBox("Please enter Column Name", "Columns", "Col1,Col2,Col3")
-                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(ColumnName) & NewLine
+                    txtOutput.Text &= NewLine & NewLine & Users.User.GetAllUsers(ColumnName) & NewLine
 
                     ''' GetAllUsers
                 Case "Using 2 Parameters"
                     Dim IDStart As String = InputBox("Please enter Start ID", "Start ID", "123")
                     Dim TopCount As String = InputBox("Please enter Count", "Count", "10")
-                    txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsers(IDStart, TopCount) & NewLine
+                    txtOutput.Text &= NewLine & NewLine & Users.User.GetAllUsers(IDStart, TopCount) & NewLine
 
                 Case "GetAllProductGroups"
                     txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllProductGroups() & NewLine
@@ -1278,6 +1264,34 @@ Namespace Forms
             txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllUsergroup.InnerXml & NewLine
         End Sub
 
+
+        Private Sub SetEnableState()
+            Dim enablestate As Boolean = (Not ActiveUser Is Nothing)
+
+            btn03UserCreate.Enabled = enablestate
+            btn04UserUpdate.Enabled = enablestate
+            btn06UserLogout.Enabled = enablestate
+            btn07UserOpen.Enabled = enablestate
+            btn08UserLock.Enabled = enablestate
+            btn09UserAddTime.Enabled = enablestate
+            btn10UserGetBill.Enabled = enablestate
+
+            'btnDepositMoney.Enabled = enablestate
+            'btnWithdrawMoney.Enabled = enablestate
+            'btnGetPrice.Enabled = enablestate
+            'btnAsk.Enabled = enablestate
+            'btnLostPwSendMail.Enabled = enablestate
+            'btnSetPasswd.Enabled = enablestate
+            'btnAddOffer.Enabled = enablestate
+            'btnAddProduct.Enabled = enablestate
+            'btnUserRemoveOffer.Enabled = enablestate
+            'btnUserLogHistory.Enabled = enablestate
+            'btnAskAccDetails.Enabled = enablestate
+            'btnUserGroupGet.Enabled = enablestate
+            'btnGetAllOffers.Enabled = enablestate
+            'btnGetAllProduct.Enabled = enablestate
+        End Sub
+
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         ' Computers 
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -1372,33 +1386,6 @@ Namespace Forms
             For Each C As Smartlaunch.TCPInterface.Computers.Computer In Smartlaunch.TCPInterface.Computers.Items
                 txtOutput.Text &= C.ComputerID & "    " & C.Name & "          Console Type: " & C.Type.ToString & "        Group ID: " & C.GroupID & "         X: " & C.PositionX & "  Y: " & C.PositionY & NewLine
             Next
-        End Sub
-
-        Private Sub SetEnableState()
-            Dim enablestate As Boolean = (Not ActiveUser Is Nothing)
-
-            btn03UserCreate.Enabled = enablestate
-            btn04UserUpdate.Enabled = enablestate
-            btn06UserLogout.Enabled = enablestate
-            btn07UserOpen.Enabled = enablestate
-            btn08UserLock.Enabled = enablestate
-            btn09UserAddTime.Enabled = enablestate
-            btn10UserGetBill.Enabled = enablestate
-
-            btnDepositMoney.Enabled = enablestate
-            btnWithdrawMoney.Enabled = enablestate
-            btnGetPrice.Enabled = enablestate
-            btnAsk.Enabled = enablestate
-            btnLostPwSendMail.Enabled = enablestate
-            btnSetPasswd.Enabled = enablestate
-            btnAddOffer.Enabled = enablestate
-            btnAddProduct.Enabled = enablestate
-            btnUserRemoveOffer.Enabled = enablestate
-            btnUserLogHistory.Enabled = enablestate
-            btnAskAccDetails.Enabled = enablestate
-            btnUserGroupGet.Enabled = enablestate
-            btnGetAllOffers.Enabled = enablestate
-            btnGetAllProduct.Enabled = enablestate
         End Sub
 
         Private Sub btnDepositMoney_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDepositMoney.Click
