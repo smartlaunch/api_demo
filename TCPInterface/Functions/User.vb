@@ -10,8 +10,8 @@ Namespace Users
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("UserCreate")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", Username)
-            xmlCmd.AppendParameter("UserGroupName", UserGroupName)
+            xmlCmd.AppendParameter("username", Username)
+            xmlCmd.AppendParameter("usergroupname", UserGroupName)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -29,9 +29,8 @@ Namespace Users
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("UserLogin")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", Username)
-            xmlCmd.AppendParameter("Password", Password)
-            xmlCmd.AppendParameter("PasswordHash", Password)
+            xmlCmd.AppendParameter("username", Username)
+            xmlCmd.AppendParameter("password", Password)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -57,21 +56,7 @@ Namespace Users
 
         Public Function GetUserLogin(ByVal Username As String, ByVal Password As String) As User
 
-            Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("UserLogin")
-            xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", Username)
-            xmlCmd.AppendParameter("Password", Password)
-            xmlCmd.AppendParameter("PasswordHash", Password)
-
-            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
-            Debug.WriteLine(xmlRes.InnerXml)
-
-            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                Return New User(Username)
-            Else
-                Return Nothing
-            End If
+            Return New User(Username)
 
         End Function
 
@@ -80,6 +65,7 @@ Namespace Users
 
     Public Class User
 
+        Private _UserID As String
         Private _UserName As String
         Private _UserGroupID As Integer
         Private _PasswordHash As String
@@ -99,6 +85,7 @@ Namespace Users
         Private _SocialNum As String
         Private _TimeStatus As Integer
         Private _Balance As Double
+        Private _Deleted As Boolean
         Private _StartDate As Date
         Private _EndDate As Date
         Private _Description As String
@@ -108,10 +95,18 @@ Namespace Users
         Private _WithdrawAmount As Double
         Private _WithdrawDate As System.DateTime
         Private _UserGroupName As String
-        Private _AddOffer As Integer
 
 
 #Region "Properties"
+        Public Property UserID() As String
+            Get
+                Return _UserID
+            End Get
+            Set(value As String)
+                _UserID = value
+            End Set
+        End Property
+
         Public Property UserName() As String
             Get
                 Return _UserName
@@ -293,6 +288,15 @@ Namespace Users
             End Set
         End Property
 
+        Public Property Deleted As Boolean
+            Get
+                Return _Deleted
+            End Get
+            Set(value As Boolean)
+                _Deleted = value
+            End Set
+        End Property
+
         Public Property StartDate() As Date
             Get
                 Return _StartDate
@@ -364,15 +368,6 @@ Namespace Users
                 _WithdrawDate = value
             End Set
         End Property
-
-        Public Property AddOffer() As Integer
-            Get
-                Return _AddOffer
-            End Get
-            Set(ByVal value As Integer)
-                _AddOffer = value
-            End Set
-        End Property
 #End Region
 
 #Region "Enums"
@@ -396,18 +391,18 @@ Namespace Users
 
 
         ' Load an existing user
-        Sub New(ByVal userName As String)
-            _UserName = userName
-            Load(userName)
+        Sub New(ByVal pusername As String)
+            _UserName = pusername
+            Load(pusername)
         End Sub
 
 
-        Private Sub Load(ByVal userName As String)
+        Private Sub Load(ByVal pusername As String)
 
             Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("UserGet")
+            xmlCmd.AppendCommand("User")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", userName)
+            xmlCmd.AppendParameter("username", pusername)
 
             Debug.WriteLine(xmlCmd.InnerXML)
 
@@ -420,14 +415,13 @@ Namespace Users
             Main.XmlDocContainsSingle("users", xmlRes)
 
             With xmlRes.DocumentElement.GetElementsByTagName("Object")(0)
-                _UserGroupID = Convert.ToInt32(.Attributes("UsergroupID").Value)
+                _UserID = Convert.ToString(.Attributes("UserID").Value)
                 _PasswordHash = .Attributes("PasswordHash").Value
+                _UserGroupID = Convert.ToInt32(.Attributes("UsergroupID").Value)
                 _FirstName = Convert.ToString(.Attributes("Firstname").Value)
                 _LastName = Convert.ToString(.Attributes("Lastname").Value)
 
                 Try
-                    '_BirthDate = Convert.ToDateTime(.Attributes("Birthday").Value)
-                    'Dim BirthDate As Date
                     _BirthDate = Date.FromOADate(CDbl(.Attributes("Birthday").Value))
                     _Age = CInt(DateDiff(DateInterval.Year, _BirthDate, Now))
                 Catch ex As Exception
@@ -446,22 +440,18 @@ Namespace Users
                 _SocialNum = Convert.ToString(.Attributes("Personalnumber").Value)
                 _TimeStatus = Convert.ToInt32(.Attributes("Time").Value)
                 _Balance = Convert.ToDouble(.Attributes("Balance").Value)
+                _Deleted = Convert.ToBoolean(.Attributes("Deleted").Value)
                 _DepositAmount = Convert.ToDouble(.Attributes("DepositAmount").Value)
                 _DepositDate = Date.FromOADate(CDbl(.Attributes("DepositDate").Value))
+
                 Try
                     _WithdrawAmount = Convert.ToDouble(.Attributes("WithdrawAmount").Value)
                     _WithdrawDate = Date.FromOADate(CDbl(.Attributes("WithdrawDate").Value))
                 Catch ex As Exception
                     _WithdrawAmount = 0
                 End Try
-                Try
-                    _AddOffer = Convert.ToInt32(.Attributes("OfferID").Value)
-                Catch ex As Exception
-
-                End Try
 
             End With
-
         End Sub
 
         Public Sub DepositMoney(ByVal Amount As Double)
@@ -565,28 +555,28 @@ Namespace Users
         End Function
 
 
-        Public Function UpdateUserInfo(ByVal FirstName As String, ByVal LastName As String, ByVal BirthDate As Integer, ByVal Address As String, _
-                                       ByVal City As String, ByVal Zip As String, ByVal State As String, ByVal Country As String, _
-                                       ByVal Email As String, ByVal Phone As String, ByVal PhoneMobile As String, ByVal PersonalNumber As String, _
-                                       ByVal Sex As String) As XmlDocument
+        Public Function UpdateUserInfo(ByVal pFirstName As String, ByVal pLastName As String, ByVal pBirthDate As Integer, ByVal pAddress As String, _
+                                       ByVal pCity As String, ByVal pZip As String, ByVal pState As String, ByVal pCountry As String, _
+                                       ByVal pEmail As String, ByVal pPhone As String, ByVal pPhoneMobile As String, ByVal pPersonalNumber As String, _
+                                       ByVal pSex As String) As XmlDocument
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("UserSave")
+            Command.AppendCommand("UserUpdate")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("Username", _UserName)
-            Command.AppendParameter("Firstname", FirstName)
-            Command.AppendParameter("Lastname", LastName)
-            Command.AppendParameter("Birthday", BirthDate)
-            Command.AppendParameter("Address", Address)
-            Command.AppendParameter("City", City)
-            Command.AppendParameter("Zip", Zip)
-            Command.AppendParameter("Email", Email)
-            Command.AppendParameter("State", State)
-            Command.AppendParameter("Country", Country)
-            Command.AppendParameter("Telephone", Phone)
-            Command.AppendParameter("Sex", Sex)
-            Command.AppendParameter("Mobilephone", PhoneMobile)
-            Command.AppendParameter("Personalnumber", SocialNum)
+            Command.AppendParameter("username", UserName)
+            Command.AppendParameter("firstname", pFirstName)
+            Command.AppendParameter("lastname", pLastName)
+            Command.AppendParameter("birthday", pBirthDate)
+            Command.AppendParameter("address", pAddress)
+            Command.AppendParameter("city", pCity)
+            Command.AppendParameter("zip", pZip)
+            Command.AppendParameter("state", pState)
+            Command.AppendParameter("country", pCountry)
+            Command.AppendParameter("email", pEmail)
+            Command.AppendParameter("telephone", pPhone)
+            Command.AppendParameter("mobilephone", pPhoneMobile)
+            Command.AppendParameter("sex", pSex)
+            Command.AppendParameter("personalnumber", pPersonalNumber)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -624,10 +614,10 @@ Namespace Users
 
         Public Function GetAllUsers(Optional ByVal columnName As String = Nothing) As String
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetAllUsers")
+            Command.AppendCommand("UserAll")
             If Not columnName Is Nothing Then
                 Command.AppendParameterSection()
-                Command.AppendParameter("Columns", columnName)
+                Command.AppendParameter("selectedcolumns", columnName)
             End If
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
@@ -638,10 +628,10 @@ Namespace Users
 
         Public Function GetAllUsers(ByVal IDStart As String, ByVal TopCount As String) As String
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetAllUsers")
+            Command.AppendCommand("UserAll")
             Command.AppendParameterSection()
-            Command.AppendParameter("IDStart", IDStart)
-            Command.AppendParameter("TopCount", TopCount)
+            Command.AppendParameter("startid", IDStart)
+            Command.AppendParameter("numberofuser", TopCount)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -674,32 +664,23 @@ Namespace Users
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("UserLogout")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", UserName)
+            xmlCmd.AppendParameter("username", UserName)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
             Return xmlRes
-            'If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-            '    Return True
-            'Else
-            '    Return False
-            'End If
-
         End Function
 
-        Public Function UserAddSpecialTime(ByVal Username As String, ByVal Minutes As Integer, ByVal TotalPrice As Double, _
-                                           ByVal TaxIncluded As Boolean, ByVal AdministratorID As Integer) As Xml.XmlDocument
+        Public Function UserAddSpecialTime(ByVal Minutes As Integer, ByVal TotalPrice As Double, _
+                                           ByVal TaxIncluded As Boolean) As Xml.XmlDocument
             Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("UserAddSpecialTime")
+            xmlCmd.AppendCommand("UserAddTime")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", Username)
-            xmlCmd.AppendParameter("Minutes", Minutes)
-            xmlCmd.AppendParameter("TotalPrice", TotalPrice)
-            xmlCmd.AppendParameter("TaxIncluded", TaxIncluded)
-            xmlCmd.AppendParameter("AdministratorID", AdministratorID)
-
-            'Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+            xmlCmd.AppendParameter("username", UserName)
+            xmlCmd.AppendParameter("minutes", Minutes)
+            xmlCmd.AppendParameter("totalprice", TotalPrice)
+            xmlCmd.AppendParameter("taxincluded", TaxIncluded)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -838,26 +819,10 @@ Namespace Users
 
 
         End Sub
-
-        Public Function UserGroupGetAll() As XmlDocument
-
-            Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("UserGroupGetAll")
-
-            Command.AppendParameterSection()
-
-            ' Classes.Communication.SendAndWait(Command.InnerXML)
-
-            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
-            Debug.WriteLine(xmlRes.InnerXml)
-
-            Return xmlRes
-
-        End Function
-
+        
         Public Function GetAllUsergroup() As XmlDocument
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetAllUsergroup")
+            Command.AppendCommand("UserGroupAll")
             Command.AppendParameterSection()
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
@@ -889,13 +854,12 @@ Namespace Users
             Command.AppendCommand("UserGetBill")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("Username", _UserName)
+            Command.AppendParameter("username", UserName)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
 
             Return xmlRes
-
         End Function
 
         Public Function AddBooking(ByVal BookingID As String, ByVal CustomerName As String, ByVal CustomerPhone As String, ByVal Description As String, ByVal StartDate As String, _
@@ -966,10 +930,10 @@ Namespace Users
         End Function
         Public Function LockUserAccount(ByVal Username As String) As XmlDocument
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("UserLockAccount")
+            Command.AppendCommand("UserLock")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("Username", Username)
+            Command.AppendParameter("username", Username)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -978,10 +942,10 @@ Namespace Users
         End Function
         Public Function OpenUserAccount(ByVal Username As String) As XmlDocument
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("UserOpenAccount")
+            Command.AppendCommand("UserOpen")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("Username", Username)
+            Command.AppendParameter("username", Username)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)

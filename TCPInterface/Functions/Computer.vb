@@ -14,7 +14,12 @@ Namespace Computers
                 ' Update news. Put all news from data source into _newsCollection
                 If _ComputerLastUpdate = Nothing OrElse _ComputerLastUpdate.AddSeconds(Classes.Settings.UpdateIntervalNews) < DateTime.Now Then
                     _ComputerCollection = TCPInterface.Computers.ComputerCollection.GetAll()
+#If DEBUG Then
+                    _ComputerLastUpdate = DateAdd(DateInterval.Second, -200, DateTime.Now)
+                Else
                     _ComputerLastUpdate = DateTime.Now
+#End If
+
                 End If
 
                 Return _ComputerCollection
@@ -60,19 +65,24 @@ Namespace Computers
 
 
         Friend Shared Function GetAll() As ComputerCollection
-
-            'Dim compCol As New ComputerCollection
-            '' Obtain all news IDs in the database
-            'Dim xmlDoc As Xml.XmlDocument = Classes.Communication.SendAndWait("ComputerGetAll=")
-
-            ''For Each id As String In ids
-            ''	compCol.Add(New Computer(Convert.ToInt32(id)))
-            ''Next
-
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("ComputerGetAll")
+
+            Dim xmlDoc As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
+
+            Dim Computers As New ComputerCollection
+            For i As Integer = 0 To xmlDoc.GetElementsByTagName("Object").Count - 1
+                Computers.Add(LoadComputerItemFromXml(xmlDoc, i))
+            Next
+
+            Return Computers
+        End Function
+
+        Friend Shared Function GetComputer(ByVal ComputerName As String) As ComputerCollection
+            Dim xmlCmd As New Classes.XMLCommand
+            xmlCmd.AppendCommand("ComputerGet")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("LayoutGroupName", Classes.Settings.ComputerLayoutGroupName)
+            xmlCmd.AppendParameter("computername", ComputerName)
 
             Dim xmlDoc As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
 
@@ -307,7 +317,7 @@ Namespace Computers
 
         Public Shared Function GetAllComputerGroups() As String
             Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("GetAllComputerGroups")
+            xmlCmd.AppendCommand("ComputerGroupAll")
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
 
@@ -319,13 +329,26 @@ Namespace Computers
             Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml
         End Function
 
+        Public Shared Function GetComputerGroupNameBasedOnGroupName(ByVal groupname As String) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("ComputerGroup")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("groupname", groupname)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        End Function
+
         Public Shared Function GetComputerGroupNameBasedOnGroupID(groupID As Integer) As String
 
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetComputerGroupNameBasedOnGroupID")
+            Command.AppendCommand("ComputerGroupByID")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("GroupID", groupID)
+            Command.AppendParameter("groupid", groupID)
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
 
             Return Command.InnerXML & NewLine & xmlRes.InnerXml
@@ -335,10 +358,10 @@ Namespace Computers
         Public Shared Function GetLayoutNameBasedOnLayoutID(groupID As Integer) As String
 
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetLayoutGroupBasedOnGroupID")
+            Command.AppendCommand("LayoutGroupByComputerGroupID")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("GroupID", groupID)
+            Command.AppendParameter("groupid", groupID)
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
 
             Return Command.InnerXML & NewLine & xmlRes.InnerXml
@@ -347,7 +370,7 @@ Namespace Computers
 
         Public Shared Function GetAllComputerLayoutGroups() As String
             Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("GetAllComputerLayoutGroups")
+            xmlCmd.AppendCommand("LayoutGroupAll")
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
 

@@ -88,7 +88,7 @@ Public Class General
 
     Public Shared Function GetSmartlaunchServerVersion() As String
         Dim Command As New Classes.XMLCommand
-        Command.AppendCommand("GetSmartlaunchServerVersion")
+        Command.AppendCommand("SmartlaunchVersion")
 
         Classes.Communication.SendAndWait(Command.InnerXML)
 
@@ -96,7 +96,6 @@ Public Class General
         Debug.WriteLine(xmlRes.InnerXml)
 
         Return Command.InnerXML & NewLine & xmlRes.InnerXml
-
     End Function
 
 

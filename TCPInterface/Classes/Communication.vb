@@ -91,8 +91,8 @@ Namespace Classes
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("UserLogin")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", "test")
-            xmlCmd.AppendParameter("Password", "test")
+            xmlCmd.AppendParameter("username", "test")
+            xmlCmd.AppendParameter("password", "test")
 
             Classes.Communication.SendAndWait(xmlCmd.InnerXML)
 
