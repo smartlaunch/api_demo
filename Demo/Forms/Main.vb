@@ -47,7 +47,7 @@ Namespace Forms
         Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
         Friend WithEvents btnClear As System.Windows.Forms.Button
         Friend WithEvents btn02User As System.Windows.Forms.Button
-        Friend WithEvents btn05UserLogin As System.Windows.Forms.Button
+        Friend WithEvents btn06UserLogin As System.Windows.Forms.Button
         Friend WithEvents btnWithdrawMoney As System.Windows.Forms.Button
         Friend WithEvents btnDepositMoney As System.Windows.Forms.Button
         Friend WithEvents btnGetPrice As System.Windows.Forms.Button
@@ -57,7 +57,7 @@ Namespace Forms
         Friend WithEvents btn01ComputerAll As System.Windows.Forms.Button
         Friend WithEvents btn02Computer As System.Windows.Forms.Button
         Friend WithEvents btn03UserCreate As System.Windows.Forms.Button
-        Friend WithEvents btn06UserLogout As System.Windows.Forms.Button
+        Friend WithEvents btn07UserLogout As System.Windows.Forms.Button
         Friend WithEvents btn04UserUpdate As System.Windows.Forms.Button
         Friend WithEvents btnSetPasswd As System.Windows.Forms.Button
         Friend WithEvents btnLostPwSendMail As System.Windows.Forms.Button
@@ -73,7 +73,7 @@ Namespace Forms
         Friend WithEvents Button3 As System.Windows.Forms.Button
         Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
         Friend WithEvents btnApplicationGetMostPopular As System.Windows.Forms.Button
-        Friend WithEvents btn10UserGetBill As System.Windows.Forms.Button
+        Friend WithEvents btn11UserGetBill As System.Windows.Forms.Button
         Friend WithEvents btnTurnOff As System.Windows.Forms.Button
         Friend WithEvents btnTurnOn As System.Windows.Forms.Button
         Friend WithEvents btnDeleteBooking As System.Windows.Forms.Button
@@ -83,10 +83,10 @@ Namespace Forms
         Friend WithEvents ContextMenu As System.Windows.Forms.ContextMenuStrip
         Friend WithEvents mnAll As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents mnBookingID As System.Windows.Forms.ToolStripMenuItem
-        Friend WithEvents btn09UserAddTime As System.Windows.Forms.Button
+        Friend WithEvents btn10UserAddTime As System.Windows.Forms.Button
         Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
         Friend WithEvents btn05OfferAll As System.Windows.Forms.Button
-        Friend WithEvents btn11UserGroupAll As System.Windows.Forms.Button
+        Friend WithEvents btn13UserGroupAll As System.Windows.Forms.Button
         Friend WithEvents btn01UserAll As System.Windows.Forms.Button
         Friend WithEvents ContextLogin As System.Windows.Forms.ContextMenuStrip
         Friend WithEvents btnUserAddTime As System.Windows.Forms.Button
@@ -101,8 +101,8 @@ Namespace Forms
         Friend WithEvents EmployeesGetAllUseColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents EmployeesGetAllUsing2ParametersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents btn03ComputerGroupAll As System.Windows.Forms.Button
-        Friend WithEvents btn07UserOpen As System.Windows.Forms.Button
-        Friend WithEvents btn08UserLock As System.Windows.Forms.Button
+        Friend WithEvents btn08UserOpen As System.Windows.Forms.Button
+        Friend WithEvents btn09UserLock As System.Windows.Forms.Button
         Friend WithEvents btnLoginEmployee As System.Windows.Forms.Button
         Friend WithEvents btn09LayoutGroupByComputerName As System.Windows.Forms.Button
         Friend WithEvents btn05ComputerGroupByComputerName As System.Windows.Forms.Button
@@ -111,7 +111,7 @@ Namespace Forms
         Friend WithEvents btnGetAllFinancialTransactions As System.Windows.Forms.Button
         Friend WithEvents btn04ComputerGroup As System.Windows.Forms.Button
         Friend WithEvents btn08LayoutGroupByComputerGroupName As System.Windows.Forms.Button
-        Friend WithEvents btn12UserGroup As System.Windows.Forms.Button
+        Friend WithEvents btn14UserGroup As System.Windows.Forms.Button
         Friend WithEvents btn07LayoutGroup As System.Windows.Forms.Button
         Friend WithEvents btn05UserMoveUserGroup As System.Windows.Forms.Button
         Friend WithEvents btn01ProductGroupAll As System.Windows.Forms.Button
@@ -126,18 +126,18 @@ Namespace Forms
             Me.txtOutput = New System.Windows.Forms.TextBox()
             Me.Label1 = New System.Windows.Forms.Label()
             Me.btn02User = New System.Windows.Forms.Button()
-            Me.btn05UserLogin = New System.Windows.Forms.Button()
+            Me.btn06UserLogin = New System.Windows.Forms.Button()
             Me.GroupBox1 = New System.Windows.Forms.GroupBox()
             Me.btnGetAllFinancialTransactions = New System.Windows.Forms.Button()
             Me.btn05UserMoveUserGroup = New System.Windows.Forms.Button()
-            Me.btn12UserGroup = New System.Windows.Forms.Button()
-            Me.btn07UserOpen = New System.Windows.Forms.Button()
+            Me.btn14UserGroup = New System.Windows.Forms.Button()
+            Me.btn08UserOpen = New System.Windows.Forms.Button()
             Me.btnUserAddTime = New System.Windows.Forms.Button()
             Me.btn01UserAll = New System.Windows.Forms.Button()
-            Me.btn08UserLock = New System.Windows.Forms.Button()
-            Me.btn11UserGroupAll = New System.Windows.Forms.Button()
-            Me.btn09UserAddTime = New System.Windows.Forms.Button()
-            Me.btn10UserGetBill = New System.Windows.Forms.Button()
+            Me.btn09UserLock = New System.Windows.Forms.Button()
+            Me.btn13UserGroupAll = New System.Windows.Forms.Button()
+            Me.btn10UserAddTime = New System.Windows.Forms.Button()
+            Me.btn11UserGetBill = New System.Windows.Forms.Button()
             Me.btnUserLogHistory = New System.Windows.Forms.Button()
             Me.btnUserRemoveOffer = New System.Windows.Forms.Button()
             Me.btnAddProduct = New System.Windows.Forms.Button()
@@ -146,7 +146,7 @@ Namespace Forms
             Me.btnLostPwSendMail = New System.Windows.Forms.Button()
             Me.btnSetPasswd = New System.Windows.Forms.Button()
             Me.btn04UserUpdate = New System.Windows.Forms.Button()
-            Me.btn06UserLogout = New System.Windows.Forms.Button()
+            Me.btn07UserLogout = New System.Windows.Forms.Button()
             Me.btn03UserCreate = New System.Windows.Forms.Button()
             Me.btnAsk = New System.Windows.Forms.Button()
             Me.btnGetPrice = New System.Windows.Forms.Button()
@@ -256,29 +256,29 @@ Namespace Forms
             Me.btn02User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btn02User.UseVisualStyleBackColor = False
             '
-            'btn05UserLogin
+            'btn06UserLogin
             '
-            Me.btn05UserLogin.BackColor = System.Drawing.Color.Azure
-            Me.btn05UserLogin.Location = New System.Drawing.Point(162, 19)
-            Me.btn05UserLogin.Name = "btn05UserLogin"
-            Me.btn05UserLogin.Size = New System.Drawing.Size(150, 24)
-            Me.btn05UserLogin.TabIndex = 12
-            Me.btn05UserLogin.Text = "5. UserLogin"
-            Me.btn05UserLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn05UserLogin.UseVisualStyleBackColor = False
+            Me.btn06UserLogin.BackColor = System.Drawing.Color.Azure
+            Me.btn06UserLogin.Location = New System.Drawing.Point(162, 19)
+            Me.btn06UserLogin.Name = "btn06UserLogin"
+            Me.btn06UserLogin.Size = New System.Drawing.Size(150, 24)
+            Me.btn06UserLogin.TabIndex = 12
+            Me.btn06UserLogin.Text = "6. UserLogin"
+            Me.btn06UserLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn06UserLogin.UseVisualStyleBackColor = False
             '
             'GroupBox1
             '
             Me.GroupBox1.Controls.Add(Me.btnGetAllFinancialTransactions)
             Me.GroupBox1.Controls.Add(Me.btn05UserMoveUserGroup)
-            Me.GroupBox1.Controls.Add(Me.btn12UserGroup)
-            Me.GroupBox1.Controls.Add(Me.btn07UserOpen)
+            Me.GroupBox1.Controls.Add(Me.btn14UserGroup)
+            Me.GroupBox1.Controls.Add(Me.btn08UserOpen)
             Me.GroupBox1.Controls.Add(Me.btnUserAddTime)
             Me.GroupBox1.Controls.Add(Me.btn01UserAll)
-            Me.GroupBox1.Controls.Add(Me.btn08UserLock)
-            Me.GroupBox1.Controls.Add(Me.btn11UserGroupAll)
-            Me.GroupBox1.Controls.Add(Me.btn09UserAddTime)
-            Me.GroupBox1.Controls.Add(Me.btn10UserGetBill)
+            Me.GroupBox1.Controls.Add(Me.btn09UserLock)
+            Me.GroupBox1.Controls.Add(Me.btn13UserGroupAll)
+            Me.GroupBox1.Controls.Add(Me.btn10UserAddTime)
+            Me.GroupBox1.Controls.Add(Me.btn11UserGetBill)
             Me.GroupBox1.Controls.Add(Me.btnUserLogHistory)
             Me.GroupBox1.Controls.Add(Me.btnUserRemoveOffer)
             Me.GroupBox1.Controls.Add(Me.btnAddProduct)
@@ -287,14 +287,14 @@ Namespace Forms
             Me.GroupBox1.Controls.Add(Me.btnLostPwSendMail)
             Me.GroupBox1.Controls.Add(Me.btnSetPasswd)
             Me.GroupBox1.Controls.Add(Me.btn04UserUpdate)
-            Me.GroupBox1.Controls.Add(Me.btn06UserLogout)
+            Me.GroupBox1.Controls.Add(Me.btn07UserLogout)
             Me.GroupBox1.Controls.Add(Me.btn03UserCreate)
             Me.GroupBox1.Controls.Add(Me.btnAsk)
             Me.GroupBox1.Controls.Add(Me.btnGetPrice)
             Me.GroupBox1.Controls.Add(Me.btnWithdrawMoney)
             Me.GroupBox1.Controls.Add(Me.btnDepositMoney)
             Me.GroupBox1.Controls.Add(Me.btn02User)
-            Me.GroupBox1.Controls.Add(Me.btn05UserLogin)
+            Me.GroupBox1.Controls.Add(Me.btn06UserLogin)
             Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox1.Location = New System.Drawing.Point(180, 12)
             Me.GroupBox1.Name = "GroupBox1"
@@ -324,28 +324,28 @@ Namespace Forms
             Me.btn05UserMoveUserGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btn05UserMoveUserGroup.UseVisualStyleBackColor = False
             '
-            'btn12UserGroup
+            'btn14UserGroup
             '
-            Me.btn12UserGroup.BackColor = System.Drawing.Color.Azure
-            Me.btn12UserGroup.Location = New System.Drawing.Point(318, 49)
-            Me.btn12UserGroup.Name = "btn12UserGroup"
-            Me.btn12UserGroup.Size = New System.Drawing.Size(150, 24)
-            Me.btn12UserGroup.TabIndex = 50
-            Me.btn12UserGroup.Text = "12. UserGroup"
-            Me.btn12UserGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn12UserGroup.UseVisualStyleBackColor = False
+            Me.btn14UserGroup.BackColor = System.Drawing.Color.Azure
+            Me.btn14UserGroup.Location = New System.Drawing.Point(318, 49)
+            Me.btn14UserGroup.Name = "btn14UserGroup"
+            Me.btn14UserGroup.Size = New System.Drawing.Size(150, 24)
+            Me.btn14UserGroup.TabIndex = 50
+            Me.btn14UserGroup.Text = "14. UserGroup"
+            Me.btn14UserGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn14UserGroup.UseVisualStyleBackColor = False
             '
-            'btn07UserOpen
+            'btn08UserOpen
             '
-            Me.btn07UserOpen.BackColor = System.Drawing.Color.Azure
-            Me.btn07UserOpen.Enabled = False
-            Me.btn07UserOpen.Location = New System.Drawing.Point(162, 79)
-            Me.btn07UserOpen.Name = "btn07UserOpen"
-            Me.btn07UserOpen.Size = New System.Drawing.Size(150, 24)
-            Me.btn07UserOpen.TabIndex = 49
-            Me.btn07UserOpen.Text = "7. UserOpen"
-            Me.btn07UserOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn07UserOpen.UseVisualStyleBackColor = False
+            Me.btn08UserOpen.BackColor = System.Drawing.Color.Azure
+            Me.btn08UserOpen.Enabled = False
+            Me.btn08UserOpen.Location = New System.Drawing.Point(162, 79)
+            Me.btn08UserOpen.Name = "btn08UserOpen"
+            Me.btn08UserOpen.Size = New System.Drawing.Size(150, 24)
+            Me.btn08UserOpen.TabIndex = 49
+            Me.btn08UserOpen.Text = "8. UserOpen"
+            Me.btn08UserOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn08UserOpen.UseVisualStyleBackColor = False
             '
             'btnUserAddTime
             '
@@ -368,52 +368,52 @@ Namespace Forms
             Me.btn01UserAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btn01UserAll.UseVisualStyleBackColor = False
             '
-            'btn08UserLock
+            'btn09UserLock
             '
-            Me.btn08UserLock.BackColor = System.Drawing.Color.Azure
-            Me.btn08UserLock.Enabled = False
-            Me.btn08UserLock.Location = New System.Drawing.Point(162, 109)
-            Me.btn08UserLock.Name = "btn08UserLock"
-            Me.btn08UserLock.Size = New System.Drawing.Size(150, 24)
-            Me.btn08UserLock.TabIndex = 48
-            Me.btn08UserLock.Text = "8. UserLock"
-            Me.btn08UserLock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn08UserLock.UseVisualStyleBackColor = False
+            Me.btn09UserLock.BackColor = System.Drawing.Color.Azure
+            Me.btn09UserLock.Enabled = False
+            Me.btn09UserLock.Location = New System.Drawing.Point(162, 109)
+            Me.btn09UserLock.Name = "btn09UserLock"
+            Me.btn09UserLock.Size = New System.Drawing.Size(150, 24)
+            Me.btn09UserLock.TabIndex = 48
+            Me.btn09UserLock.Text = "9. UserLock"
+            Me.btn09UserLock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn09UserLock.UseVisualStyleBackColor = False
             '
-            'btn11UserGroupAll
+            'btn13UserGroupAll
             '
-            Me.btn11UserGroupAll.BackColor = System.Drawing.Color.Azure
-            Me.btn11UserGroupAll.Location = New System.Drawing.Point(318, 19)
-            Me.btn11UserGroupAll.Name = "btn11UserGroupAll"
-            Me.btn11UserGroupAll.Size = New System.Drawing.Size(150, 24)
-            Me.btn11UserGroupAll.TabIndex = 44
-            Me.btn11UserGroupAll.Text = "11. UserGroupAll"
-            Me.btn11UserGroupAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn11UserGroupAll.UseVisualStyleBackColor = False
+            Me.btn13UserGroupAll.BackColor = System.Drawing.Color.Azure
+            Me.btn13UserGroupAll.Location = New System.Drawing.Point(318, 19)
+            Me.btn13UserGroupAll.Name = "btn13UserGroupAll"
+            Me.btn13UserGroupAll.Size = New System.Drawing.Size(150, 24)
+            Me.btn13UserGroupAll.TabIndex = 44
+            Me.btn13UserGroupAll.Text = "13. UserGroupAll"
+            Me.btn13UserGroupAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn13UserGroupAll.UseVisualStyleBackColor = False
             '
-            'btn09UserAddTime
+            'btn10UserAddTime
             '
-            Me.btn09UserAddTime.BackColor = System.Drawing.Color.Azure
-            Me.btn09UserAddTime.Enabled = False
-            Me.btn09UserAddTime.Location = New System.Drawing.Point(162, 139)
-            Me.btn09UserAddTime.Name = "btn09UserAddTime"
-            Me.btn09UserAddTime.Size = New System.Drawing.Size(150, 24)
-            Me.btn09UserAddTime.TabIndex = 42
-            Me.btn09UserAddTime.Text = "9. UserAddTime"
-            Me.btn09UserAddTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn09UserAddTime.UseVisualStyleBackColor = False
+            Me.btn10UserAddTime.BackColor = System.Drawing.Color.Azure
+            Me.btn10UserAddTime.Enabled = False
+            Me.btn10UserAddTime.Location = New System.Drawing.Point(162, 139)
+            Me.btn10UserAddTime.Name = "btn10UserAddTime"
+            Me.btn10UserAddTime.Size = New System.Drawing.Size(150, 24)
+            Me.btn10UserAddTime.TabIndex = 42
+            Me.btn10UserAddTime.Text = "10. UserAddTime"
+            Me.btn10UserAddTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn10UserAddTime.UseVisualStyleBackColor = False
             '
-            'btn10UserGetBill
+            'btn11UserGetBill
             '
-            Me.btn10UserGetBill.BackColor = System.Drawing.Color.Azure
-            Me.btn10UserGetBill.Enabled = False
-            Me.btn10UserGetBill.Location = New System.Drawing.Point(162, 169)
-            Me.btn10UserGetBill.Name = "btn10UserGetBill"
-            Me.btn10UserGetBill.Size = New System.Drawing.Size(150, 24)
-            Me.btn10UserGetBill.TabIndex = 11
-            Me.btn10UserGetBill.Text = "10. UserGetBill"
-            Me.btn10UserGetBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn10UserGetBill.UseVisualStyleBackColor = False
+            Me.btn11UserGetBill.BackColor = System.Drawing.Color.Azure
+            Me.btn11UserGetBill.Enabled = False
+            Me.btn11UserGetBill.Location = New System.Drawing.Point(162, 169)
+            Me.btn11UserGetBill.Name = "btn11UserGetBill"
+            Me.btn11UserGetBill.Size = New System.Drawing.Size(150, 24)
+            Me.btn11UserGetBill.TabIndex = 11
+            Me.btn11UserGetBill.Text = "11. UserGetBill"
+            Me.btn11UserGetBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn11UserGetBill.UseVisualStyleBackColor = False
             '
             'btnUserLogHistory
             '
@@ -497,17 +497,17 @@ Namespace Forms
             Me.btn04UserUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btn04UserUpdate.UseVisualStyleBackColor = False
             '
-            'btn06UserLogout
+            'btn07UserLogout
             '
-            Me.btn06UserLogout.BackColor = System.Drawing.Color.Azure
-            Me.btn06UserLogout.Enabled = False
-            Me.btn06UserLogout.Location = New System.Drawing.Point(162, 49)
-            Me.btn06UserLogout.Name = "btn06UserLogout"
-            Me.btn06UserLogout.Size = New System.Drawing.Size(150, 24)
-            Me.btn06UserLogout.TabIndex = 27
-            Me.btn06UserLogout.Text = "6. UserLogout"
-            Me.btn06UserLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn06UserLogout.UseVisualStyleBackColor = False
+            Me.btn07UserLogout.BackColor = System.Drawing.Color.Azure
+            Me.btn07UserLogout.Enabled = False
+            Me.btn07UserLogout.Location = New System.Drawing.Point(162, 49)
+            Me.btn07UserLogout.Name = "btn07UserLogout"
+            Me.btn07UserLogout.Size = New System.Drawing.Size(150, 24)
+            Me.btn07UserLogout.TabIndex = 27
+            Me.btn07UserLogout.Text = "7. UserLogout"
+            Me.btn07UserLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn07UserLogout.UseVisualStyleBackColor = False
             '
             'btn03UserCreate
             '
@@ -979,7 +979,7 @@ Namespace Forms
             '
             Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(256, 224)
+            Me.ContextLogin.Size = New System.Drawing.Size(256, 202)
             '
             'mNoParameter
             '
@@ -1127,7 +1127,7 @@ Namespace Forms
                     Dim IDStart As String = InputBox("Please enter Start ID", "Start ID", "123")
                     Dim TopCount As String = InputBox("Please enter Count", "Count", "10")
                     txtOutput.Text &= NewLine & NewLine & Users.User.GetAllUsers(IDStart, TopCount) & NewLine
-                    
+
                 Case "GetAllTax"
                     txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllTax() & NewLine
 
@@ -1278,7 +1278,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn05UserLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn05UserLogin.Click
+        Private Sub btn06UserLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn06UserLogin.Click
             Dim username As String = InputBox("Please enter username", "Username", "test2")
             Dim passwd As String = InputBox("Please enter password", "Password", "test")
             Dim computername As String = InputBox("Please enter computer name", "Computer Name", "PC001")
@@ -1295,11 +1295,11 @@ Namespace Forms
             SetEnableState()
         End Sub
 
-        Private Sub btn06UserLogout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn06UserLogout.Click
+        Private Sub btn07UserLogout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn07UserLogout.Click
             txtOutput.Text &= NewLine & NewLine & ActiveUser.LogoutUser.InnerXml
         End Sub
 
-        Private Sub btn07UserOpen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn07UserOpen.Click
+        Private Sub btn08UserOpen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn08UserOpen.Click
             Dim username As String = InputBox("Please enter username", "Username", "test2")
             ActiveUser = New Smartlaunch.TCPInterface.Users.User(username)
 
@@ -1311,7 +1311,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn08UserLock_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn08UserLock.Click
+        Private Sub btn09UserLock_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn09UserLock.Click
             Dim username As String = InputBox("Please enter username", "Username", "test2")
             ActiveUser = New Smartlaunch.TCPInterface.Users.User(username)
 
@@ -1323,7 +1323,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn09UserAddTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn09UserAddTime.Click
+        Private Sub btn10UserAddTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn10UserAddTime.Click
             Dim Username As String = InputBox("Please enter Username (User)", "Username (User)", "user")
             Dim Minutes As Integer = InputBox("Please enter Minutes", "Minutes", "60")
             Dim TotalPrice As String = InputBox("Please enter Total Price", "Total Price", "123")
@@ -1334,7 +1334,7 @@ Namespace Forms
             txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
         End Sub
 
-        Private Sub btn10UserGetBill_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn10UserGetBill.Click
+        Private Sub btn11UserGetBill_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn11UserGetBill.Click
             Dim xmlDoc As New XmlDocument
 
             xmlDoc = ActiveUser.UserGetBill()
@@ -1342,11 +1342,11 @@ Namespace Forms
             txtOutput.Text = xmlDoc.InnerXml
         End Sub
 
-        Private Sub btn11UserGroupAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn11UserGroupAll.Click
+        Private Sub btn13UserGroupAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn13UserGroupAll.Click
             txtOutput.Text &= NewLine & NewLine & Users.User.GetAllUsergroup.InnerXml & NewLine
         End Sub
 
-        Private Sub btn12UserGroup_Click(sender As System.Object, e As System.EventArgs) Handles btn12UserGroup.Click
+        Private Sub btn14UserGroup_Click(sender As System.Object, e As System.EventArgs) Handles btn14UserGroup.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim usergroupname As String = InputBox("Please enter your user group name", "User Group Name", "Members")
@@ -1363,11 +1363,11 @@ Namespace Forms
 
             btn03UserCreate.Enabled = enablestate
             btn04UserUpdate.Enabled = enablestate
-            btn06UserLogout.Enabled = enablestate
-            btn07UserOpen.Enabled = enablestate
-            btn08UserLock.Enabled = enablestate
-            btn09UserAddTime.Enabled = enablestate
-            btn10UserGetBill.Enabled = enablestate
+            btn07UserLogout.Enabled = enablestate
+            btn08UserOpen.Enabled = enablestate
+            btn09UserLock.Enabled = enablestate
+            btn10UserAddTime.Enabled = enablestate
+            btn11UserGetBill.Enabled = enablestate
 
             'btnDepositMoney.Enabled = enablestate
             'btnWithdrawMoney.Enabled = enablestate
