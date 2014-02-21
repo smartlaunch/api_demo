@@ -66,7 +66,7 @@ Namespace Computers
 
         Friend Shared Function GetAll() As ComputerCollection
             Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("ComputerGetAll")
+            xmlCmd.AppendCommand("ComputerAll")
 
             Dim xmlDoc As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
 
@@ -80,7 +80,7 @@ Namespace Computers
 
         Friend Shared Function GetComputer(ByVal ComputerName As String) As ComputerCollection
             Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("ComputerGet")
+            xmlCmd.AppendCommand("Computer")
             xmlCmd.AppendParameterSection()
             xmlCmd.AppendParameter("computername", ComputerName)
 
@@ -98,7 +98,7 @@ Namespace Computers
 
             Dim Computer As New TCPInterface.Computers.Computer
             With xmlDoc.DocumentElement.GetElementsByTagName("Object")(index)
-                Computer.Type = CType(Convert.ToInt32(.Attributes("ConsoleType").Value), Computer.ComputerTypes)
+                Computer.Type = .Attributes("ConsoleType").Value
                 Computer.ComputerID = CInt(.Attributes("ComputerID").Value)
                 Computer.GroupID = CInt(.Attributes("GroupID").Value)
                 Computer.Name = .Attributes("Name").Value
@@ -116,8 +116,6 @@ Namespace Computers
                     Computer.ActiveApplications = Convert.ToString(.Attributes("ActiveApplications").Value)
                 End If
 
-                Computer.PositionX = CInt(.Attributes("PositionX").Value)
-                Computer.PositionY = CInt(.Attributes("PositionY").Value)
             End With
 
             Return Computer
@@ -130,7 +128,7 @@ Namespace Computers
         Private _ComputerID As Integer
         Private _GroupID As Integer
         Private _Name As String
-        Private _Type As ComputerTypes
+        Private _Type As String
         Private _ActiveUserID As Integer
         Private _ActiveApplications As String
         Private _PositionX As Integer  ' position of computer in cafe "grid", if used
@@ -164,11 +162,11 @@ Namespace Computers
             End Set
         End Property
 
-        Public Property Type() As ComputerTypes
+        Public Property Type() As String
             Get
                 Return _Type
             End Get
-            Set(ByVal Value As ComputerTypes)
+            Set(ByVal Value As String)
                 _Type = Value
             End Set
         End Property
@@ -212,14 +210,6 @@ Namespace Computers
 #End Region
 
 #Region "Enums"
-        Public Enum ComputerTypes
-            Disabled = 0
-            XBox
-            PS2
-            GameCube
-            Laptop
-            VirtualPC
-        End Enum
 
         Public Enum ComputerSaveResponse
             Success = 1
@@ -243,7 +233,7 @@ Namespace Computers
 
             _GroupID = Convert.ToInt32(Str(0))
             _Name = Str(1)
-            _Type = DirectCast(2, ComputerTypes)
+            _Type = Str(2)
             _ActiveUserID = Convert.ToInt32(Str(3))
             _ActiveApplications = Str(4)
             _PositionX = Convert.ToInt32(Str(5))
@@ -342,26 +332,52 @@ Namespace Computers
 
         End Function
 
-        Public Shared Function GetComputerGroupNameBasedOnGroupID(groupID As Integer) As String
+        Public Shared Function GetComputerGroupByComputerName(ByVal computername As String) As String
 
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("ComputerGroupByID")
+            Command.AppendCommand("ComputerGroupByComputerName")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("groupid", groupID)
+            Command.AppendParameter("computername", computername)
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
 
             Return Command.InnerXML & NewLine & xmlRes.InnerXml
 
         End Function
 
-        Public Shared Function GetLayoutNameBasedOnLayoutID(groupID As Integer) As String
+        Public Shared Function GetLayoutGroup(ByVal layoutgroupname As String) As String
 
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("LayoutGroupByComputerGroupID")
+            Command.AppendCommand("LayoutGroup")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("groupid", groupID)
+            Command.AppendParameter("layoutgroupname", layoutgroupname)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        End Function
+
+        Public Shared Function GetLayoutGroupByComputerGroupName(ByVal computergroupname As String) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("LayoutGroupByComputerGroupName")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("computergroupname", computergroupname)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        End Function
+
+        Public Shared Function GetLayoutGroupByComputerName(ByVal computername As String) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("LayoutGroupByComputerName")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("computername", computername)
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
 
             Return Command.InnerXML & NewLine & xmlRes.InnerXml

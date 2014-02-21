@@ -24,12 +24,13 @@ Namespace Users
 
         End Function
 
-        Public Function Login(ByVal Username As String, ByVal Password As String) As Int32
+        Public Function Login(ByVal Username As String, ByVal computername As String, ByVal Password As String) As Int32
 
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("UserLogin")
             xmlCmd.AppendParameterSection()
             xmlCmd.AppendParameter("username", Username)
+            xmlCmd.AppendParameter("computername", computername)
             xmlCmd.AppendParameter("password", Password)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
@@ -582,12 +583,20 @@ Namespace Users
             Debug.WriteLine(xmlRes.InnerXml)
 
             Return xmlRes
-            'If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-            '    Return True
-            'Else
-            '    Return False
-            'End If
+        End Function
 
+        Public Function MoveUserGroup(ByVal newusergroupid As String) As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("UserMoveUserGroup")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("username", UserName)
+            Command.AppendParameter("newusergroupid", newusergroupid)
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Debug.WriteLine(xmlRes.InnerXml)
+
+            Return xmlRes
         End Function
 
         Public Function UserSetNewPassword(ByVal newPass As String) As XmlDocument ' Boolean
@@ -729,27 +738,7 @@ Namespace Users
 
 
         End Sub
-
-        Public Function GetAllProductGroups() As String
-            Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetAllProductGroups")
-
-            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
-            Debug.WriteLine(xmlRes.InnerXml)
-
-            Return Command.InnerXML & NewLine & xmlRes.InnerXml
-        End Function
-
-        Public Function GetAllProducts() As String
-            Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetAllProducts")
-
-            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
-            Debug.WriteLine(xmlRes.InnerXml)
-
-            Return Command.InnerXML & NewLine & xmlRes.InnerXml
-        End Function
-
+        
         Public Function GetAllTax() As String
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("GetAllTax")
@@ -777,14 +766,67 @@ Namespace Users
 
         End Sub
 
-        Public Function GetAllOffers() As XmlDocument
-
+        Public Shared Function ProductGroupAll() As XmlDocument
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("GetAllOffers")
-            ' Classes.Communication.SendAndWait(Command.InnerXML)
+            Command.AppendCommand("ProductGroupAll")
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Return xmlRes
+        End Function
+
+        Public Shared Function ProductGroup(ByVal productgroupname As String) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("ProductGroup")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("productgroupname", productgroupname)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        End Function
+
+        Public Shared Function ProductAll() As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("ProductAll")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Return xmlRes
+        End Function
+
+        Public Shared Function Product(ByVal productname As String) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("Product")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("productname", productname)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
+        End Function
+
+        Public Shared Function GetAllOffers() As XmlDocument
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("OfferAll")
+
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+            Return xmlRes
+        End Function
+
+        Public Shared Function Offer(ByVal offername As String) As String
+
+            Dim Command As New Classes.XMLCommand
+            Command.AppendCommand("Offer")
+
+            Command.AppendParameterSection()
+            Command.AppendParameter("offername", offername)
+            Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
+
+            Return Command.InnerXML & NewLine & xmlRes.InnerXml
+
         End Function
 
         Public Sub UserLogHistory(ByVal theDate As Date)
@@ -819,8 +861,8 @@ Namespace Users
 
 
         End Sub
-        
-        Public Function GetAllUsergroup() As XmlDocument
+
+        Public Shared Function GetAllUsergroup() As XmlDocument
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserGroupAll")
             Command.AppendParameterSection()
@@ -831,15 +873,12 @@ Namespace Users
             Return xmlRes
         End Function
 
-        Public Function UserGroupGet(ByVal UsergroupID As Integer) As XmlDocument
+        Public Shared Function UserGroupGet(ByVal pusergroupname As String) As XmlDocument
 
             Dim Command As New Classes.XMLCommand
-            Command.AppendCommand("UserGroupGet")
-
+            Command.AppendCommand("UserGroup")
             Command.AppendParameterSection()
-            Command.AppendParameter("UsergroupID", UsergroupID)
-
-            ' Classes.Communication.SendAndWait(Command.InnerXML)
+            Command.AppendParameter("usergroupname", pusergroupname)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -885,7 +924,7 @@ Namespace Users
 
         Public Function AddBooking(ByVal CustomerName As String, ByVal CustomerPhone As String, ByVal Description As String, ByVal StartDate As String, _
                                    ByVal EndDate As String, ByVal ComputerCount As Integer, ByVal SmokingArea As Integer) As XmlDocument
-            
+
             Dim xmlRes As Xml.XmlDocument
             xmlRes = AddBooking("", CustomerName, CustomerPhone, Description, StartDate, EndDate, ComputerCount, SmokingArea)
             Debug.WriteLine(xmlRes.InnerXml)
