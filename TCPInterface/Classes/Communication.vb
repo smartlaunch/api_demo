@@ -89,9 +89,9 @@ Namespace Classes
         Friend Shared Function TestConnection() As Boolean
             ' Just trying to send some random command
             Dim xmlCmd As New Classes.XMLCommand
-            xmlCmd.AppendCommand("UserLogin")
+            xmlCmd.AppendCommand("EmployeeLogin")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("username", "test")
+            xmlCmd.AppendParameter("employeename", "test")
             xmlCmd.AppendParameter("password", "test")
 
             Classes.Communication.SendAndWait(xmlCmd.InnerXML)

@@ -100,7 +100,7 @@ Namespace Computers
             With xmlDoc.DocumentElement.GetElementsByTagName("Object")(index)
                 Computer.Type = .Attributes("ConsoleType").Value
                 Computer.ComputerID = CInt(.Attributes("ComputerID").Value)
-                Computer.GroupID = CInt(.Attributes("GroupID").Value)
+                Computer.GroupID = CInt(.Attributes("ComputerGroupID").Value)
                 Computer.Name = .Attributes("Name").Value
 
                 If .Attributes("ActiveUserID") Is Nothing Then
@@ -257,22 +257,22 @@ Namespace Computers
 
         End Function
 
-        Public Sub ClientTurnOff(ByVal ComputerID As String)
+        Public Sub ClientTurnOff(ByVal computername As String)
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("ComputerTurnOff")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("ClientID", ComputerID)
+            Command.AppendParameter("computername", computername)
 
             Classes.Communication.SendAndWait(Command.InnerXML)
         End Sub
 
-        Public Sub ClientTurnOn(ByVal ComputerID As String)
+        Public Sub ClientTurnOn(ByVal computername As String)
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("ComputerTurnOn")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("ClientID", ComputerID)
+            Command.AppendParameter("computername", computername)
 
             Classes.Communication.SendAndWait(Command.InnerXML)
         End Sub
@@ -313,7 +313,7 @@ Namespace Computers
 
             For i As Integer = 0 To xmlRes.GetElementsByTagName("Object").Count - 1
                 With xmlRes.DocumentElement.GetElementsByTagName("Object")(i)
-                    Computers.Add(New ComputerGroup(CInt(.Attributes("ID").Value), .Attributes("Name").Value))
+                    Computers.Add(New ComputerGroup(CInt(.Attributes("ComputerGroupID").Value), .Attributes("Name").Value))
                 End With
             Next
             Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml
@@ -392,7 +392,7 @@ Namespace Computers
 
             For i As Integer = 0 To xmlRes.GetElementsByTagName("Object").Count - 1
                 With xmlRes.DocumentElement.GetElementsByTagName("Object")(i)
-                    Computers.Add(New ComputerGroup(CInt(.Attributes("ID").Value), .Attributes("Name").Value))
+                    Computers.Add(New ComputerGroup(CInt(.Attributes("LayoutGroupID").Value), .Attributes("Name").Value))
                 End With
             Next
             Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml

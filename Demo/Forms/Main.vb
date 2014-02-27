@@ -63,7 +63,7 @@ Namespace Forms
         Friend WithEvents btnLostPwSendMail As System.Windows.Forms.Button
         Friend WithEvents btnAskAccDetails As System.Windows.Forms.Button
         Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-        Friend WithEvents btnEmployeesGetAll As System.Windows.Forms.Button
+        Friend WithEvents btn01EmployeeAll As System.Windows.Forms.Button
         Friend WithEvents btnAddOffer As System.Windows.Forms.Button
         Friend WithEvents btnAddProduct As System.Windows.Forms.Button
         Friend WithEvents btnUserRemoveOffer As System.Windows.Forms.Button
@@ -74,8 +74,8 @@ Namespace Forms
         Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
         Friend WithEvents btnApplicationGetMostPopular As System.Windows.Forms.Button
         Friend WithEvents btn11UserGetBill As System.Windows.Forms.Button
-        Friend WithEvents btnTurnOff As System.Windows.Forms.Button
-        Friend WithEvents btnTurnOn As System.Windows.Forms.Button
+        Friend WithEvents btn04ComputerTurnOff As System.Windows.Forms.Button
+        Friend WithEvents btn03ComputerTurnOn As System.Windows.Forms.Button
         Friend WithEvents btnDeleteBooking As System.Windows.Forms.Button
         Friend WithEvents btnAddBooking As System.Windows.Forms.Button
         Friend WithEvents btnEditBooking As System.Windows.Forms.Button
@@ -97,27 +97,25 @@ Namespace Forms
         Friend WithEvents btn03ProductAll As System.Windows.Forms.Button
         Friend WithEvents GetAllTaxToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents UsingColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-        Friend WithEvents EmployeesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-        Friend WithEvents EmployeesGetAllUseColumnNamesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-        Friend WithEvents EmployeesGetAllUsing2ParametersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-        Friend WithEvents btn03ComputerGroupAll As System.Windows.Forms.Button
+        Friend WithEvents btn05ComputerGroupAll As System.Windows.Forms.Button
         Friend WithEvents btn08UserOpen As System.Windows.Forms.Button
         Friend WithEvents btn09UserLock As System.Windows.Forms.Button
-        Friend WithEvents btnLoginEmployee As System.Windows.Forms.Button
-        Friend WithEvents btn09LayoutGroupByComputerName As System.Windows.Forms.Button
-        Friend WithEvents btn05ComputerGroupByComputerName As System.Windows.Forms.Button
-        Friend WithEvents btn06LayoutGroupAll As System.Windows.Forms.Button
+        Friend WithEvents btn03EmployeeLogin As System.Windows.Forms.Button
+        Friend WithEvents btn11LayoutGroupByComputerName As System.Windows.Forms.Button
+        Friend WithEvents btn07ComputerGroupByComputerName As System.Windows.Forms.Button
+        Friend WithEvents btn08LayoutGroupAll As System.Windows.Forms.Button
         Friend WithEvents btn02SmartlaunchVersion As System.Windows.Forms.Button
         Friend WithEvents btnGetAllFinancialTransactions As System.Windows.Forms.Button
-        Friend WithEvents btn04ComputerGroup As System.Windows.Forms.Button
-        Friend WithEvents btn08LayoutGroupByComputerGroupName As System.Windows.Forms.Button
+        Friend WithEvents btn06ComputerGroup As System.Windows.Forms.Button
+        Friend WithEvents btn10LayoutGroupByComputerGroupName As System.Windows.Forms.Button
         Friend WithEvents btn14UserGroup As System.Windows.Forms.Button
-        Friend WithEvents btn07LayoutGroup As System.Windows.Forms.Button
+        Friend WithEvents btn09LayoutGroup As System.Windows.Forms.Button
         Friend WithEvents btn05UserMoveUserGroup As System.Windows.Forms.Button
         Friend WithEvents btn01ProductGroupAll As System.Windows.Forms.Button
         Friend WithEvents btn02ProductGroup As System.Windows.Forms.Button
         Friend WithEvents btn04Product As System.Windows.Forms.Button
         Friend WithEvents btn06Offer As System.Windows.Forms.Button
+        Friend WithEvents btn02Employee As System.Windows.Forms.Button
         Friend WithEvents Label6 As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -160,24 +158,25 @@ Namespace Forms
             Me.btn01TestConnection = New System.Windows.Forms.Button()
             Me.btnClear = New System.Windows.Forms.Button()
             Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-            Me.btn07LayoutGroup = New System.Windows.Forms.Button()
-            Me.btn08LayoutGroupByComputerGroupName = New System.Windows.Forms.Button()
-            Me.btn04ComputerGroup = New System.Windows.Forms.Button()
-            Me.btn06LayoutGroupAll = New System.Windows.Forms.Button()
-            Me.btnTurnOn = New System.Windows.Forms.Button()
-            Me.btnTurnOff = New System.Windows.Forms.Button()
-            Me.btn09LayoutGroupByComputerName = New System.Windows.Forms.Button()
-            Me.btn05ComputerGroupByComputerName = New System.Windows.Forms.Button()
-            Me.btn03ComputerGroupAll = New System.Windows.Forms.Button()
+            Me.btn09LayoutGroup = New System.Windows.Forms.Button()
+            Me.btn10LayoutGroupByComputerGroupName = New System.Windows.Forms.Button()
+            Me.btn06ComputerGroup = New System.Windows.Forms.Button()
+            Me.btn08LayoutGroupAll = New System.Windows.Forms.Button()
+            Me.btn03ComputerTurnOn = New System.Windows.Forms.Button()
+            Me.btn04ComputerTurnOff = New System.Windows.Forms.Button()
+            Me.btn11LayoutGroupByComputerName = New System.Windows.Forms.Button()
+            Me.btn07ComputerGroupByComputerName = New System.Windows.Forms.Button()
+            Me.btn05ComputerGroupAll = New System.Windows.Forms.Button()
             Me.btn02Computer = New System.Windows.Forms.Button()
             Me.btn01ComputerAll = New System.Windows.Forms.Button()
             Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-            Me.btnLoginEmployee = New System.Windows.Forms.Button()
+            Me.btn02Employee = New System.Windows.Forms.Button()
+            Me.btn03EmployeeLogin = New System.Windows.Forms.Button()
+            Me.btn01EmployeeAll = New System.Windows.Forms.Button()
             Me.btnGetAllBooking = New System.Windows.Forms.Button()
             Me.btnEditBooking = New System.Windows.Forms.Button()
             Me.btnDeleteBooking = New System.Windows.Forms.Button()
             Me.btnAddBooking = New System.Windows.Forms.Button()
-            Me.btnEmployeesGetAll = New System.Windows.Forms.Button()
             Me.GroupBox5 = New System.Windows.Forms.GroupBox()
             Me.Button3 = New System.Windows.Forms.Button()
             Me.btnEventGet = New System.Windows.Forms.Button()
@@ -198,9 +197,6 @@ Namespace Forms
             Me.AllBookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.FilterByBookingIDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GetAllTaxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-            Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
@@ -225,7 +221,7 @@ Namespace Forms
             '
             Me.StatusBar.Location = New System.Drawing.Point(0, 686)
             Me.StatusBar.Name = "StatusBar"
-            Me.StatusBar.Size = New System.Drawing.Size(978, 22)
+            Me.StatusBar.Size = New System.Drawing.Size(993, 22)
             Me.StatusBar.TabIndex = 7
             '
             'txtOutput
@@ -405,7 +401,7 @@ Namespace Forms
             '
             'btn11UserGetBill
             '
-            Me.btn11UserGetBill.BackColor = System.Drawing.Color.Azure
+            Me.btn11UserGetBill.BackColor = System.Drawing.Color.MistyRose
             Me.btn11UserGetBill.Enabled = False
             Me.btn11UserGetBill.Location = New System.Drawing.Point(162, 169)
             Me.btn11UserGetBill.Name = "btn11UserGetBill"
@@ -629,23 +625,23 @@ Namespace Forms
             'btnClear
             '
             Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.btnClear.Location = New System.Drawing.Point(816, 437)
+            Me.btnClear.Location = New System.Drawing.Point(840, 435)
             Me.btnClear.Name = "btnClear"
-            Me.btnClear.Size = New System.Drawing.Size(150, 24)
+            Me.btnClear.Size = New System.Drawing.Size(126, 24)
             Me.btnClear.TabIndex = 19
             Me.btnClear.Text = "Clear"
             '
             'GroupBox3
             '
-            Me.GroupBox3.Controls.Add(Me.btn07LayoutGroup)
-            Me.GroupBox3.Controls.Add(Me.btn08LayoutGroupByComputerGroupName)
-            Me.GroupBox3.Controls.Add(Me.btn04ComputerGroup)
-            Me.GroupBox3.Controls.Add(Me.btn06LayoutGroupAll)
-            Me.GroupBox3.Controls.Add(Me.btnTurnOn)
-            Me.GroupBox3.Controls.Add(Me.btnTurnOff)
-            Me.GroupBox3.Controls.Add(Me.btn09LayoutGroupByComputerName)
-            Me.GroupBox3.Controls.Add(Me.btn05ComputerGroupByComputerName)
-            Me.GroupBox3.Controls.Add(Me.btn03ComputerGroupAll)
+            Me.GroupBox3.Controls.Add(Me.btn09LayoutGroup)
+            Me.GroupBox3.Controls.Add(Me.btn10LayoutGroupByComputerGroupName)
+            Me.GroupBox3.Controls.Add(Me.btn06ComputerGroup)
+            Me.GroupBox3.Controls.Add(Me.btn08LayoutGroupAll)
+            Me.GroupBox3.Controls.Add(Me.btn03ComputerTurnOn)
+            Me.GroupBox3.Controls.Add(Me.btn04ComputerTurnOff)
+            Me.GroupBox3.Controls.Add(Me.btn11LayoutGroupByComputerName)
+            Me.GroupBox3.Controls.Add(Me.btn07ComputerGroupByComputerName)
+            Me.GroupBox3.Controls.Add(Me.btn05ComputerGroupAll)
             Me.GroupBox3.Controls.Add(Me.btn02Computer)
             Me.GroupBox3.Controls.Add(Me.btn01ComputerAll)
             Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System
@@ -656,102 +652,104 @@ Namespace Forms
             Me.GroupBox3.TabStop = False
             Me.GroupBox3.Text = "Computers"
             '
-            'btn07LayoutGroup
+            'btn09LayoutGroup
             '
-            Me.btn07LayoutGroup.BackColor = System.Drawing.Color.Azure
-            Me.btn07LayoutGroup.Location = New System.Drawing.Point(162, 49)
-            Me.btn07LayoutGroup.Name = "btn07LayoutGroup"
-            Me.btn07LayoutGroup.Size = New System.Drawing.Size(150, 24)
-            Me.btn07LayoutGroup.TabIndex = 32
-            Me.btn07LayoutGroup.Text = "7. LayoutGroup"
-            Me.btn07LayoutGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn07LayoutGroup.UseVisualStyleBackColor = False
+            Me.btn09LayoutGroup.BackColor = System.Drawing.Color.Azure
+            Me.btn09LayoutGroup.Location = New System.Drawing.Point(162, 79)
+            Me.btn09LayoutGroup.Name = "btn09LayoutGroup"
+            Me.btn09LayoutGroup.Size = New System.Drawing.Size(150, 24)
+            Me.btn09LayoutGroup.TabIndex = 32
+            Me.btn09LayoutGroup.Text = "9. LayoutGroup"
+            Me.btn09LayoutGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn09LayoutGroup.UseVisualStyleBackColor = False
             '
-            'btn08LayoutGroupByComputerGroupName
+            'btn10LayoutGroupByComputerGroupName
             '
-            Me.btn08LayoutGroupByComputerGroupName.BackColor = System.Drawing.Color.Azure
-            Me.btn08LayoutGroupByComputerGroupName.Location = New System.Drawing.Point(162, 79)
-            Me.btn08LayoutGroupByComputerGroupName.Name = "btn08LayoutGroupByComputerGroupName"
-            Me.btn08LayoutGroupByComputerGroupName.Size = New System.Drawing.Size(150, 24)
-            Me.btn08LayoutGroupByComputerGroupName.TabIndex = 31
-            Me.btn08LayoutGroupByComputerGroupName.Text = "8. LayoutGroupByComputerGroupName"
-            Me.btn08LayoutGroupByComputerGroupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn08LayoutGroupByComputerGroupName.UseVisualStyleBackColor = False
+            Me.btn10LayoutGroupByComputerGroupName.BackColor = System.Drawing.Color.Azure
+            Me.btn10LayoutGroupByComputerGroupName.Location = New System.Drawing.Point(162, 109)
+            Me.btn10LayoutGroupByComputerGroupName.Name = "btn10LayoutGroupByComputerGroupName"
+            Me.btn10LayoutGroupByComputerGroupName.Size = New System.Drawing.Size(150, 24)
+            Me.btn10LayoutGroupByComputerGroupName.TabIndex = 31
+            Me.btn10LayoutGroupByComputerGroupName.Text = "10. LayoutGroupByComputerGroupName"
+            Me.btn10LayoutGroupByComputerGroupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn10LayoutGroupByComputerGroupName.UseVisualStyleBackColor = False
             '
-            'btn04ComputerGroup
+            'btn06ComputerGroup
             '
-            Me.btn04ComputerGroup.BackColor = System.Drawing.Color.Azure
-            Me.btn04ComputerGroup.Location = New System.Drawing.Point(6, 109)
-            Me.btn04ComputerGroup.Name = "btn04ComputerGroup"
-            Me.btn04ComputerGroup.Size = New System.Drawing.Size(150, 24)
-            Me.btn04ComputerGroup.TabIndex = 30
-            Me.btn04ComputerGroup.Text = "4. ComputerGroup"
-            Me.btn04ComputerGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn04ComputerGroup.UseVisualStyleBackColor = False
+            Me.btn06ComputerGroup.BackColor = System.Drawing.Color.Azure
+            Me.btn06ComputerGroup.Location = New System.Drawing.Point(6, 169)
+            Me.btn06ComputerGroup.Name = "btn06ComputerGroup"
+            Me.btn06ComputerGroup.Size = New System.Drawing.Size(150, 24)
+            Me.btn06ComputerGroup.TabIndex = 30
+            Me.btn06ComputerGroup.Text = "6. ComputerGroup"
+            Me.btn06ComputerGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn06ComputerGroup.UseVisualStyleBackColor = False
             '
-            'btn06LayoutGroupAll
+            'btn08LayoutGroupAll
             '
-            Me.btn06LayoutGroupAll.BackColor = System.Drawing.Color.Azure
-            Me.btn06LayoutGroupAll.Location = New System.Drawing.Point(162, 19)
-            Me.btn06LayoutGroupAll.Name = "btn06LayoutGroupAll"
-            Me.btn06LayoutGroupAll.Size = New System.Drawing.Size(150, 24)
-            Me.btn06LayoutGroupAll.TabIndex = 29
-            Me.btn06LayoutGroupAll.Text = "6. LayoutGroupAll"
-            Me.btn06LayoutGroupAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn06LayoutGroupAll.UseVisualStyleBackColor = False
+            Me.btn08LayoutGroupAll.BackColor = System.Drawing.Color.Azure
+            Me.btn08LayoutGroupAll.Location = New System.Drawing.Point(162, 49)
+            Me.btn08LayoutGroupAll.Name = "btn08LayoutGroupAll"
+            Me.btn08LayoutGroupAll.Size = New System.Drawing.Size(150, 24)
+            Me.btn08LayoutGroupAll.TabIndex = 29
+            Me.btn08LayoutGroupAll.Text = "8. LayoutGroupAll"
+            Me.btn08LayoutGroupAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn08LayoutGroupAll.UseVisualStyleBackColor = False
             '
-            'btnTurnOn
+            'btn03ComputerTurnOn
             '
-            Me.btnTurnOn.Location = New System.Drawing.Point(162, 139)
-            Me.btnTurnOn.Name = "btnTurnOn"
-            Me.btnTurnOn.Size = New System.Drawing.Size(150, 24)
-            Me.btnTurnOn.TabIndex = 25
-            Me.btnTurnOn.Text = "7. TurnOnClient"
-            Me.btnTurnOn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btnTurnOn.UseVisualStyleBackColor = True
+            Me.btn03ComputerTurnOn.BackColor = System.Drawing.Color.Azure
+            Me.btn03ComputerTurnOn.Location = New System.Drawing.Point(6, 79)
+            Me.btn03ComputerTurnOn.Name = "btn03ComputerTurnOn"
+            Me.btn03ComputerTurnOn.Size = New System.Drawing.Size(150, 24)
+            Me.btn03ComputerTurnOn.TabIndex = 25
+            Me.btn03ComputerTurnOn.Text = "3. ComputerTurnOn"
+            Me.btn03ComputerTurnOn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn03ComputerTurnOn.UseVisualStyleBackColor = False
             '
-            'btnTurnOff
+            'btn04ComputerTurnOff
             '
-            Me.btnTurnOff.Location = New System.Drawing.Point(162, 169)
-            Me.btnTurnOff.Name = "btnTurnOff"
-            Me.btnTurnOff.Size = New System.Drawing.Size(150, 24)
-            Me.btnTurnOff.TabIndex = 24
-            Me.btnTurnOff.Text = "3. TurnOffClient"
-            Me.btnTurnOff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btnTurnOff.UseVisualStyleBackColor = True
+            Me.btn04ComputerTurnOff.BackColor = System.Drawing.Color.Azure
+            Me.btn04ComputerTurnOff.Location = New System.Drawing.Point(6, 109)
+            Me.btn04ComputerTurnOff.Name = "btn04ComputerTurnOff"
+            Me.btn04ComputerTurnOff.Size = New System.Drawing.Size(150, 24)
+            Me.btn04ComputerTurnOff.TabIndex = 24
+            Me.btn04ComputerTurnOff.Text = "4. ComputerTurnOff"
+            Me.btn04ComputerTurnOff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn04ComputerTurnOff.UseVisualStyleBackColor = False
             '
-            'btn09LayoutGroupByComputerName
+            'btn11LayoutGroupByComputerName
             '
-            Me.btn09LayoutGroupByComputerName.BackColor = System.Drawing.Color.Azure
-            Me.btn09LayoutGroupByComputerName.Location = New System.Drawing.Point(162, 109)
-            Me.btn09LayoutGroupByComputerName.Name = "btn09LayoutGroupByComputerName"
-            Me.btn09LayoutGroupByComputerName.Size = New System.Drawing.Size(150, 24)
-            Me.btn09LayoutGroupByComputerName.TabIndex = 28
-            Me.btn09LayoutGroupByComputerName.Text = "9. LayoutGroupByComputerName"
-            Me.btn09LayoutGroupByComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn09LayoutGroupByComputerName.UseVisualStyleBackColor = False
+            Me.btn11LayoutGroupByComputerName.BackColor = System.Drawing.Color.Azure
+            Me.btn11LayoutGroupByComputerName.Location = New System.Drawing.Point(162, 139)
+            Me.btn11LayoutGroupByComputerName.Name = "btn11LayoutGroupByComputerName"
+            Me.btn11LayoutGroupByComputerName.Size = New System.Drawing.Size(150, 24)
+            Me.btn11LayoutGroupByComputerName.TabIndex = 28
+            Me.btn11LayoutGroupByComputerName.Text = "11. LayoutGroupByComputerName"
+            Me.btn11LayoutGroupByComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn11LayoutGroupByComputerName.UseVisualStyleBackColor = False
             '
-            'btn05ComputerGroupByComputerName
+            'btn07ComputerGroupByComputerName
             '
-            Me.btn05ComputerGroupByComputerName.BackColor = System.Drawing.Color.Azure
-            Me.btn05ComputerGroupByComputerName.Location = New System.Drawing.Point(6, 139)
-            Me.btn05ComputerGroupByComputerName.Name = "btn05ComputerGroupByComputerName"
-            Me.btn05ComputerGroupByComputerName.Size = New System.Drawing.Size(150, 24)
-            Me.btn05ComputerGroupByComputerName.TabIndex = 27
-            Me.btn05ComputerGroupByComputerName.Text = "5. ComputerGroupByComputerName"
-            Me.btn05ComputerGroupByComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn05ComputerGroupByComputerName.UseVisualStyleBackColor = False
+            Me.btn07ComputerGroupByComputerName.BackColor = System.Drawing.Color.Azure
+            Me.btn07ComputerGroupByComputerName.Location = New System.Drawing.Point(162, 19)
+            Me.btn07ComputerGroupByComputerName.Name = "btn07ComputerGroupByComputerName"
+            Me.btn07ComputerGroupByComputerName.Size = New System.Drawing.Size(150, 24)
+            Me.btn07ComputerGroupByComputerName.TabIndex = 27
+            Me.btn07ComputerGroupByComputerName.Text = "7. ComputerGroupByComputerName"
+            Me.btn07ComputerGroupByComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn07ComputerGroupByComputerName.UseVisualStyleBackColor = False
             '
-            'btn03ComputerGroupAll
+            'btn05ComputerGroupAll
             '
-            Me.btn03ComputerGroupAll.BackColor = System.Drawing.Color.Azure
-            Me.btn03ComputerGroupAll.Location = New System.Drawing.Point(6, 79)
-            Me.btn03ComputerGroupAll.Name = "btn03ComputerGroupAll"
-            Me.btn03ComputerGroupAll.Size = New System.Drawing.Size(150, 24)
-            Me.btn03ComputerGroupAll.TabIndex = 26
-            Me.btn03ComputerGroupAll.Text = "3. ComputerGroupAll"
-            Me.btn03ComputerGroupAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btn03ComputerGroupAll.UseVisualStyleBackColor = False
+            Me.btn05ComputerGroupAll.BackColor = System.Drawing.Color.Azure
+            Me.btn05ComputerGroupAll.Location = New System.Drawing.Point(6, 139)
+            Me.btn05ComputerGroupAll.Name = "btn05ComputerGroupAll"
+            Me.btn05ComputerGroupAll.Size = New System.Drawing.Size(150, 24)
+            Me.btn05ComputerGroupAll.TabIndex = 26
+            Me.btn05ComputerGroupAll.Text = "5. ComputerGroupAll"
+            Me.btn05ComputerGroupAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn05ComputerGroupAll.UseVisualStyleBackColor = False
             '
             'btn02Computer
             '
@@ -777,12 +775,9 @@ Namespace Forms
             '
             'GroupBox4
             '
-            Me.GroupBox4.Controls.Add(Me.btnLoginEmployee)
-            Me.GroupBox4.Controls.Add(Me.btnGetAllBooking)
-            Me.GroupBox4.Controls.Add(Me.btnEditBooking)
-            Me.GroupBox4.Controls.Add(Me.btnDeleteBooking)
-            Me.GroupBox4.Controls.Add(Me.btnAddBooking)
-            Me.GroupBox4.Controls.Add(Me.btnEmployeesGetAll)
+            Me.GroupBox4.Controls.Add(Me.btn02Employee)
+            Me.GroupBox4.Controls.Add(Me.btn03EmployeeLogin)
+            Me.GroupBox4.Controls.Add(Me.btn01EmployeeAll)
             Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System
             Me.GroupBox4.Location = New System.Drawing.Point(504, 229)
             Me.GroupBox4.Name = "GroupBox4"
@@ -791,19 +786,42 @@ Namespace Forms
             Me.GroupBox4.TabStop = False
             Me.GroupBox4.Text = "Employees"
             '
-            'btnLoginEmployee
+            'btn02Employee
             '
-            Me.btnLoginEmployee.Location = New System.Drawing.Point(6, 49)
-            Me.btnLoginEmployee.Name = "btnLoginEmployee"
-            Me.btnLoginEmployee.Size = New System.Drawing.Size(150, 24)
-            Me.btnLoginEmployee.TabIndex = 50
-            Me.btnLoginEmployee.Text = "7. LoginEmployee"
-            Me.btnLoginEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            Me.btnLoginEmployee.UseVisualStyleBackColor = True
+            Me.btn02Employee.BackColor = System.Drawing.Color.Azure
+            Me.btn02Employee.Location = New System.Drawing.Point(6, 49)
+            Me.btn02Employee.Name = "btn02Employee"
+            Me.btn02Employee.Size = New System.Drawing.Size(150, 24)
+            Me.btn02Employee.TabIndex = 51
+            Me.btn02Employee.Text = "2. Employee"
+            Me.btn02Employee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn02Employee.UseVisualStyleBackColor = False
+            '
+            'btn03EmployeeLogin
+            '
+            Me.btn03EmployeeLogin.BackColor = System.Drawing.Color.Azure
+            Me.btn03EmployeeLogin.Location = New System.Drawing.Point(6, 79)
+            Me.btn03EmployeeLogin.Name = "btn03EmployeeLogin"
+            Me.btn03EmployeeLogin.Size = New System.Drawing.Size(150, 24)
+            Me.btn03EmployeeLogin.TabIndex = 50
+            Me.btn03EmployeeLogin.Text = "3. EmployeeLogin"
+            Me.btn03EmployeeLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn03EmployeeLogin.UseVisualStyleBackColor = False
+            '
+            'btn01EmployeeAll
+            '
+            Me.btn01EmployeeAll.BackColor = System.Drawing.Color.Azure
+            Me.btn01EmployeeAll.Location = New System.Drawing.Point(6, 19)
+            Me.btn01EmployeeAll.Name = "btn01EmployeeAll"
+            Me.btn01EmployeeAll.Size = New System.Drawing.Size(150, 24)
+            Me.btn01EmployeeAll.TabIndex = 10
+            Me.btn01EmployeeAll.Text = "1. EmployeeAll"
+            Me.btn01EmployeeAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+            Me.btn01EmployeeAll.UseVisualStyleBackColor = False
             '
             'btnGetAllBooking
             '
-            Me.btnGetAllBooking.Location = New System.Drawing.Point(6, 169)
+            Me.btnGetAllBooking.Location = New System.Drawing.Point(840, 333)
             Me.btnGetAllBooking.Name = "btnGetAllBooking"
             Me.btnGetAllBooking.Size = New System.Drawing.Size(150, 24)
             Me.btnGetAllBooking.TabIndex = 15
@@ -812,7 +830,7 @@ Namespace Forms
             '
             'btnEditBooking
             '
-            Me.btnEditBooking.Location = New System.Drawing.Point(6, 109)
+            Me.btnEditBooking.Location = New System.Drawing.Point(840, 273)
             Me.btnEditBooking.Name = "btnEditBooking"
             Me.btnEditBooking.Size = New System.Drawing.Size(150, 24)
             Me.btnEditBooking.TabIndex = 14
@@ -821,7 +839,7 @@ Namespace Forms
             '
             'btnDeleteBooking
             '
-            Me.btnDeleteBooking.Location = New System.Drawing.Point(6, 139)
+            Me.btnDeleteBooking.Location = New System.Drawing.Point(840, 303)
             Me.btnDeleteBooking.Name = "btnDeleteBooking"
             Me.btnDeleteBooking.Size = New System.Drawing.Size(150, 24)
             Me.btnDeleteBooking.TabIndex = 13
@@ -830,21 +848,12 @@ Namespace Forms
             '
             'btnAddBooking
             '
-            Me.btnAddBooking.Location = New System.Drawing.Point(6, 79)
+            Me.btnAddBooking.Location = New System.Drawing.Point(840, 243)
             Me.btnAddBooking.Name = "btnAddBooking"
             Me.btnAddBooking.Size = New System.Drawing.Size(150, 24)
             Me.btnAddBooking.TabIndex = 12
             Me.btnAddBooking.Text = "3. AddBooking"
             Me.btnAddBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            '
-            'btnEmployeesGetAll
-            '
-            Me.btnEmployeesGetAll.Location = New System.Drawing.Point(6, 19)
-            Me.btnEmployeesGetAll.Name = "btnEmployeesGetAll"
-            Me.btnEmployeesGetAll.Size = New System.Drawing.Size(150, 24)
-            Me.btnEmployeesGetAll.TabIndex = 10
-            Me.btnEmployeesGetAll.Text = "1. GetAllEmployees"
-            Me.btnEmployeesGetAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
             '
             'GroupBox5
             '
@@ -977,79 +986,62 @@ Namespace Forms
             '
             'ContextLogin
             '
-            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllTaxToolStripMenuItem, Me.EmployeesToolStripMenuItem, Me.EmployeesGetAllUseColumnNamesToolStripMenuItem, Me.EmployeesGetAllUsing2ParametersToolStripMenuItem})
+            Me.ContextLogin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mNoParameter, Me.UsingColumnNamesToolStripMenuItem, Me.mUsing2Parameters, Me.AllBookingToolStripMenuItem, Me.FilterByBookingIDToolStripMenuItem, Me.GetAllTaxToolStripMenuItem})
             Me.ContextLogin.Name = "ContextMenuStrip1"
-            Me.ContextLogin.Size = New System.Drawing.Size(256, 202)
+            Me.ContextLogin.Size = New System.Drawing.Size(174, 136)
             '
             'mNoParameter
             '
             Me.mNoParameter.Name = "mNoParameter"
-            Me.mNoParameter.Size = New System.Drawing.Size(255, 22)
+            Me.mNoParameter.Size = New System.Drawing.Size(173, 22)
             Me.mNoParameter.Tag = "GetAllUsers"
             Me.mNoParameter.Text = "No Parameter"
             '
             'UsingColumnNamesToolStripMenuItem
             '
             Me.UsingColumnNamesToolStripMenuItem.Name = "UsingColumnNamesToolStripMenuItem"
-            Me.UsingColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+            Me.UsingColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
             Me.UsingColumnNamesToolStripMenuItem.Tag = "GetAllUsers"
             Me.UsingColumnNamesToolStripMenuItem.Text = "Using Column Names"
             '
             'mUsing2Parameters
             '
             Me.mUsing2Parameters.Name = "mUsing2Parameters"
-            Me.mUsing2Parameters.Size = New System.Drawing.Size(255, 22)
+            Me.mUsing2Parameters.Size = New System.Drawing.Size(173, 22)
             Me.mUsing2Parameters.Tag = "GetAllUsers"
             Me.mUsing2Parameters.Text = "Using 2 Parameters"
             '
             'AllBookingToolStripMenuItem
             '
             Me.AllBookingToolStripMenuItem.Name = "AllBookingToolStripMenuItem"
-            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+            Me.AllBookingToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
             Me.AllBookingToolStripMenuItem.Tag = "GetBooking"
             Me.AllBookingToolStripMenuItem.Text = "All Booking"
             '
             'FilterByBookingIDToolStripMenuItem
             '
             Me.FilterByBookingIDToolStripMenuItem.Name = "FilterByBookingIDToolStripMenuItem"
-            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+            Me.FilterByBookingIDToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
             Me.FilterByBookingIDToolStripMenuItem.Tag = "GetBooking"
             Me.FilterByBookingIDToolStripMenuItem.Text = "Filter by Booking ID"
             '
             'GetAllTaxToolStripMenuItem
             '
             Me.GetAllTaxToolStripMenuItem.Name = "GetAllTaxToolStripMenuItem"
-            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+            Me.GetAllTaxToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
             Me.GetAllTaxToolStripMenuItem.Tag = "GetAllProduct"
             Me.GetAllTaxToolStripMenuItem.Text = "GetAllTax"
-            '
-            'EmployeesToolStripMenuItem
-            '
-            Me.EmployeesToolStripMenuItem.Name = "EmployeesToolStripMenuItem"
-            Me.EmployeesToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
-            Me.EmployeesToolStripMenuItem.Tag = "EmployeesGetAll"
-            Me.EmployeesToolStripMenuItem.Text = "EmployeesGetAll No Parameter"
-            '
-            'EmployeesGetAllUseColumnNamesToolStripMenuItem
-            '
-            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Name = "EmployeesGetAllUseColumnNamesToolStripMenuItem"
-            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
-            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Tag = "EmployeesGetAll"
-            Me.EmployeesGetAllUseColumnNamesToolStripMenuItem.Text = "EmployeesGetAll Using Column Names"
-            '
-            'EmployeesGetAllUsing2ParametersToolStripMenuItem
-            '
-            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Name = "EmployeesGetAllUsing2ParametersToolStripMenuItem"
-            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
-            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Tag = "EmployeesGetAll"
-            Me.EmployeesGetAllUsing2ParametersToolStripMenuItem.Text = "EmployeesGetAll Using 2 Parameters"
             '
             'Main
             '
             Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-            Me.ClientSize = New System.Drawing.Size(978, 708)
+            Me.ClientSize = New System.Drawing.Size(993, 708)
+            Me.Controls.Add(Me.btnEditBooking)
+            Me.Controls.Add(Me.btnGetAllBooking)
             Me.Controls.Add(Me.GroupBox7)
+            Me.Controls.Add(Me.btnDeleteBooking)
             Me.Controls.Add(Me.GroupBox3)
+            Me.Controls.Add(Me.btnAddBooking)
             Me.Controls.Add(Me.GroupBox6)
             Me.Controls.Add(Me.GroupBox2)
             Me.Controls.Add(Me.GroupBox5)
@@ -1130,24 +1122,6 @@ Namespace Forms
 
                 Case "GetAllTax"
                     txtOutput.Text &= NewLine & NewLine & ActiveUser.GetAllTax() & NewLine
-
-                Case "EmployeesGetAll No Parameter"
-                    Dim xmlDoc As New XmlDocument
-                    xmlDoc = objGeneral.GetAllEmployees()
-                    txtOutput.Text = xmlDoc.InnerXml
-
-                Case "EmployeesGetAll Using Column Names"
-                    Dim ColumnName As String = InputBox("Please enter Column Name", "Columns", "Col1,Col2,Col3")
-                    Dim xmlDoc As New XmlDocument
-                    xmlDoc = objGeneral.GetAllEmployees(ColumnName)
-                    txtOutput.Text = xmlDoc.InnerXml
-
-                Case "EmployeesGetAll Using 2 Parameters"
-                    Dim IDStart As String = InputBox("Please enter ID Start", "ID Start", "username")
-                    Dim TopCount As String = InputBox("Please enter Count", "Count", "10")
-                    Dim xmlDoc As New XmlDocument
-                    xmlDoc = objGeneral.GetAllEmployees(IDStart, TopCount)
-                    txtOutput.Text = xmlDoc.InnerXml
 
                 Case Else
                     MsgBox(item.ClickedItem.ToString)
@@ -1241,7 +1215,7 @@ Namespace Forms
 
                     Dim FName As String = InputBox("Please enter first name", "First Name", .FirstName)
                     Dim LName As String = InputBox("Please enter last name", "Last  Name", .LastName)
-                    Dim BirthDate As Integer = CInt(DateValue(InputBox("Please enter birth date", "Birth Date", .BirthDate) & " 00:00:00").ToOADate)
+                    Dim BirthDate As Integer = CInt(DateValue(InputBox("Please enter birth date (mm/dd/yyyy)", "Birth Date (mm/dd/yyyy)", .BirthDate) & " 00:00:00").ToOADate)
                     Dim Address As String = InputBox("Please enter address", "Address", .Address)
                     Dim City As String = InputBox("Please enter city", "City", .City)
                     Dim Zip As String = InputBox("Please enter zip", "Zip", .Zip)
@@ -1363,6 +1337,7 @@ Namespace Forms
 
             btn03UserCreate.Enabled = enablestate
             btn04UserUpdate.Enabled = enablestate
+            btn05UserMoveUserGroup.Enabled = enablestate
             btn07UserLogout.Enabled = enablestate
             btn08UserOpen.Enabled = enablestate
             btn09UserLock.Enabled = enablestate
@@ -1414,11 +1389,28 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn03ComputerGroupAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn03ComputerGroupAll.Click
+        Private Sub btn03ComputerTurnOn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn03ComputerTurnOn.Click
+            Dim computername As String = InputBox("Please enter Computer Name", "Computer Name", "PC001")
+
+            ActiveComputer.ClientTurnOn(computername)
+
+            txtOutput.Text &= NewLine & NewLine & "Computer Name : """ & computername & " (Turn On)." & NewLine
+        End Sub
+
+        Private Sub btn04ComputerTurnOff_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn04ComputerTurnOff.Click
+            Dim computername As String = InputBox("Please enter Computer Name", "Computer Name", "PC001")
+
+            ActiveComputer.ClientTurnOff(computername)
+
+            txtOutput.Text &= NewLine & NewLine & "Computer Name : """ & computername & " (Turn Off)." & NewLine
+
+        End Sub
+
+        Private Sub btn05ComputerGroupAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn05ComputerGroupAll.Click
             txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAllComputerGroups()
         End Sub
 
-        Private Sub btn04ComputerGroup_Click(sender As System.Object, e As System.EventArgs) Handles btn04ComputerGroup.Click
+        Private Sub btn06ComputerGroup_Click(sender As System.Object, e As System.EventArgs) Handles btn06ComputerGroup.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim computerGroupName As String = InputBox("Please enter your computer group name", "Computer Group Name", "Default")
@@ -1430,7 +1422,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn05ComputerGroupByComputerName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn05ComputerGroupByComputerName.Click
+        Private Sub btn07ComputerGroupByComputerName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn07ComputerGroupByComputerName.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim computername As String = InputBox("Please enter your computer name", "Computer Name", "PC001")
@@ -1442,11 +1434,11 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn06LayoutGroupAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn06LayoutGroupAll.Click
+        Private Sub btn08LayoutGroupAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn08LayoutGroupAll.Click
             txtOutput.Text &= NewLine & NewLine & Smartlaunch.TCPInterface.Computers.ComputerGroups.GetAllComputerLayoutGroups()
         End Sub
 
-        Private Sub btn07LayoutGroup_Click(sender As System.Object, e As System.EventArgs) Handles btn07LayoutGroup.Click
+        Private Sub btn09LayoutGroup_Click(sender As System.Object, e As System.EventArgs) Handles btn09LayoutGroup.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim layoutgroupname As String = InputBox("Please enter your layout group name", "Layout Group Name", "All Computers")
@@ -1458,7 +1450,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn08LayoutGroupByComputerGroupName_Click(sender As System.Object, e As System.EventArgs) Handles btn08LayoutGroupByComputerGroupName.Click
+        Private Sub btn10LayoutGroupByComputerGroupName_Click(sender As System.Object, e As System.EventArgs) Handles btn10LayoutGroupByComputerGroupName.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim computergroupname As String = InputBox("Please enter your computer group name", "Computer Group Name", "Default")
@@ -1470,7 +1462,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btn09LayoutGroupByComputerName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn09LayoutGroupByComputerName.Click
+        Private Sub btn11LayoutGroupByComputerName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn11LayoutGroupByComputerName.Click
             txtOutput.Text &= NewLine & NewLine & "Computer: " & NewLine
 
             Dim computername As String = InputBox("Please enter your computer name", "Computer Name", "PC001")
@@ -1481,7 +1473,46 @@ Namespace Forms
                 MessageBox.Show("Please enter your Computer name.")
             End If
         End Sub
-        
+
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ' Employees 
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Private Sub btnEmployeesGetAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn01EmployeeAll.Click
+            Dim xmlDoc As New XmlDocument
+            xmlDoc = objGeneral.GetAllEmployees()
+            txtOutput.Text = xmlDoc.InnerXml
+        End Sub
+
+        Private Sub btn02Employee_Click(sender As System.Object, e As System.EventArgs) Handles btn02Employee.Click
+            txtOutput.Text &= NewLine & NewLine & "Employee: " & NewLine
+
+            Dim employeename As String = InputBox("Please enter your employee name", "Employee Name", "Administrator")
+
+            If employeename <> "" Then
+                Dim xmlDoc As New XmlDocument
+                xmlDoc = objGeneral.EmployeeByName(employeename)
+                txtOutput.Text &= NewLine & NewLine & xmlDoc.InnerXml
+            Else
+                MessageBox.Show("Please enter your Employee name.")
+            End If
+        End Sub
+
+        Private Sub btnLoginEmployee_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn03EmployeeLogin.Click
+
+            Dim username As String = InputBox("Please enter employee username", "Employee UserName", "Admin")
+            Dim passwd As String = InputBox("Please enter password", "Password", "admin")
+
+            Dim xmlRes As XmlDocument = Smartlaunch.TCPInterface.Users.EmployeeLogin(username, passwd)
+            txtOutput.Text &= NewLine & NewLine & xmlRes.InnerXml & NewLine
+
+            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
+                MsgBox("Login Success" & vbCrLf & "Employee UserName : " & username, MsgBoxStyle.Exclamation, "Warning")
+            Else
+                MsgBox("Employee UserName and/or Password was incorrect", MsgBoxStyle.Exclamation, "Warning")
+            End If
+
+        End Sub
+
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         ' Products 
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -1611,9 +1642,7 @@ Namespace Forms
             End If
         End Sub
 
-        Private Sub btnEmployeesGetAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEmployeesGetAll.Click
-            ShowContextMenu("EmployeesGetAll")
-        End Sub
+        
 
         Private Sub btnAddOffer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddOffer.Click
 
@@ -1706,22 +1735,9 @@ Namespace Forms
             SetEnableState()
         End Sub
 
-        Private Sub btnTurnOff_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTurnOff.Click
-            Dim ClientID As String = InputBox("Please enter Client ID", "Client ID", 1)
 
-            ActiveComputer.ClientTurnOff(ClientID)
+        
 
-            txtOutput.Text &= NewLine & NewLine & "Client ID : """ & ClientID & " (Turn Off)." & NewLine
-
-        End Sub
-
-        Private Sub btnTurnOn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTurnOn.Click
-            Dim ClientID As String = InputBox("Please enter Client ID", "Client ID", 1)
-
-            ActiveComputer.ClientTurnOff(ClientID)
-
-            txtOutput.Text &= NewLine & NewLine & "Client ID : """ & ClientID & " (Turn On)." & NewLine
-        End Sub
 
         Private Sub btnAddBooking_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddBooking.Click
             Dim CustomerName As String = InputBox("Please enter Customer Name", "Customer Name", "name")
@@ -1778,7 +1794,7 @@ Namespace Forms
         End Sub
 
 
-        
+
 
         Private Sub btnGetUser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
             'Dim ID As String = InputBox("Please enter ID", "ID", "0")
@@ -1819,27 +1835,13 @@ Namespace Forms
             End If
         End Sub
 
-        
+
 
         Private Sub btnUserAddTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUserAddTime.Click
 
         End Sub
 
-        Private Sub btnLoginEmployee_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoginEmployee.Click
-
-            Dim username As String = InputBox("Please enter username", "Username", "Admin")
-            Dim passwd As String = InputBox("Please enter password", "Password", "admin")
-
-            Dim xmlRes As XmlDocument = Smartlaunch.TCPInterface.Users.EmployeeLogin(username, passwd)
-            txtOutput.Text &= NewLine & NewLine & xmlRes.InnerXml & NewLine
-
-            If xmlRes.GetElementsByTagName("Response")(0).Attributes("Response").Value = "1" Then
-                MsgBox("Login Success" & vbCrLf & "Username : " & username & vbCrLf & "ID : " & xmlRes.DocumentElement.GetElementsByTagName("Object")(0).Attributes("ID").Value, MsgBoxStyle.Exclamation, "Warning")
-            Else
-                MsgBox("Username Or/And Password was incorrect", MsgBoxStyle.Exclamation, "Warning")
-            End If
-
-        End Sub
+        
 
 
 
@@ -1860,6 +1862,7 @@ Namespace Forms
 
         End Sub
 
+        
         
     End Class
 

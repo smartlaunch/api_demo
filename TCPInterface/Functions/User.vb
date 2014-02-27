@@ -40,13 +40,13 @@ Namespace Users
 
         End Function
 
-        Public Function EmployeeLogin(ByVal Username As String, ByVal Password As String) As XmlDocument
+        Public Function EmployeeLogin(ByVal employeename As String, ByVal password As String) As XmlDocument
 
             Dim xmlCmd As New Classes.XMLCommand
             xmlCmd.AppendCommand("EmployeeLogin")
             xmlCmd.AppendParameterSection()
-            xmlCmd.AppendParameter("Username", Username)
-            xmlCmd.AppendParameter("Password", Password)
+            xmlCmd.AppendParameter("employeename", employeename)
+            xmlCmd.AppendParameter("password", password)
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(xmlCmd.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
@@ -417,10 +417,9 @@ Namespace Users
 
             With xmlRes.DocumentElement.GetElementsByTagName("Object")(0)
                 _UserID = Convert.ToString(.Attributes("UserID").Value)
-                _PasswordHash = .Attributes("PasswordHash").Value
-                _UserGroupID = Convert.ToInt32(.Attributes("UsergroupID").Value)
-                _FirstName = Convert.ToString(.Attributes("Firstname").Value)
-                _LastName = Convert.ToString(.Attributes("Lastname").Value)
+                _UserGroupID = Convert.ToInt32(.Attributes("UserGroupID").Value)
+                _FirstName = Convert.ToString(.Attributes("FirstName").Value)
+                _LastName = Convert.ToString(.Attributes("LastName").Value)
 
                 Try
                     _BirthDate = Date.FromOADate(CDbl(.Attributes("Birthday").Value))
@@ -436,18 +435,18 @@ Namespace Users
                 _Country = Convert.ToString(.Attributes("Country").Value)
                 _Email = Convert.ToString(.Attributes("Email").Value)
                 _Phone = Convert.ToString(.Attributes("Telephone").Value)
-                _PhoneMobile = Convert.ToString(.Attributes("Mobilephone").Value)
+                _PhoneMobile = Convert.ToString(.Attributes("MobilePhone").Value)
                 _Sex = CType(Convert.ToInt32(.Attributes("Sex").Value), EnumSex)
-                _SocialNum = Convert.ToString(.Attributes("Personalnumber").Value)
+                _SocialNum = Convert.ToString(.Attributes("PersonalNumber").Value)
                 _TimeStatus = Convert.ToInt32(.Attributes("Time").Value)
                 _Balance = Convert.ToDouble(.Attributes("Balance").Value)
                 _Deleted = Convert.ToBoolean(.Attributes("Deleted").Value)
-                _DepositAmount = Convert.ToDouble(.Attributes("DepositAmount").Value)
-                _DepositDate = Date.FromOADate(CDbl(.Attributes("DepositDate").Value))
+                _DepositAmount = Convert.ToDouble(.Attributes("LastDepositAmount").Value)
+                _DepositDate = Date.FromOADate(CDbl(.Attributes("LastDepositDate").Value))
 
                 Try
-                    _WithdrawAmount = Convert.ToDouble(.Attributes("WithdrawAmount").Value)
-                    _WithdrawDate = Date.FromOADate(CDbl(.Attributes("WithdrawDate").Value))
+                    _WithdrawAmount = Convert.ToDouble(.Attributes("LastWithdrawAmount").Value)
+                    _WithdrawDate = Date.FromOADate(CDbl(.Attributes("LastWithdrawDate").Value))
                 Catch ex As Exception
                     _WithdrawAmount = 0
                 End Try
@@ -865,7 +864,6 @@ Namespace Users
         Public Shared Function GetAllUsergroup() As XmlDocument
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("UserGroupAll")
-            Command.AppendParameterSection()
 
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
             Debug.WriteLine(xmlRes.InnerXml)
