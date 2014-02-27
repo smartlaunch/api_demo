@@ -319,13 +319,13 @@ Namespace Computers
             Return xmlCmd.InnerXML & NewLine & xmlRes.InnerXml
         End Function
 
-        Public Shared Function GetComputerGroupNameBasedOnGroupName(ByVal groupname As String) As String
+        Public Shared Function GetComputerGroupNameBasedOnGroupName(ByVal computergroupname As String) As String
 
             Dim Command As New Classes.XMLCommand
             Command.AppendCommand("ComputerGroup")
 
             Command.AppendParameterSection()
-            Command.AppendParameter("groupname", groupname)
+            Command.AppendParameter("computergroupname", computergroupname)
             Dim xmlRes As Xml.XmlDocument = Classes.Communication.SendAndWait(Command.InnerXML)
 
             Return Command.InnerXML & NewLine & xmlRes.InnerXml
